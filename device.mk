@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     libpowerservice_client \
     libmocha_libc
 
+#libnvomxadaptor_shim
+PRODUCT_PACKAGES += \
+    libnvomxadaptor_shim
+
 # NVIDIA
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.blakemanager.xml:system/etc/permissions/com.nvidia.blakemanager.xml \
