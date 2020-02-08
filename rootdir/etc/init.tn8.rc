@@ -1,0 +1,66 @@
+#Copyright (c) 2011-2014 NVIDIA Corporation.  All Rights Reserved.
+#
+#NVIDIA Corporation and its licensors retain all intellectual property and
+#proprietary rights in and to this software and related documentation.  Any
+#use, reproduction, disclosure or distribution of this software and related
+#documentation without an express license agreement from NVIDIA Corporation
+#is strictly prohibited.
+
+import init.tegra.rc
+import init.tn8_common.rc
+import init.t124.rc
+import init.cal.rc
+import init.tn8.usb.rc
+import init.ray_touch.rc
+
+on post-fs-data
+    chmod 0644 /sys/kernel/cluster/active
+
+    chown system system /dev/sysmatdrv
+    chmod 0660 /dev/sysmatdrv
+    insmod /system/lib/modules/texfat.ko
+
+on init
+    # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
+    mkdir /mnt/tmp 0770 system system
+    mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
+
+    setprop sys.esrd.powermon_path /sys/bus/i2c/devices/1-0040/iio_device
+    setprop sys.esrd.powermon_channel 0
+    setprop sys.esrd.min_esr 95
+    setprop sys.esrd.max_esr 160
+    setprop sys.esrd.margin 42
+    setprop sys.esrd.nwindow 200
+    setprop sys.esrd.ntry 600
+    setprop sys.esrd.tsample 20
+    setprop sys.esrd.delay_start 900
+    setprop sys.esrd.delay_retry 900
+    setprop sys.esrd.delay_ok 604800
+    setprop sys.esrd.needed_coeff 0.97
+    setprop sys.esrd.needed_var 300
+    setprop sys.esrd.battery_thresh_high 60
+    setprop sys.esrd.battery_thresh_low 15
+    setprop sys.esrd.load_burst_duration 3
+    setprop sys.esrd.check_screen_off 1
+    chown system system /sys/power/sysedp/batmon/esr
+    chown system system /sys/bus/i2c/devices/1-0040/iio_device/running_mode
+    export LD_SHIM_LIBS "/system/vendor/lib/libnvomxadaptor.so|libmocha_omx.so:/system/lib/hw/camera.vendor.tegra.so|libmocha_camera.so:/system/lib/hw/camera.vendor.tegra.so|libmocha_libc.so"
+
+on boot
+    #change vm memory parameter
+    write /proc/sys/vm/lowmem_reserve_ratio 128 128 32
+
+service media /system/bin/mediaserver
+    class main
+    user media
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm wakelock
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
+
+# brcm-uim-sysfs (BT/FM/ANT+)
+service uim /system/bin/brcm-uim-sysfs
+    class late_start
+    user root
+    group bluetooth net_bt_admin net_bt
+    seclabel u:r:uim:s0
+
