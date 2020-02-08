@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Path
+LOCAL_PATH := device/xiaomi/hermes
+
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
@@ -30,21 +33,35 @@ TARGET_BOARD_PLATFORM := tegra
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2048
+TARGET_SCREEN_WIDTH := 1536
+TARGET_BOOTANIMATION_HALF_RES := true
+
+
+# FS
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+TARGET_EXFAT_DRIVER := sdfat
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USES_MKE2FS := true
+
+# Init
+TARGET_INIT_VENDOR_LIB := mocha_init
+TARGET_RECOVERY_DEVICE_MODULES := mocha_init
+
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.hardware=tn8
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
 TARGET_KERNEL_CONFIG := mocha_user_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
-
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640 # 640 Mb stock partition table
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1337564160 # 1.2 Gb
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
@@ -57,6 +74,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # PowerHAL
 TARGET_POWERHAL_VARIANT := tegra
 
+# ThermalHAL
+TARGET_THERMALHAL_VARIANT := tegra
+
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
@@ -67,22 +87,19 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/xiaomi/mocha/bluetooth
 
-#FM
+# FM
 BOARD_HAVE_BCM_FM := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
 
-#Camera
+# Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := \
-    hardware/cyanogen/cmhw \
-    device/xiaomi/mocha/cmhw
+# LINEAGEHW
+BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
 
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -119,4 +136,14 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
+
+#
+# Oreo board
+#
+
+# Disable dex pre-opt
+WITH_DEXPREOPT := false
+
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
 

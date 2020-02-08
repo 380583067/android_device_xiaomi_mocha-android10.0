@@ -13,10 +13,15 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
 
 on init
+    export LD_PRELOAD "libshim_zw.so"
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root root
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
     # create directory for mounting usb drives
     mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
@@ -59,7 +64,7 @@ on post-fs-data
     # create directory for runtime calibration data
     # remount to rw and set perm to 770 till new diag product is created
     mkdir /data/touchscreen 0770 system system
-    
+
     # create directory for camera calibration data
     mkdir /mnt/factory/camera 0666 system system
 

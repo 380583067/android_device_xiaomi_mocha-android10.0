@@ -21,4 +21,7 @@
 
     <!-- Auto brightness mode is ON by default-->
     <bool name="def_screen_brightness_automatic_mode">true</bool>
+
+    <!-- Doubletap2wake is OFF by default-->
+    <bool name="def_double_tap_to_wake">false</bool>
 </resources>
