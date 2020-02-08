@@ -15,7 +15,7 @@
 #
 
 # Path
-LOCAL_PATH := device/xiaomi/hermes
+LOCAL_PATH := device/xiaomi/mocha
 
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
@@ -58,7 +58,7 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
-TARGET_KERNEL_CONFIG := mocha_user_defconfig
+TARGET_KERNEL_CONFIG := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
@@ -145,5 +145,7 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
 WITH_DEXPREOPT := false
 
 # HIDL Manifest
-DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/manifest.xml:system/vendor/manifest.xml
+
 

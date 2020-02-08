@@ -200,7 +200,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml
 
 # System properties
-PRODUCT_COPY_FILES += \
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Vendor seccomp policy files for media components:
