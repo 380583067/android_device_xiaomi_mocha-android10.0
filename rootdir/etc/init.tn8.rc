@@ -11,14 +11,10 @@ import init.tn8_common.rc
 import init.t124.rc
 import init.cal.rc
 import init.tn8.usb.rc
-import init.ray_touch.rc
 
 on post-fs-data
     chmod 0644 /sys/kernel/cluster/active
-
-    chown system system /dev/sysmatdrv
-    chmod 0660 /dev/sysmatdrv
-    insmod /system/lib/modules/texfat.ko
+    mkdir /data/sensors 0777 system system
 
 on init
     # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
@@ -44,23 +40,7 @@ on init
     setprop sys.esrd.check_screen_off 1
     chown system system /sys/power/sysedp/batmon/esr
     chown system system /sys/bus/i2c/devices/1-0040/iio_device/running_mode
-    export LD_SHIM_LIBS "/system/vendor/lib/libnvomxadaptor.so|libmocha_omx.so:/system/lib/hw/camera.vendor.tegra.so|libmocha_camera.so:/system/lib/hw/camera.vendor.tegra.so|libmocha_libc.so"
 
 on boot
     #change vm memory parameter
-    write /proc/sys/vm/lowmem_reserve_ratio 128 128 32
-
-service media /system/bin/mediaserver
-    class main
-    user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm wakelock
-    ioprio rt 4
-    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
-
-# brcm-uim-sysfs (BT/FM/ANT+)
-service uim /system/bin/brcm-uim-sysfs
-    class late_start
-    user root
-    group bluetooth net_bt_admin net_bt
-    seclabel u:r:uim:s0
-
+    write /proc/sys/vm/lowmem_reserve_ratio "128 128"

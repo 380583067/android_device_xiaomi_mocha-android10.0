@@ -6,8 +6,6 @@
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
-import init.tn8diag.rc
-
 on early-init
     # create /oem symbol link
     symlink /system/vendor/oem /oem
@@ -18,7 +16,7 @@ on early-init
     symlink /system/vendor/lbh /lbh
     chmod 0755 /lbh
     chown root system /lbh
- 
+
     #hack to make hacked mipad GL blobs work (need /gl/libEGL_tegra.so path)
     symlink /system/lib/egl /gl
     chmod 0755 /gl
@@ -37,12 +35,10 @@ on boot
     setprop nvwfd.maxresolution_macroblocks 8160
     #enable Miracast game mode support
     setprop nvwfd.gamemode 1
-#    setprop wifi.supplicant wpa_suppl_nl
 
 on init
     setprop keyguard.no_require_sim true
     setprop persist.tegra.didim.enable 0
-    write /proc/sys/vm/page-cluster 0
 
 service charger /charger
     group graphics input
@@ -52,6 +48,7 @@ service charger /charger
 on charger
     setprop sys.usb.config mtp
     mount ext4 /dev/block/platform/sdhci-tegra.3/by-name/APP /system wait ro
-    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable 1
-    write /sys/devices/system/cpu/cpuquiet/current_governor runnable
+    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable 0
     write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp -1
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0

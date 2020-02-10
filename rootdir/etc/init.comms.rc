@@ -22,17 +22,14 @@ on boot
     # bluetooth MAC address programming
     chown bluetooth bluetooth ro.bt.bdaddr_path
     chown bluetooth bluetooth /system/etc/bluetooth
-    chown bluetooth bluetooth /mnt/factory/bluetooth/bt_mac.txt
-    setprop ro.bt.bdaddr_path "/mnt/factory/bluetooth/bt_mac.txt"
 
-# Wifi firmware reload path
+    # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
 on post-fs-data
     mkdir /data/misc/wifi 0771 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/firmware 0770 wifi system
-    setprop wifi.supplicant wpa_suppl_nl
 
 service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -52,6 +49,3 @@ service dns_masq /system/bin/dnsmasq --no-daemon --no-resolv --no-poll --dhcp-op
     group dhcp wifi system
     disabled
     oneshot
-
-# Wifi support rx-filter
-    #setprop wifi.rx-filter 1
