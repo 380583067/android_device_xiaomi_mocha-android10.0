@@ -62,8 +62,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
 TARGET_KERNEL_CONFIG := tegra12_android_defconfig
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/linaro-4.9.4/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-gnueabihf-
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
@@ -143,7 +141,9 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 #WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
+                       device/xiaomi/mocha/sepolicy/lineage-common \
+                       device/xiaomi/mocha/sepolicy/mocha
 
 # Zygote whitelist extra paths
 ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",
