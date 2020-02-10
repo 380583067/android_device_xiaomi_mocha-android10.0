@@ -145,7 +145,4 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy
 WITH_DEXPREOPT := false
 
 # HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/manifest.xml:system/vendor/manifest.xml
-
-
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
