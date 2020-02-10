@@ -1,0 +1,6 @@
+# mac generator service
+type mac_generator, domain;
+allow mac_generator init:unix_stream_socket connectto;
+allow mac_generator kernel:system module_request;
+allow mac_generator property_socket:sock_file write;
+allow mac_generator sysfs:file { open read write };
