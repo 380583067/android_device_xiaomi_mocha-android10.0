@@ -11,4 +11,12 @@
    "repository": "android_hardware_broadcom_fm",
    "target_path": "hardware/broadcom/fm"
  }
+ {
+   "repository": "android_hardware_nvidia_thermal",
+   "target_path": "hardware/nvidia/thermal"
+ },
+ {
+   "repository": "android_hardware_nvidia_libstagefrighthw",
+   "target_path": "hardware/nvidia/libstagefrighthw"
+ }
 ]
