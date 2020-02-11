@@ -14,7 +14,7 @@ for dir in $dirs ; do
 	cd $rootdirectory
 	cd $dir
     echo -e "\n${RED}Applying ${NC}$dir ${RED}patches...${NC}\n"
-	git apply -v $rootdirectory/device/xiaomi/hermes/patches/$dir/*.patch
+	git apply -v $rootdirectory/device/xiaomi/mocha/patches/$dir/*.patch
 done
 
 # -----------------------------------
