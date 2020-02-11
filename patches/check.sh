@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rootdirectory="$PWD"
-dirs="build/soong frameworks/native"
+dirs="system/core frameworks/native"
 
 RED='\033[0;31m'
 NC='\033[0m'
