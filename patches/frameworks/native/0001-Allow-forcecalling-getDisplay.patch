@@ -31,7 +31,7 @@ index 4e5833a..3162250 100644
          cnx->minor = -1;
          if (cnx->dso) {
 +#ifdef BOARD_FORCECALL_GETDISPLAY
-+            disp.dpy = cnx->egl.eglGetDisplay(EGL_DEFAULT_DISPLAY);	
++            disp.dpy = cnx->egl.eglGetDisplay(EGL_DEFAULT_DISPLAY);
 +#endif
              EGLDisplay idpy = disp.dpy;
              if (cnx->egl.eglInitialize(idpy, &cnx->major, &cnx->minor)) {
