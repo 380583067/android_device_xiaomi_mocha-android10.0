@@ -1,0 +1,37 @@
+From b08b80fbeecc538cf90c91df5309e28d87665d73 Mon Sep 17 00:00:00 2001
+From: bilux <i.bilux@gmail.com>
+Date: Fri, 7 Feb 2020 22:21:06 +0100
+Subject: [PATCH] fix "_ZN7android13GraphicBufferC1EjjijjP13native_handleb" symbol
+ symbol
+
+Signed-off-by: bilux <i.bilux@gmail.com>
+---
+ libs/ui/Android.bp        | 1 -
+ libs/ui/GraphicBuffer.cpp | 2 ++
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/libs/ui/Android.bp b/libs/ui/Android.bp
+index 59173cb..fa9e6cf 100644
+--- a/libs/ui/Android.bp
++++ b/libs/ui/Android.bp
+@@ -22,7 +22,6 @@ cc_library_shared {
+     clang: true,
+     cppflags: [
+         "-Weverything",
+-        "-Werror",
+ 
+         // The static constructors and destructors in this library have not been noted to
+         // introduce significant overheads
+diff --git a/libs/ui/GraphicBuffer.cpp b/libs/ui/GraphicBuffer.cpp
+index 6235bd6..ac60fa9 100644
+--- a/libs/ui/GraphicBuffer.cpp
++++ b/libs/ui/GraphicBuffer.cpp
+@@ -487,3 +487,5 @@ status_t GraphicBuffer::unflatten(
+ // ---------------------------------------------------------------------------
+ 
+ }; // namespace android
++
++__strong_alias(_ZN7android13GraphicBufferC1EjjijjP13native_handleb,_ZN7android13GraphicBufferC1EjjijjjP13native_handleb);
+-- 
+2.25.0
+
