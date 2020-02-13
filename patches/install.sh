@@ -4,7 +4,8 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="system/core frameworks/native frameworks/base external/selinux hardware/libhardware"
+dirs="system/core frameworks/native external/selinux hardware/libhardware bionic/libm"
+
 
 # red + nocolor
 RED='\033[0;31m'
