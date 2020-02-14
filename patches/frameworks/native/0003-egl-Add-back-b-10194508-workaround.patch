@@ -1,0 +1,48 @@
+From 24b24de7e75f4a4e388b5041da427078097233a3 Mon Sep 17 00:00:00 2001
+From: bilux <i.bilux@gmail.com>
+Date: Fri, 14 Feb 2020 15:07:55 +0100
+Subject: [PATCH] egl: Add back b/10194508 workaround
+
+This was removed because it did not pass CTS and was applied across the board for all OMAP4 devices, but some still-shipping OMAP4 devices don't need it due to using DDK 1.12 drivers. Those drivers are only for OMAP4470 though, and other devices besides OMAPs depend on this workaround too, and we don't care about CTS for them anyway.
+
+This patch adds this previously-long-standing behavior (EGL_NATIVE_VISUAL_ID) back under the opt-in BOARD_EGL_WORKAROUND_BUG_10194508 flag.
+
+Signed-off-by: bilux <i.bilux@gmail.com>
+---
+ opengl/libs/EGL/eglApi.cpp | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/opengl/libs/EGL/eglApi.cpp b/opengl/libs/EGL/eglApi.cpp
+index 94dfe6a..0068b1d 100644
+--- a/opengl/libs/EGL/eglApi.cpp
++++ b/opengl/libs/EGL/eglApi.cpp
+@@ -15,6 +15,7 @@
+  */
+ 
+ #define ATRACE_TAG ATRACE_TAG_GRAPHICS
++#define WORKAROUND_BUG_10194508
+ 
+ #include <ctype.h>
+ #include <dlfcn.h>
+@@ -694,8 +695,17 @@ EGLSurface eglCreateWindowSurface(  EGLDisplay dpy, EGLConfig config,
+         }
+ 
+         EGLint format;
+-        getNativePixelFormat(iDpy, cnx, config, format);
+ 
++#ifdef WORKAROUND_BUG_10194508
++        if (!cnx->egl.eglGetConfigAttrib(iDpy, config, EGL_NATIVE_VISUAL_ID,
++                &format)) {
++            ALOGE("eglGetConfigAttrib(EGL_NATIVE_VISUAL_ID) failed: %#x",
++                    eglGetError());
++            format = 0;
++        }
++#else
++        getNativePixelFormat(iDpy, cnx, config, format);
++#endif
+         // now select correct colorspace and dataspace based on user's attribute list
+         EGLint colorSpace;
+         android_dataspace dataSpace;
+-- 
+2.25.0
+
