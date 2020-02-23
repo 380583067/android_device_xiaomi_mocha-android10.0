@@ -169,7 +169,7 @@ PRODUCT_CHARACTERISTICS := tablet
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    setup_fs fsck.f2fs mkfs.f2fs
+    setup_fs 
 
 # Comm Permissions
 PRODUCT_COPY_FILES += \
