@@ -11,7 +11,8 @@ PRODUCT_PACKAGES += \
 
 # DRM HAL
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -23,6 +24,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
+
+# HIDL (needed for shield 8.0 based hidl hals)
+PRODUCT_PACKAGES += \
+     android.hidl.base@1.0 \
+     android.hidl.base@1.0_system \
+     android.hidl.manager@1.0 \
+     android.hidl.manager@1.0-java
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -39,7 +47,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.mocha
+    android.hardware.power@1.0-service.mocha \
+    power.tegra
 
 # Renderscript
 PRODUCT_PACKAGES += \
@@ -51,7 +60,8 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl
+    android.hardware.thermal@1.0-impl \
+    thermal.tegradev
 
 # USB HAL
 PRODUCT_PACKAGES += \
