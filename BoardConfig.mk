@@ -92,7 +92,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/mocha/bluetooth
 
 # FM
-BOARD_HAVE_BCM_FM := true
+BOARD_HAVE_BCM_FM := false
 
 # Graphics
 USE_OPENGL_RENDERER := true
