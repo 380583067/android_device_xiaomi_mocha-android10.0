@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := enctune.conf
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := enctune.conf
+LOCAL_SRC_FILES    := etc/enctune.conf
 LOCAL_MODULE_PATH  := $(TARGET_ETC_OUT)
 include $(BUILD_PREBUILT)
 
@@ -123,13 +123,13 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := ussrd.conf
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := ussrd.$(TARGET_TEGRA_VERSION).conf
+LOCAL_SRC_FILES    := etc/ussrd.$(TARGET_TEGRA_VERSION).conf
 LOCAL_MODULE_PATH  := $(TARGET_ETC_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := ussr_setup
-LOCAL_SRC_FILES := ussr_setup.sh
+LOCAL_SRC_FILES := etc/ussr_setup.sh
 LOCAL_MODULE_SUFFIX := .sh
 LOCAL_MODULE_CLASS := SCRIPTS
 LOCAL_MODULE_PATH := $(TARGET_OUT_EXECUTABLES)
