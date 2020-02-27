@@ -95,13 +95,15 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio.mocha.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio.mocha.xml \
+    $(LOCAL_PATH)/audio/audio.mocha.xml:system/etc/audio.mocha.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
 
 # PRODUCT PACKAGES
+
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
+
     audio.r_submix.default \
     audio.primary.tegra \
     libaudiohalcm \
