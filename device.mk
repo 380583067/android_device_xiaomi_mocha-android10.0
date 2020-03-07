@@ -103,7 +103,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
-
     audio.r_submix.default \
     audio.primary.tegra \
     libaudiohalcm \
@@ -126,12 +125,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libbt-vendor
-
-# FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    brcm-uim-sysfs \
-    libfmjni
 
 # Camera
 PRODUCT_COPY_FILES += \
