@@ -7,6 +7,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.latch_unsignaled=1
+
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.lineage.nofool=true
