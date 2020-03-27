@@ -1,0 +1,28 @@
+diff --git a/libselinux/src/deny_unknown.c b/libselinux/src/deny_unknown.c
+index 77d04e37..33cdc623 100644
+--- a/libselinux/src/deny_unknown.c
++++ b/libselinux/src/deny_unknown.c
+@@ -8,9 +8,15 @@
+ #include "policy.h"
+ #include <stdio.h>
+ #include <limits.h>
++#include <selinux/avc.h>
++#include "avc_internal.h"
+ 
+ int security_deny_unknown(void)
+ {
++    avc_log(SELINUX_INFO, "security_deny_unknown() return 0");
++	return 0;
++/*
++
+ 	int fd, ret, deny_unknown = 0;
+ 	char path[PATH_MAX];
+ 	char buf[20];
+@@ -35,6 +41,7 @@ int security_deny_unknown(void)
+ 		return -1;
+ 
+ 	return deny_unknown;
++*/
+ }
+ 
+ hidden_def(security_deny_unknown);
