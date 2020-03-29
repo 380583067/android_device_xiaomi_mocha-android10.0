@@ -125,7 +125,7 @@ MAX_EGL_CACHE_SIZE := 4194304
 MAX_EGL_CACHE_ENTRY_SIZE := 262144
 
 # Recovery
-#TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
+TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
 
