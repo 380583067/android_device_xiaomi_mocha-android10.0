@@ -26,7 +26,7 @@ LOCAL_CFLAGS := -DLOG_TAG=\"MultiHal\"
 
 LOCAL_SRC_FILES := \
     multihal.cpp \
-    SensorEventQueue.cpp
+    SensorEventQueue.cpp \
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
