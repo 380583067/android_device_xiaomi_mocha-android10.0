@@ -17,16 +17,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-     <hal format="hidl">
-        <name>android.hardware.graphics.composer</name>
-        <transport arch="32">passthrough</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    
     <hal format="hidl">
         <name>android.hardware.configstore</name>
         <transport>hwbinder</transport>
@@ -165,7 +155,7 @@
     </hal>
  <hal format="hidl">
         <name>android.hardware.drm</name>
-        <transport>hwbinder</transport>
+        <transport arch="32">passthrough</transport>
         <version>1.0</version>
         <interface>
             <name>ICryptoFactory</name>
@@ -180,7 +170,7 @@
     </hal>
   <hal format="hidl">
         <name>android.hardware.media.omx</name>
-        <transport>hwbinder</transport>
+        <transport arch="32">passthrough</transport>
         <version>1.0</version>
         <interface>
             <name>IOmx</name>
@@ -200,4 +190,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+<hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport arch="32">passthrough</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
 </manifest>
