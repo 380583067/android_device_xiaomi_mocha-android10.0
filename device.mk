@@ -41,7 +41,10 @@ PRODUCT_PACKAGES += \
     init.tn8_common.rc \
     init.ussrd.rc \
     power.tn8.rc \
-    ueventd.tn8.rc
+    power.mocha.rc \
+    ueventd.tn8.rc \
+    ussrd.conf \
+    ussr_setup
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -180,6 +183,12 @@ PRODUCT_PACKAGES += power.tegra
 PRODUCT_PACKAGES += \
     sensors.tegra
 
+# Multi HAL configuration file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
+
+# Nvidia enhancements
+NV_ANDROID_FRAMEWORK_ENHANCEMENTS := true
 
 # Permissions
 PRODUCT_COPY_FILES += \
