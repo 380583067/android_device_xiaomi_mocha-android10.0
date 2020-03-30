@@ -1,10 +1,10 @@
+ 
 #include <unistd.h>
 #include <dlfcn.h>
 #include <stdlib.h>
 
 #include <cutils/log.h>
 
-#include "local.h"
 
 static typeof(vsnprintf) *vsnprintf_real = NULL;
 
