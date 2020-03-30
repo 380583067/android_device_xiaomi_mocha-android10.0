@@ -1,7 +1,7 @@
 #!/bin/sh
 
 rootdirectory="$PWD"
-dirs="system/core frameworks/native external/selinux hardware/interfaces"
+dirs="system/core frameworks/native external/selinux"
 
 RED='\033[0;31m'
 NC='\033[0m'

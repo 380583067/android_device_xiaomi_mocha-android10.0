@@ -1,6 +1,6 @@
-From d48e7add31a01e857e80a4dcb9d77c04fdc4635b Mon Sep 17 00:00:00 2001
+From 934cabcce19c5d7caea913dd0a4868309f4ed692 Mon Sep 17 00:00:00 2001
 From: bilux <i.bilux@gmail.com>
-Date: Tue, 11 Feb 2020 19:27:45 +0100
+Date: Mon, 23 Mar 2020 09:39:03 +0100
 Subject: [PATCH] Allow forcecalling getDisplay
 
 as of https://github.com/HighwayStar/android_device_xiaomi_mocha/issues/3
@@ -8,34 +8,21 @@ mocha requires forcecalling getDisplay to work
 
 Signed-off-by: bilux <i.bilux@gmail.com>
 ---
- opengl/libs/Android.mk          | 4 ++++
- opengl/libs/EGL/egl_display.cpp | 3 +++
- 2 files changed, 7 insertions(+)
+ opengl/libs/EGL/egl_display.cpp | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/opengl/libs/Android.mk b/opengl/libs/Android.mk
-index 2f42ab6..f988f41 100644
---- a/opengl/libs/Android.mk
-+++ b/opengl/libs/Android.mk
-@@ -1 +1,5 @@
- LOCAL_PATH:= $(call my-dir)
-+
-+ifeq ($(BOARD_FORCECALL_GETDISPLAY),true)
-+  LOCAL_CFLAGS += -DBOARD_FORCECALL_GETDISPLAY
-+endif
 diff --git a/opengl/libs/EGL/egl_display.cpp b/opengl/libs/EGL/egl_display.cpp
-index 4e5833a..3162250 100644
+index 2aec249..5f8092f 100644
 --- a/opengl/libs/EGL/egl_display.cpp
 +++ b/opengl/libs/EGL/egl_display.cpp
-@@ -168,6 +168,9 @@ EGLBoolean egl_display_t::initialize(EGLint *major, EGLint *minor) {
+@@ -175,6 +175,7 @@ EGLBoolean egl_display_t::initialize(EGLint *major, EGLint *minor) {
          cnx->major = -1;
          cnx->minor = -1;
          if (cnx->dso) {
-+#ifdef BOARD_FORCECALL_GETDISPLAY
 +            disp.dpy = cnx->egl.eglGetDisplay(EGL_DEFAULT_DISPLAY);
-+#endif
              EGLDisplay idpy = disp.dpy;
              if (cnx->egl.eglInitialize(idpy, &cnx->major, &cnx->minor)) {
                  //ALOGD("initialized dpy=%p, ver=%d.%d, cnx=%p",
 -- 
-2.25.0
+2.25.1
 

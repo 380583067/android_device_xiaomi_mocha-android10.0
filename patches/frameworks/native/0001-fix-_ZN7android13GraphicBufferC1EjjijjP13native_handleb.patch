@@ -1,37 +1,36 @@
-From b08b80fbeecc538cf90c91df5309e28d87665d73 Mon Sep 17 00:00:00 2001
+From 97fdae80d3cb19782ba4c3faa07279f0ffcb614f Mon Sep 17 00:00:00 2001
 From: bilux <i.bilux@gmail.com>
-Date: Fri, 7 Feb 2020 22:21:06 +0100
-Subject: [PATCH] fix "_ZN7android13GraphicBufferC1EjjijjP13native_handleb" symbol
- symbol
+Date: Mon, 23 Mar 2020 09:31:59 +0100
+Subject: [PATCH] fix "_ZN7android13GraphicBufferC1EjjijjP13native_handleb"
+ symbol  symbol
 
 Signed-off-by: bilux <i.bilux@gmail.com>
 ---
- libs/ui/Android.bp        | 1 -
+ libs/ui/Android.bp        | 1 +
  libs/ui/GraphicBuffer.cpp | 2 ++
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ 2 files changed, 3 insertions(+)
 
 diff --git a/libs/ui/Android.bp b/libs/ui/Android.bp
-index 59173cb..fa9e6cf 100644
+index 25c353a..03c71fb 100644
 --- a/libs/ui/Android.bp
 +++ b/libs/ui/Android.bp
-@@ -22,7 +22,6 @@ cc_library_shared {
-     clang: true,
+@@ -26,6 +26,7 @@ cc_library_shared {
+     ],
      cppflags: [
          "-Weverything",
--        "-Werror",
++        "-Werror",
  
          // The static constructors and destructors in this library have not been noted to
          // introduce significant overheads
 diff --git a/libs/ui/GraphicBuffer.cpp b/libs/ui/GraphicBuffer.cpp
-index 6235bd6..ac60fa9 100644
+index 7670ac6..8177f06 100644
 --- a/libs/ui/GraphicBuffer.cpp
 +++ b/libs/ui/GraphicBuffer.cpp
-@@ -487,3 +487,5 @@ status_t GraphicBuffer::unflatten(
+@@ -512,3 +512,5 @@ std::unique_ptr<DetachedBufferHandle> GraphicBuffer::takeDetachedBufferHandle()
  // ---------------------------------------------------------------------------
  
  }; // namespace android
 +
 +__strong_alias(_ZN7android13GraphicBufferC1EjjijjP13native_handleb,_ZN7android13GraphicBufferC1EjjijjjP13native_handleb);
 -- 
-2.25.0
-
+2.25.1
