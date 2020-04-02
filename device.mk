@@ -163,7 +163,6 @@ PRODUCT_PACKAGES += \
     libpowerservice_client \
     libmocha_libc
 
-PRODUCT_CHARACTERISTICS := tablet
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
