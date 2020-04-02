@@ -22,9 +22,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl
 
 # Health HAL
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-service
+# PRODUCT_PACKAGES += \
+#    android.hardware.health@1.0-impl \
+#    android.hardware.health@1.0-service
 
 # HIDL (needed for shield 8.0 based hidl hals)
 PRODUCT_PACKAGES += \
