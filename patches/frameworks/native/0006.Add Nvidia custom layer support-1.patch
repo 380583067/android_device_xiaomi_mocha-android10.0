@@ -1,0 +1,186 @@
+From fc4c0addddb518abb4ed8d32954289b11c80febc Mon Sep 17 00:00:00 2001
+From: Billy Laws <blaws05@gmail.com>
+Date: Sat, 16 Nov 2019 17:39:46 -0600
+Subject: [PATCH] Add Nvidia custom layer support [1/2]
+
+Change-Id: I961e3e9432be8aa3e3b20f793a6a7dff88072772
+---
+
+diff --git a/libs/vr/libvrflinger/hwc_types.h b/libs/vr/libvrflinger/hwc_types.h
+index cbf636c..d3f5068 100644
+--- a/libs/vr/libvrflinger/hwc_types.h
++++ b/libs/vr/libvrflinger/hwc_types.h
+@@ -226,6 +226,8 @@
+ struct LayerRequest final : public Wrapper<HWC2::LayerRequest> {
+   enum : ValueType {
+     ClearClientTarget = HWC2_LAYER_REQUEST_CLEAR_CLIENT_TARGET,
++    HintCompositionDeviceOverlay = HWC2_LAYER_REQUEST_HINT_COMPOSITION_DEVICE_OVERLAY,
++    HintLowLatency = HWC2_LAYER_REQUEST_HINT_LOW_LATENCY,
+   };
+ 
+   LayerRequest() : Base(0) {}
+diff --git a/services/surfaceflinger/DisplayHardware/HWComposer.cpp b/services/surfaceflinger/DisplayHardware/HWComposer.cpp
+index f5f7a82..034268e 100644
+--- a/services/surfaceflinger/DisplayHardware/HWComposer.cpp
++++ b/services/surfaceflinger/DisplayHardware/HWComposer.cpp
+@@ -499,17 +499,17 @@
+                 break;
+         }
+ 
+-        if (layerRequests.count(hwcLayer) != 0 &&
+-                layerRequests[hwcLayer] ==
+-                        HWC2::LayerRequest::ClearClientTarget) {
+-            layer->setClearClientTarget(displayId, true);
+-        } else {
+-            if (layerRequests.count(hwcLayer) != 0) {
+-                LOG_DISPLAY_ERROR(displayId,
+-                                  ("Unknown layer request " + to_string(layerRequests[hwcLayer]))
+-                                          .c_str());
+-            }
+-            layer->setClearClientTarget(displayId, false);
++        layer->setClearClientTarget(displayId, false);
++        layer->setHintCompositionDeviceOverlay(displayId, false);
++        layer->setHintLowLatency(displayId, false);
++
++        if (layerRequests.count(hwcLayer) != 0) {
++            if (((int)layerRequests[hwcLayer] & (int)HWC2::LayerRequest::ClearClientTarget) == (int)HWC2::LayerRequest::ClearClientTarget)
++                layer->setClearClientTarget(displayId, true);
++            if (((int)layerRequests[hwcLayer] & (int)HWC2::LayerRequest::HintCompositionDeviceOverlay) == (int)HWC2::LayerRequest::HintCompositionDeviceOverlay) // TODO: Should also check hasDeviceComposition or hasClientComposition. Im unsure which one
++                layer->setHintCompositionDeviceOverlay(displayId, true);
++            if (((int)layerRequests[hwcLayer] & (int)HWC2::LayerRequest::HintLowLatency) == (int)HWC2::LayerRequest::HintLowLatency)
++                layer->setHintLowLatency(displayId, true);
+         }
+     }
+ 
+diff --git a/services/surfaceflinger/Layer.cpp b/services/surfaceflinger/Layer.cpp
+index e1ccdfc..9d1e417 100644
+--- a/services/surfaceflinger/Layer.cpp
++++ b/services/surfaceflinger/Layer.cpp
+@@ -786,6 +786,38 @@
+     return getBE().mHwcLayers.at(hwcId).clearClientTarget;
+ }
+ 
++void Layer::setHintCompositionDeviceOverlay(int32_t hwcId, bool enable) {
++    if (getBE().mHwcLayers.count(hwcId) == 0) {
++        ALOGE("setHintCompositionDeviceOverlay called without a valid HWC layer");
++        return;
++    }
++    getBE().mHwcLayers[hwcId].hintCompositionDeviceOverlay =  enable;
++}
++
++bool Layer::getHintCompositionDeviceOverlay(int32_t hwcId) const {
++    if (getBE().mHwcLayers.count(hwcId) == 0) {
++        ALOGE("getHintCompositionDeviceOverlay called without a valid HWC layer");
++        return false;
++    }
++    return getBE().mHwcLayers.at(hwcId).hintCompositionDeviceOverlay;
++}
++
++void Layer::setHintLowLatency(int32_t hwcId, bool enable) {
++    if (getBE().mHwcLayers.count(hwcId) == 0) {
++        ALOGE("setHintLowLatency called without a valid HWC layer");
++        return;
++    }
++    getBE().mHwcLayers[hwcId].hintLowLatency = enable;
++}
++
++bool Layer::getHintLowLatency(int32_t hwcId) const {
++    if (getBE().mHwcLayers.count(hwcId) == 0) {
++        ALOGE("getHintLowLatency called without a valid HWC layer");
++        return false;
++    }
++    return getBE().mHwcLayers.at(hwcId).hintLowLatency;
++}
++
+ bool Layer::addSyncPoint(const std::shared_ptr<SyncPoint>& point) {
+     if (point->getFrameNumber() <= mCurrentFrameNumber) {
+         // Don't bother with a SyncPoint, since we've already latched the
+diff --git a/services/surfaceflinger/Layer.h b/services/surfaceflinger/Layer.h
+index ebd5f28..ff21ddb 100644
+--- a/services/surfaceflinger/Layer.h
++++ b/services/surfaceflinger/Layer.h
+@@ -116,6 +116,8 @@
+                 forceClientComposition(false),
+                 compositionType(HWC2::Composition::Invalid),
+                 clearClientTarget(false),
++                hintCompositionDeviceOverlay(false),
++                hintLowLatency(false),
+                 transform(HWC2::Transform::None) {}
+ 
+         HWComposer* hwc;
+@@ -123,6 +125,8 @@
+         bool forceClientComposition;
+         HWC2::Composition compositionType;
+         bool clearClientTarget;
++        bool hintCompositionDeviceOverlay;
++        bool hintLowLatency;
+         Rect displayFrame;
+         FloatRect sourceCrop;
+         HWComposerBufferCache bufferCache;
+@@ -396,6 +400,10 @@
+     HWC2::Composition getCompositionType(int32_t hwcId) const;
+     void setClearClientTarget(int32_t hwcId, bool clear);
+     bool getClearClientTarget(int32_t hwcId) const;
++    void setHintCompositionDeviceOverlay(int32_t hwcId, bool enable);
++    bool getHintCompositionDeviceOverlay(int32_t hwcId) const;
++    void setHintLowLatency(int32_t hwcId, bool enable);
++    bool getHintLowLatency(int32_t hwcId) const;
+     void updateCursorPosition(const sp<const DisplayDevice>& hw);
+ 
+     /*
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index c2be855..fd6ecde 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -1567,8 +1567,8 @@
+     switch (what) {
+         case MessageQueue::INVALIDATE: {
+             bool frameMissed = !mHadClientComposition &&
+-                    mPreviousPresentFence != Fence::NO_FENCE &&
+-                    (mPreviousPresentFence->getSignalTime() ==
++                    mPreviousPresentFence2 != Fence::NO_FENCE &&
++                    (mPreviousPresentFence2->getSignalTime() ==
+                             Fence::SIGNAL_TIME_PENDING);
+             ATRACE_INT("FrameMissed", static_cast<int>(frameMissed));
+             if (frameMissed) {
+@@ -1632,15 +1632,27 @@
+     doComposition();
+     postComposition(refreshStartTime);
+ 
++    mPreviousPresentFence2 = mPreviousPresentFence;
+     mPreviousPresentFence = getBE().mHwc->getPresentFence(HWC_DISPLAY_PRIMARY);
+ 
+     mHadClientComposition = false;
++       bool hadDeviceComposition = true;
++       bool hadLowLatency = false;
+     for (size_t displayId = 0; displayId < mDisplays.size(); ++displayId) {
+         const sp<DisplayDevice>& displayDevice = mDisplays[displayId];
++
++               const auto hwcId = displayDevice->getHwcDisplayId();
++
++               for (auto& layer : displayDevice->getVisibleLayersSortedByZ()) {
++                       if ((layer->getCompositionType(hwcId) != HWC2::Composition::Device) || !layer->getHintCompositionDeviceOverlay(hwcId))
++                               hadDeviceComposition = false;
++                       if (layer->getHintLowLatency(hwcId))
++                               hadLowLatency = true;
++               }
+         mHadClientComposition = mHadClientComposition ||
+                 getBE().mHwc->hasClientComposition(displayDevice->getHwcDisplayId());
+     }
+-    mVsyncModulator.onRefreshed(mHadClientComposition);
++    mVsyncModulator.onRefreshed(mHadClientComposition && hadLowLatency && hadDeviceComposition);
+ 
+     mLayersWithQueuedFrames.clear();
+ }
+diff --git a/services/surfaceflinger/SurfaceFlinger.h b/services/surfaceflinger/SurfaceFlinger.h
+index 5142cca..43b557a 100644
+--- a/services/surfaceflinger/SurfaceFlinger.h
++++ b/services/surfaceflinger/SurfaceFlinger.h
+@@ -828,6 +828,7 @@
+     bool mAnimCompositionPending;
+     std::vector<sp<Layer>> mLayersWithQueuedFrames;
+     sp<Fence> mPreviousPresentFence = Fence::NO_FENCE;
++    sp<Fence> mPreviousPresentFence2 = Fence::NO_FENCE;
+     bool mHadClientComposition = false;
+ 
+     enum class BootStage {
