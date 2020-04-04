@@ -108,10 +108,10 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.tegra \
-    libaudiohalcm \
     libaudio-resampler \
     libaudiospdif \
     libstagefrighthw \
+    libaudiohalcm \    
     libtinycompress \
     tinycap_mocha \
     tinymix_mocha \

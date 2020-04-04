@@ -81,12 +81,10 @@ service conn_wifi /system/vendor/bin/conn_init -op
     class main
     user root
     group root
-    seclabel u:r:conn_wifi:s0
     oneshot
 
 service mac_generator /system/vendor/bin/macaddr.sh -op
     class main
     user root
     group root
-    seclabel u:r:mac_generator:s0
     oneshot
