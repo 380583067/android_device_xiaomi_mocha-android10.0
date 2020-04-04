@@ -41,7 +41,7 @@ using ::android::hardware::Void;
 static const std::string TAP_TO_WAKE_NODE = "/proc/touchpanel/double_tap_enable";
 static const std::string POWER_PROFILE_PROPERTY = "sys.perf.profile";
 
-const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000112;
+const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000111;
 
 Power::Power() {
     ALOGI("power_init\n");
@@ -54,7 +54,7 @@ Return<void> Power::setInteractive(bool /*interactive*/)  {
 }
 
 Return<void> Power::powerHint(PowerHint hint, int32_t data) {
-    if (static_cast<power_hint_t>(hint) == 0x00000112) {
+    if (static_cast<power_hint_t>(hint) == POWER_HINT_SET_PROFILE) {
         std::string value = std::to_string(data);
         property_set(POWER_PROFILE_PROPERTY.c_str(), value.c_str());
         ALOGI("set power profile = %d", data);

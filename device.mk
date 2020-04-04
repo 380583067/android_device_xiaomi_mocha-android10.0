@@ -104,14 +104,14 @@ PRODUCT_COPY_FILES += \
 # PRODUCT PACKAGES
 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
+     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.tegra \
     libaudio-resampler \
     libaudiospdif \
+    libaudiohalcm \
     libstagefrighthw \
-    libaudiohalcm \    
     libtinycompress \
     tinycap_mocha \
     tinymix_mocha \
