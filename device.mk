@@ -193,9 +193,6 @@ PRODUCT_PACKAGES += power.tegra
 PRODUCT_PACKAGES += \
     sensors.tegra
 
-# Multi HAL configuration file
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
 
 # Nvidia enhancements
 NV_ANDROID_FRAMEWORK_ENHANCEMENTS := true
