@@ -1,0 +1,12 @@
+--- los-p/frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp.orig	2020-04-21 11:48:23.844174131 +0800
++++ los-p/frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp	2020-04-21 12:01:25.042220951 +0800
+@@ -325,6 +325,9 @@
+     property_get("ro.bq.gpu_to_cpu_unsupported", value, "0");
+     mGpuToCpuSupported = !atoi(value);
+ 
++    property_get("debug.sf.disable_hwc", value, "0");
++    mDebugDisableHWC = atoi(value);
++
+     property_get("debug.sf.showupdates", value, "0");
+     mDebugRegion = atoi(value);
+ 
