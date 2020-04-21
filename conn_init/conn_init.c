@@ -113,8 +113,32 @@ exit:
 int main(void)
 {
 	FILE *fp;
-	fp = fopen(MAC_PARTION, "r");
-	if (fp == NULL) {
+	int bt_mac_exist = 0;
+	int wifi_mac_exist = 0;
+
+        fp = fopen(BT_MAC_FILE, "r");
+	if (fp != NULL) {
+		char addr[18];
+		bt_mac_exist = 1;
+		fseek(fp, 0, SEEK_SET);
+		fread(addr, sizeof(char), 17, fp);
+		addr[17] = '\0';
+		fclose(fp);
+		property_set(BT_MAC_PROP, BT_MAC_FILE);
+		property_set(BT_MAC_PROP1, addr);
+		property_set(BT_MAC_PROP2, addr);
+	}
+        fp = fopen(WIFI_MAC_FILE, "r");
+	if (fp != NULL) {
+		wifi_mac_exist = 1;
+		fclose(fp);
+	}
+	if (bt_mac_exist == 1 && wifi_mac_exist == 1) {
+		ALOGI("%s: skip, file already exist", TAG);
+		goto exit;
+	}
+	fp = fopen(MAC_PARTITION1, "r");
+    (fp == NULL) {
 		ALOGE("%s: Can't open %s error: %d", TAG, MAC_PARTION, errno);
 		fp = fopen(MAC_PARTION_OLD, "r");
 		if (fp == NULL) {
