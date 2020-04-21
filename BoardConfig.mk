@@ -156,8 +156,7 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
 TARGET_THERMALHAL_VARIANT := tegra
 
 # Zygote whitelist extra paths
-<<<<<<< HEAD
-ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",
+ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
 
 
 # Disable dex pre-opt
@@ -166,6 +165,4 @@ WITH_DEXPREOPT := true
 
 # HIDL Manifest
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
-=======
-ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
->>>>>>> 96c0bd0... mocha: add /dev/nvmap to zygote whitelist
+
