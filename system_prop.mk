@@ -19,6 +19,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.gpu_samplingrate = 1 \
     debug.sf.hw = 1 \
     debug.egl.hw = 1 \
+    persist.sys.ui.hw=true \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
     debug.hwui.renderer = skiagl \
