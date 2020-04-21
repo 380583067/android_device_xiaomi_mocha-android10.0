@@ -132,6 +132,17 @@ diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinge
 index c2be855..fd6ecde 100644
 --- a/services/surfaceflinger/SurfaceFlinger.cpp
 +++ b/services/surfaceflinger/SurfaceFlinger.cpp
+
+@@ -325,6 +325,9 @@
+     property_get("ro.bq.gpu_to_cpu_unsupported", value, "0");
+     mGpuToCpuSupported = !atoi(value);
+
++    property_get("debug.sf.disable_hwc", value, "0");
++    mDebugDisableHWC = atoi(value);
++
+     property_get("debug.sf.showupdates", value, "0");
+     mDebugRegion = atoi(value);
+
 @@ -1567,8 +1567,8 @@
      switch (what) {
          case MessageQueue::INVALIDATE: {

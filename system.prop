@@ -26,6 +26,7 @@ persist.tegra.didim.video = 5
 persist.tegra.didim.normal = 3
 persist.sys.usb.config=mtp,adb
 ro.secure=0
+<<<<<<< HEAD
 ro.adb.secure=0
 persist.service.adb.enable=1
 persist.service.debuggable=1
@@ -51,3 +52,19 @@ ro.bt.bdaddr_path=/data/mocha_btmacaddr.txt
 =======
 >>>>>>> 67f1a16... bluetooth address
 
+=======
+ro.lineage.build.vendor_security_patch=2018-01-01
+debug.sf.disable_hwc=1
+# debug.hwui.renderer=skiavk
+ro.bt.bdaddr_path=/data/mocha_btmacaddr.txt
+
+# LMKD options
+# ro.lmk.low=1001
+# ro.lmk.medium=800 
+# ro.lmk.critical=0
+# ro.lmk.critical_upgrade=false
+# ro.lmk.upgrade_pressure=100
+# ro.lmk.downgrade_pressure=100
+# ro.lmk.kill_heaviest_task=true
+# ro.lmk.kill_timeout_ms=100
+>>>>>>> 8a29f59... bluetooth address
