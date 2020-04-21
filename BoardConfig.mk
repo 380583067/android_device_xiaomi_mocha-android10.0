@@ -148,10 +148,8 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/mocha
 
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
-                       device/xiaomi/mocha/sepolicy/lineage-common \
-                       device/xiaomi/mocha/sepolicy/mocha
                        
 # ThermalHAL
 TARGET_THERMALHAL_VARIANT := tegra
