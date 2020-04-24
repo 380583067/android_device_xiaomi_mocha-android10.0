@@ -1,0 +1,30 @@
+diff --git a/opengl/libs/EGL/eglApi.cpp b/opengl/libs/EGL/eglApi.cpp
+index 3312b031a..26385fc7c 100644
+--- a/opengl/libs/EGL/eglApi.cpp
++++ b/opengl/libs/EGL/eglApi.cpp
+@@ -15,6 +15,7 @@
+  */
+ 
+ #define ATRACE_TAG ATRACE_TAG_GRAPHICS
++#define WORKAROUND_BUG_10194508
+ 
+ #include <ctype.h>
+ #include <dlfcn.h>
+@@ -722,7 +723,16 @@ EGLSurface eglCreateWindowSurface(  EGLDisplay dpy, EGLConfig config,
+ 
+         EGLDisplay iDpy = dp->disp.dpy;
+         android_pixel_format format;
+-        getNativePixelFormat(iDpy, cnx, config, &format);
++   #ifdef WORKAROUND_BUG_10194508
++        EGLint eglN = 0;
++        if ((cnx->egl.eglGetConfigAttrib(iDpy, config, EGL_NATIVE_VISUAL_ID, &eglN)) == EGL_FALSE) {
++            format = (android_pixel_format)0;
++        }else{
++            format = (android_pixel_format)eglN;
++        }
++    #else
++        getNativePixelFormat(iDpy, cnx, config, &format);
++    #endif
+ 
+         // now select correct colorspace and dataspace based on user's attribute list
+         EGLint colorSpace = EGL_UNKNOWN;
