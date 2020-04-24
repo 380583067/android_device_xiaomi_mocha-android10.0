@@ -10,7 +10,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_backpressure=1 \
-    debug.sf.latch_unsignaled=1
+    debug.sf.latch_unsignaled=1 \
+    debug.sf.disable_hwc=1 \
+    debug.hwui.profile=true
 
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -26,7 +28,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+    ro.sys.sdcardfs=false
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
