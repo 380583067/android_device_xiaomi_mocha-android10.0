@@ -26,13 +26,6 @@ PRODUCT_PACKAGES += \
 #    android.hardware.health@1.0-impl \
 #    android.hardware.health@1.0-service
 
-# HIDL (needed for shield 8.0 based hidl hals)
-PRODUCT_PACKAGES += \
-     android.hidl.base@1.0 \
-     android.hidl.base@1.0_system \
-     android.hidl.manager@1.0 \
-     android.hidl.manager@1.0-java
-
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
