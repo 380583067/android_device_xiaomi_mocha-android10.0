@@ -29,7 +29,7 @@ ro.secure=0
 ro.adb.secure=0
 persist.service.adb.enable=1
 persist.service.debuggable=1
-# debug.hwui.renderer = skiavk
+ debug.hwui.renderer = skiavk
 
 # Opciones LMKD
 # ro.lmk.low = 1001

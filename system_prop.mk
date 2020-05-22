@@ -9,11 +9,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwc.force_gpu=1 \
+    debug.mdpcomp.maxlayer = 0 \
+    debug.composition.type = gpu \
+    dev.pm.gpu_samplingrate = 1 \
+    debug.sf.hw = 1 \
+    debug.egl.hw = 1 \
     debug.sf.disable_backpressure=1 \
     debug.sf.latch_unsignaled=1 \
-    debug.sf.disable_hwc=1 \
-    debug.hwui.profile=true
-
+    debug.hwui.renderer = skiagl \
+    debug.hwui.render_dirty_regions=true \
+    debug.hwui.profile.maxframes=5 \
+    debug.hwc.max_hw_overlays=0 \
+    debug.sf.disable_hwcomposer=1
+   
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.lineage.nofool=true
