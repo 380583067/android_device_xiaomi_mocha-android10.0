@@ -1,13 +1,14 @@
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@4.0-service \
+    android.hardware.audio.effect@4.0-impl \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl\
+    android.hardware.bluetooth.a2dp@1.0-impl
 
 # DRM HAL
 PRODUCT_PACKAGES += \
