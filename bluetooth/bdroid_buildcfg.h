@@ -17,10 +17,6 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-// SERVICE_CLASS:0x5A (Bit17 -Networking,Bit19 - Capturing,Bit20 -Object Transfer,Bit22 -Telephony)
-// MAJOR CLASS: COMPUTER
-// MINOR CLASS: TABLET
-#define BTA_DM_COD {0x5A, 0x01, 0x10}
+#define BTM_DEF_LOCAL_NAME "MiPad"
 
 #endif
-

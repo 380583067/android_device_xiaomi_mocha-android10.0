@@ -2,8 +2,6 @@ import power.mocha.rc
 
 on boot
 # Power management settings
-    write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp 0
-
     # Enable power gating of fast CPU's
     write /sys/module/cpuidle_t11x/parameters/cpu_power_gating_in_idle 31
     write /sys/module/cpuidle_t11x/parameters/slow_cluster_power_gating_noncpu 1
@@ -81,10 +79,12 @@ service conn_wifi /system/vendor/bin/conn_init -op
     class main
     user root
     group root
+    seclabel u:r:conn_wifi:s0
     oneshot
 
 service mac_generator /system/vendor/bin/macaddr.sh -op
     class main
     user root
     group root
+    seclabel u:r:mac_generator:s0
     oneshot

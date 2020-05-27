@@ -150,6 +150,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# wifi and bt macs settter
+PRODUCT_PACKAGES += \
+    conn_init
+
 # Light
 #PRODUCT_PACKAGES += \
 #    lights.tegra

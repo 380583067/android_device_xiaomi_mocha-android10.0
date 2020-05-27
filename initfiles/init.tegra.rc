@@ -10,12 +10,15 @@ import init.comms.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
+    
+# make trace_marker everyone writable
+    chmod 222 /sys/kernel/debug/tracing/trace_marker
 
 on init
     export LD_PRELOAD "libshim_zw.so"
 
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-
+    
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -28,7 +31,7 @@ on init
 
     # create directory for mounting calibration partition
     mkdir /mnt/factory 0666 system system
-
+    
     mkdir /factory 0666 system system
     mkdir /factory/wifi_config 0666 system system
 
@@ -222,4 +225,4 @@ import init.ussrd.rc
 # Thie yields each tegra wdt expiration to be at 30 secs and fourth expiration for reboot at 120 secs.
 service watchdogd /sbin/watchdogd 10 110
     class core
-    
+    seclabel u:r:watchdogd:s0

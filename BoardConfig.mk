@@ -61,12 +61,14 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
 TARGET_KERNEL_CONFIG := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
+
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640 # 640 Mb stock partition table
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1337564160 # 1.2 Gb
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
@@ -151,9 +153,9 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/mocha
-
-                       
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/mocha\
+                       device/xiaomi/mocha/sepolicy/common\
+                       device/xiaomi/mocha/sepolicy/lineage-common                       
 # ThermalHAL
 TARGET_THERMALHAL_VARIANT := tegra
 

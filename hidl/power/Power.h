@@ -34,7 +34,7 @@ using ::android::hardware::power::V1_0::IPower;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 
-struct Power : public IPower {
+struct Power : public IPower{
     // Methods from ::android::hardware::power::V1_0::IPower follow.
     Power();
     status_t registerAsSystemService();
@@ -43,7 +43,6 @@ struct Power : public IPower {
     Return<void> powerHint(PowerHint hint, int32_t data) override;
     Return<void> setFeature(Feature feature, bool activate) override;
     Return<void> getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) override;
-
 };
 
 }  // namespace implementation
