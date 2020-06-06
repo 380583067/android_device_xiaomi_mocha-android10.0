@@ -144,8 +144,12 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    XiaomiDoze 
 
+# Custom tiles
+PRODUCT_PACKAGES += \
+    ChargerTile \
+    PerformanceTile
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -160,6 +164,10 @@ PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# wifi and bt macs settter
+PRODUCT_PACKAGES += \
+    conn_init
 
 # Light
 #PRODUCT_PACKAGES += \
