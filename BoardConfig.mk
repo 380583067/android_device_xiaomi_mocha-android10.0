@@ -29,6 +29,8 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a15
 
+TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
+
 # Binder API
 TARGET_USES_64_BIT_BINDER := true
 
@@ -50,8 +52,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := mocha_init
-TARGET_RECOVERY_DEVICE_MODULES := mocha_init
+#TARGET_INIT_VENDOR_LIB := mocha_init
+#TARGET_RECOVERY_DEVICE_MODULES := mocha_init
 
 # Kernel
 BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive
@@ -59,12 +61,14 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
 TARGET_KERNEL_CONFIG := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
+
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640 # 640 Mb stock partition table
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1337564160 # 1.2 Gb
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
@@ -97,7 +101,7 @@ BOARD_HAVE_BCM_FM := false
 USE_OPENGL_RENDERER := true
 BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
 BOARD_EGL_NEEDS_HANDLE_VALUE := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
@@ -140,8 +144,8 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE                := bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_FW_PATH_STA          := "/system/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/system/firmware/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
 #WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 #WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
@@ -153,8 +157,7 @@ BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
                        device/xiaomi/mocha/sepolicy/mocha
 
 # Zygote whitelist extra paths
-ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",
-
+ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
 
 # Disable dex pre-opt
 WITH_DEXPREOPT := false
