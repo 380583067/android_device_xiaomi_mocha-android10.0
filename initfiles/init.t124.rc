@@ -54,6 +54,10 @@ on boot
     chown system system /sys/kernel/tegra_cpu_emc/table_src
     write /sys/kernel/tegra_cpu_emc/table_src 1
 
+    # Prepare CPU/EMC scaling based on DT
+    chown system system /sys/kernel/tegra_cpu_emc/table_src
+    write /sys/kernel/tegra_cpu_emc/table_src 1
+
 on late-fs
     write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/nr_requests 256

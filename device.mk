@@ -110,10 +110,6 @@ PRODUCT_PACKAGES += \
     libpowerservice_client \
     libmocha_libc
 
-# Multi HAL configuration file
-PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
-
 # NVIDIA
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.blakemanager.xml:system/etc/permissions/com.nvidia.blakemanager.xml \

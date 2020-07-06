@@ -5,6 +5,7 @@
 
 #include <cutils/log.h>
 
+//#include "local.h"
 
 static typeof(vsnprintf) *vsnprintf_real = NULL;
 

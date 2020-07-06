@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-r_dir_file(domain, sysfs_bus_usb)
-r_dir_file(domain, sysfs_tegra_info)
-r_dir_file(domain, sysfs_tegrafuse_aid)
+#r_dir_file(domain, sysfs_bus_usb)
+#r_dir_file(domain, sysfs_tegra_info)
+#r_dir_file(domain, sysfs_tegrafuse_aid)
 
 allow { domain -hal_configstore_default } system_data_file:file { getattr read };
 

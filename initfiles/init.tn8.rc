@@ -14,6 +14,7 @@ import init.tn8.usb.rc
 
 on post-fs-data
     chmod 0644 /sys/kernel/cluster/active
+
     mkdir /data/sensors 0777 system system
 
 on init
@@ -44,3 +45,4 @@ on init
 on boot
     #change vm memory parameter
     write /proc/sys/vm/lowmem_reserve_ratio "128 128"
+

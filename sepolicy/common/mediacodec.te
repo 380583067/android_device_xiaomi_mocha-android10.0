@@ -16,7 +16,7 @@ set_prop(mediacodec, mediacodec_prop)
 
 r_dir_file(mediacodec, sysfs)
 r_dir_file(mediacodec, sysfs_soc)
-allow mediacodec sysfs_gpu:file r_file_perms;
+#allow mediacodec sysfs_gpu:file r_file_perms;
 
 allow mediacodec power_service:service_manager find;
 allow mediacodec ussrd_service:service_manager find;

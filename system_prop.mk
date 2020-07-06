@@ -1,10 +1,9 @@
 # AptX
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bt.enableAptXHD=true
-
-# BT
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/data/mocha_btmacaddr.txt
+    persist.bt.enableAptXHD=true \
+    persist.service.btui.use_aptx=1 \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldacs
 
 # BT
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -16,21 +15,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwc.force_gpu=1 \
-    debug.mdpcomp.maxlayer = 0 \
-    debug.composition.type = gpu \
-    dev.pm.gpu_samplingrate = 1 \
-    debug.sf.hw = 1 \
-    debug.egl.hw = 1 \
     persist.sys.ui.hw=true \
     debug.sf.disable_backpressure=1 \
-    debug.sf.latch_unsignaled=1 \
-    debug.hwui.renderer = skiagl \
-    debug.hwui.render_dirty_regions=true \
-    debug.hwui.profile.maxframes=5 \
-    debug.hwc.max_hw_overlays=0 \
-    debug.sf.disable_hwcomposer=1
-   
+    debug.sf.latch_unsignaled=1
+
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.lineage.nofool=true
@@ -45,8 +33,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=false
+    ro.sys.sdcardfs=true
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.sys.usb.config=mtp
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  persist.service.adb.enable=1 \
+  persist.service.debuggable=1 \
+  persist.sys.usb.config=mtp,adb
