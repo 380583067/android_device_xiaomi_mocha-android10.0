@@ -1,5 +1,5 @@
 <manifest version="1.0" type="device">
- <hal format="hidl">
+    <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport arch="32">passthrough</transport>
         <version>4.0</version>
@@ -27,6 +27,21 @@
         </interface>
     </hal>
     <hal format="hidl">
+         <name>android.hardware.drm</name>
+        <transport arch="32">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICryptoFactory</name>
+            <instance>widevine</instance>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>widevine</instance>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.health</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
@@ -44,10 +59,18 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport arch="32">passthrough</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
         <transport arch="32">passthrough</transport>
-        <impl level="generic"></impl>
         <version>2.0</version>
         <interface>
             <name>IMapper</name>
@@ -59,16 +82,29 @@
         <transport>hwbinder</transport>
         <version>3.0</version>
         <interface>
-            <name>IKeymasterDevice</name>
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+       <hal format="hidl">
+        <name>android.hardware.media.omx</name>
+        <transport arch="32">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOmx</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IOmxStore</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.light</name>
+        <name>android.hardware.memtrack</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>1.0</version>
         <interface>
-            <name>ILight</name>
+            <name>IMemtrack</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -92,7 +128,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>ISensors</name>
@@ -101,10 +137,19 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.thermal</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IAllocator</name>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.usb</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUsb</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -126,10 +171,10 @@
             <instance>default</instance>
         </interface>
     </hal>
- <hal format="hidl">
+    <hal format="hidl">
         <name>android.hardware.wifi.hostapd</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IHostapd</name>
             <instance>default</instance>
@@ -144,7 +189,16 @@
             <instance>default</instance>
         </interface>
     </hal>
-        <hal format="hidl">
+<hal format="hidl">
+        <name>vendor.lineage.livedisplay</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IColor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.lineage.power</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -152,20 +206,7 @@
             <name>ILineagePower</name>
             <instance>default</instance>
         </interface>
-    </hal>
- <hal format="hidl">
-        <name>vendor.lineage.livedisplay</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IDisplayModes</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IPictureAdjustment</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+    </hal>    
 <hal format="hidl">
         <name>android.hardware.bluetooth</name>
         <transport arch="32">passthrough</transport>
@@ -195,7 +236,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
-        <transport arch="32+64">passthrough</transport>
+        <transport arch="32">passthrough</transport>
         <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
@@ -203,32 +244,4 @@
             <instance>legacy/1</instance>
         </interface>
     </hal>
-<hal format="hidl">
-        <name>android.hardware.memtrack</name>
-        <transport arch="32">passthrough</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IMemtrack</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-<hal format="hidl">
-        <name>android.hardware.graphics.composer</name>
-        <transport arch="32">passthrough</transport>
-        <version>2.1</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-<hal format="hidl">
-        <name>android.hardware.usb</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IUsb</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
 </manifest>
