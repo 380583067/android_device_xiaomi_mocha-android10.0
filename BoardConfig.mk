@@ -20,7 +20,7 @@ LOCAL_PATH := device/xiaomi/mocha
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
@@ -39,7 +39,7 @@ TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/mocha/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Binder API
 TARGET_USES_64_BIT_BINDER := true
@@ -110,10 +110,10 @@ TARGET_KERNEL_CONFIG := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 
 # LINEAGEHW
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|device/xiaomi/mocha/lineagehw|**/*.java
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
 
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -130,8 +130,8 @@ MAX_EGL_CACHE_SIZE := 4194304
 MAX_EGL_CACHE_ENTRY_SIZE := 262144
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
-TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
+TARGET_RECOVERY_DEVICE_DIRS += $(LOCAL_PATH)
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
 
 # RenderScript
@@ -139,9 +139,9 @@ OVERRIDE_RS_DRIVER := libnvRSDriver.so
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/mocha\
-                       device/xiaomi/mocha/sepolicy/common\
-                       device/xiaomi/mocha/sepolicy/lineage-common
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha\
+                       $(LOCAL_PATH)/sepolicy/common\
+                       $(LOCAL_PATH)/sepolicy/lineage-common
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \

@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+
+# Path
+LOCAL_PATH := device/xiaomi/mocha
+
 PRODUCT_AAPT_CONFIG += xlarge large
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
@@ -30,7 +34,7 @@ PRODUCT_COPY_FILES += \
 # PRODUCT PACKAGES
 
 PRODUCT_PACKAGES += \
-     audio.a2dp.default \
+    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.tegra \
@@ -82,7 +86,7 @@ PRODUCT_PACKAGES += libs \
                     libshim_zw \
                     libshim_atomic
 # HIDL HALs
-$(call inherit-product, device/xiaomi/mocha/hidl.mk)
+$(call inherit-product, $(LOCAL_PATH)/hidl.mk)
 
 # HIDL Manifest
 PRODUCT_COPY_FILES += \
@@ -124,7 +128,7 @@ NV_ANDROID_FRAMEWORK_ENHANCEMENTS := true
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    device/xiaomi/mocha/overlay
+    $(LOCAL_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -185,8 +189,8 @@ PRODUCT_PACKAGES += \
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/xiaomi/mocha/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    $(LOCAL_PATH)/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 
 # Wifi
