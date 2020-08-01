@@ -86,9 +86,9 @@
             <instance>default</instance>
         </interface>
     </hal>
-       <hal format="hidl">
+ <hal format="hidl">
         <name>android.hardware.media.omx</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IOmx</name>
@@ -241,7 +241,6 @@
         <interface>
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
-            <instance>legacy/1</instance>
-        </interface>
+            </interface>
     </hal>
 </manifest>
