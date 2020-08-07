@@ -2,7 +2,7 @@
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio.effect@4.0-impl 
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -30,8 +30,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl
 
-# Health HAL
- PRODUCT_PACKAGES += \
+# Health
+PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
 
@@ -68,19 +68,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
 
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-service \
-    android.hardware.thermal@1.0-impl
-    
-
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
-
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -88,8 +78,8 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
-    wificond
+    android.hardware.wifi@1.0-service 
+    
 
 # HIDL
 PRODUCT_COPY_FILES += \
