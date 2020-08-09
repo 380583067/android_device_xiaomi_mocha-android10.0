@@ -57,12 +57,16 @@ PRODUCT_PACKAGES += \
     libbt-vendor
 
 # Camera
+PRODUCT_PACKAGES += Snap
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf \
     $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml
 
 PRODUCT_PACKAGES += \
-    camera.tegra
+    camera.tegra \
+    libcamera_shim \
+    libEGL_vnk \
+    camera.device@3.2-impl
 
 # Console Mode
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
@@ -70,7 +74,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 # Comm Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
@@ -169,6 +173,12 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += power.tegra
 
+# Radio-FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    brcm-uim-sysfs \
+    libfmjni
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.tn8 \
@@ -195,6 +205,10 @@ PRODUCT_PACKAGES += \
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
+
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/thermal/thermalhal.tn8.xml:$(TARGET_COPY_OUT_VENDOR)/etc/thermalhal.tn8.xml
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
