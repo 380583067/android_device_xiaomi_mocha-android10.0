@@ -17,7 +17,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ui.hw=true \
     debug.sf.disable_backpressure=1 \
-    debug.sf.latch_unsignaled=1
+    debug.sf.latch_unsignaled=1 \
+    debug.hwui.render_dirty_regions=false
 
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
