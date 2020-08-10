@@ -59,7 +59,24 @@
         <transport>hwbinder</transport>
         <version>3.0</version>
         <interface>
+<<<<<<< HEAD
             <name>IKeymasterDevice</name>
+=======
+            <name>IComposer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+       <hal format="hidl">
+        <name>android.hardware.media.omx</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOmx</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IOmxStore</name>
+>>>>>>> 87851f5... mocha: Media.Omx HAL to hwbinder
             <instance>default</instance>
         </interface>
     </hal>
