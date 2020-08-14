@@ -78,6 +78,15 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 
+# Memory Optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.vendor.qti.am.reschedule_service=true \
+     ro.vendor.qti.sys.fw.use_trim_settings=true \
+     ro.vendor.qti.sys.fw.trim_empty_percent=50 \
+     ro.vendor.qti.sys.fw.trim_cache_percent=100 \
+     ro.vendor.qti.sys.fw.empty_app_percent=25
+
+
 # NVIDIA
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.blakemanager.xml:system/etc/permissions/com.nvidia.blakemanager.xml \
@@ -150,6 +159,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ChargerTile \
     PerformanceTile
+
+#GO
+$(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 
 # Wifi
 PRODUCT_COPY_FILES += \

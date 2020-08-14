@@ -4,13 +4,16 @@ ap.interface=wlan0
 persist.tegra.nvmmlite = 1
 persist.wlan.ti.calibrated = 0
 ro.sf.lcd_density=320
-
-# fix 14.1 random crashes
-persist.tegra.compositor=surfaceflinger
-
+persist.tegra.compositor=glcomposer
+persist.tegra.decompression=cde-client
+ro.hardware.vulkan=nvgpu 
+debug.sf.latch_unsignaled=1 
+debug.sf.disable_backpressure=1 
+persist.tegra.compositor=gldrawtexture
 ro.input.noresample=1
 ro.com.google.clientidbase=android-nvidia
 ro.zygote.disable_gl_preload=true
+persist.vendor.tegra.composite.policy=composite-yuv
 pbc.enabled=0
 pbc.log=0
 pbc.board_power_threshold=20000
