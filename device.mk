@@ -166,7 +166,7 @@ $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+   
 
 # Wifi
 # All Shield devices xurrently use broadcom wifi / bluetooth modules
