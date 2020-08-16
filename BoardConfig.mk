@@ -108,9 +108,10 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 # workaround for devices that uses old GPU blobs
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
-# Camera
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
+# Camera shims
+TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
+
 
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
@@ -136,6 +137,10 @@ BOARD_NO_SECURE_DISCARD := true
 
 # RenderScript
 OVERRIDE_RS_DRIVER := libnvRSDriver.so
+
+# SHIMS
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/libnvomxadaptor.so|libnvomxadaptor_shim.so 
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211

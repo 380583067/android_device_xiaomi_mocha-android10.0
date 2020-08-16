@@ -149,7 +149,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/model_frontal.xml:system/etc/model_frontal.xml
 
 PRODUCT_PACKAGES += \
-    camera.tegra
+    camera.tegra \
+    libcamera_shim \
+    libEGL_vnk 
+
+#libnvomxadaptor_shim
+PRODUCT_PACKAGES += \
+    libnvomxadaptor_shim
 
 # Doze
 PRODUCT_PACKAGES += \
