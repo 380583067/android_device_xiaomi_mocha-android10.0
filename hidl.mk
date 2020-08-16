@@ -8,8 +8,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbt-vendor \
     android.hardware.bluetooth@1.0-impl\
-    android.hardware.bluetooth@1.0-service\
-    android.hardware.bluetooth.a2dp@1.0-impl
+    android.hardware.bluetooth@1.0-service
 
 # Camera HAL
 PRODUCT_PACKAGES += \
@@ -69,6 +68,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
+
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    thermal.tn8
 
 # USB HAL
 PRODUCT_PACKAGES += \
