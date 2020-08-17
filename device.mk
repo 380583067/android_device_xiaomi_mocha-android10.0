@@ -86,7 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.qti.sys.fw.trim_cache_percent=100 \
      ro.vendor.qti.sys.fw.empty_app_percent=25
 
-
 # NVIDIA
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.blakemanager.xml:system/etc/permissions/com.nvidia.blakemanager.xml \
