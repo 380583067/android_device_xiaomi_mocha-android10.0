@@ -14,8 +14,10 @@ on early-init
 on init
     export LD_PRELOAD "libshim_zw.so"
 
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-
+  
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -63,6 +65,16 @@ on post-fs-data
     # create directory for mediaserver EGL blob cache
     mkdir /data/misc/mediaserver 0770 media media
 
+     # create directory for runtime calibration data
+    # remount to rw and set perm to 770 till new diag product is created
+    mkdir /data/touchscreen 0770 system system
+    
+    # create directory for camera calibration data
+    mkdir /mnt/factory/camera 0666 system system
+
+    # cpu volt cap
+    mkdir /data/misc/cvc 0774 system system
+
 # Set up HDCP
 import init.hdcp.rc
 
@@ -75,15 +87,15 @@ on boot
     chown system system /sys/devices/platform/7000c400.i2c/i2c-1/1-006b/disabled_by_user
 
 #dt2w
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-004a/wakeup_mode
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input0/wake_gesture
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input3/wake_gesture
+    chown system system /sys/devices/platform/tegra12-i2c.3/i2c-3/3-004a/wakeup_mode
+    chown system system /sys/devices/platform/tegra12-i2c.3.i2c/i2c-3/3-0020/input/input0/wake_gesture
+    chown system system /sys/devices/platform/tegra12-i2c.3/i2c-3/3-0020/input/input3/wake_gesture
 
 ## cmhw permissions
 # key disabler
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-004a/enable_keys
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input0/0dbutton
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input3/0dbutton
+    chown system system /sys/devices/platform/tegra12-i2c.3/i2c-3/3-004a/enable_keys
+    chown system system /sys/devices/platform/tegra12-i2c.3/i2c-3/3-0020/input/input0/0dbutton
+    chown system system /sys/devices/platform/tegra12-i2c.3/i2c-3/3-0020/input/input3/0dbutton
 
 # vibrator intensity
     chown system system /sys/vibrator/pwmvalue
@@ -223,3 +235,6 @@ import init.ussrd.rc
 service watchdogd /sbin/watchdogd 10 110
     class core
     seclabel u:r:watchdogd:s0
+
+# Enabling LZ4 compression algorithm for zram
+write /sys/block/zram0/comp_algorithm lz4

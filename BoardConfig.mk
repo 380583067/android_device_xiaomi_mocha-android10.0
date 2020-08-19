@@ -107,8 +107,9 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 
 # Camera shims
-TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
-
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
+TARGET_USES_NON_TREBLE_CAMERA := true
 
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw

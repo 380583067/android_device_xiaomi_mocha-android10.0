@@ -92,7 +92,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.xml:system/etc/permissions/com.nvidia.feature.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.opengl4.xml:system/etc/permissions/com.nvidia.feature.opengl4.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
-NV_ANDROID_FRAMEWORK_ENHANCEMENTS := true
+
 
 # keylayout
 PRODUCT_COPY_FILES += \
@@ -149,12 +149,14 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     camera.tegra \
-    libcamera_shim \
-    libEGL_vnk 
-
+    libmocha_camera \
+    libmocha_omx \
+    libpowerservice_client \
+    libmocha_libc
+ 
 #libnvomxadaptor_shim
-PRODUCT_PACKAGES += \
-    libnvomxadaptor_shim
+#PRODUCT_PACKAGES += \
+#libnvomxadaptor_shim
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -185,18 +187,6 @@ PRODUCT_PACKAGES += \
 # wifi and bt macs settter
 PRODUCT_PACKAGES += \
     conn_init
-
-# Light
-#PRODUCT_PACKAGES += \
-#    lights.tegra
-
-# Missing symbols lib
-
-PRODUCT_PACKAGES += \
-    libmocha_camera \
-    libmocha_omx \
-    libpowerservice_client \
-    libmocha_libc
 
 PRODUCT_CHARACTERISTICS := tablet
 
