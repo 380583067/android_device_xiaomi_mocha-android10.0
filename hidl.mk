@@ -12,8 +12,8 @@ PRODUCT_PACKAGES += \
 
 # Camera HAL
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl-legacy \
-    android.hardware.camera.provider@2.4-impl-legacy \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl \
     camera.tegra
 
 # FM Radio HAL
