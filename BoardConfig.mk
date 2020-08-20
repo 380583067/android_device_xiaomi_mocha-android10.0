@@ -74,7 +74,7 @@ WITH_DEXPREOPT := true
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
 
 # FM
-BOARD_HAVE_BCM_FM := true
+BOARD_HAVE_BCM_FM := false
 
 # FS
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -167,8 +167,3 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # Zygote whitelist extra paths
 ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
-
-
-
-
-

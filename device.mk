@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
 # PRODUCT PACKAGES
 
 PRODUCT_PACKAGES += \
-     audio.a2dp.default \
+    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.tegra \
@@ -172,12 +172,6 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += power.tegra
-
-# Radio-FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    brcm-uim-sysfs \
-    libfmjni
 
 # Ramdisk
 PRODUCT_PACKAGES += \
