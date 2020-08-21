@@ -185,15 +185,19 @@ static int camera_get_camera_info(int camera_id, struct camera_info *info)
         find_camera_metadata_entry(vendorInfo[camera_id], ANDROID_CONTROL_MAX_REGIONS, &found_entry);
         size_t del_index = found_entry.index;
         delete_camera_metadata_entry(vendorInfo[camera_id], del_index);
-        
+
         find_camera_metadata_entry(vendorInfo[camera_id], ANDROID_CONTROL_AVAILABLE_HIGH_SPEED_VIDEO_CONFIGURATIONS, &found_entry);
         del_index = found_entry.index;
         delete_camera_metadata_entry(vendorInfo[camera_id], del_index);
 
         int32_t max_regions[3] = {8,8,8};
         add_camera_metadata_entry(vendorInfo[camera_id], ANDROID_CONTROL_MAX_REGIONS, max_regions, 3);
-    } 
-    
+
+        find_camera_metadata_entry(vendorInfo[camera_id], ANDROID_LENS_INFO_FOCUS_DISTANCE_CALIBRATION, &found_entry);
+        found_entry.data.u8[0] = ANDROID_LENS_INFO_FOCUS_DISTANCE_CALIBRATION_APPROXIMATE;
+        add_camera_metadata_entry(vendorInfo[camera_id], ANDROID_LENS_INFO_FOCUS_DISTANCE_CALIBRATION, &found_entry, found_entry.index);
+    }
+
     info->static_camera_characteristics = vendorInfo[camera_id];
     dump_camera_metadata(info->static_camera_characteristics, 1, 2);
 
