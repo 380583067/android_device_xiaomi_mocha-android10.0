@@ -64,9 +64,12 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     camera.tegra \
-    libcamera_shim \
-    libEGL_vnk \
-    camera.device@3.2-impl
+    libmocha_camera \
+    libmocha_omx \
+    libpowerservice_client \
+    libmocha_libc \
+    libnvomxadaptor_shim
+   
 
 # Console Mode
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
@@ -117,19 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.qti.sys.fw.use_trim_settings=true \
      ro.vendor.qti.sys.fw.trim_empty_percent=50 \
      ro.vendor.qti.sys.fw.trim_cache_percent=100 \
-     ro.vendor.qti.sys.fw.empty_app_percent=25
-
-# Missing symbols lib
-
-PRODUCT_PACKAGES += \
-    libmocha_camera \
-    libmocha_omx \
-    libpowerservice_client \
-    libmocha_libc
-
-#libnvomxadaptor_shim
-PRODUCT_PACKAGES += \
-    libnvomxadaptor_shim
+     ro.vendor.qti.sys.fw.empty_app_percent=25  
 
 # NVIDIA
 PRODUCT_COPY_FILES += \

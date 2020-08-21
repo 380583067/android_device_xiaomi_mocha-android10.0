@@ -12,7 +12,9 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0-impl
 
 # Camera HAL
-PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-impl-legacy
+PRODUCT_PACKAGES += \
+    camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-impl 
 
 # FM Radio HAL
 PRODUCT_PACKAGES += \
