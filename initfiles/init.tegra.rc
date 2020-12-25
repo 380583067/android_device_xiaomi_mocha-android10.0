@@ -72,18 +72,18 @@ on boot
     chown system system /sys/class/backlight/lcd-backlight/brightness
     
 # charger
-    chown system system /sys/devices/platform/7000c400.i2c/i2c-1/1-006b/disabled_by_user
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-1/1-006b/disabled_by_user
 
 #dt2w
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-004a/wakeup_mode
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input0/wake_gesture
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input3/wake_gesture
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-004a/wakeup_mode
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-0020/input/input0/wake_gesture
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-0020/input/input3/wake_gesture
 
 ## cmhw permissions
 # key disabler
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-004a/enable_keys
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input0/0dbutton
-    chown system system /sys/devices/platform/7000c700.i2c/i2c-3/3-0020/input/input3/0dbutton
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-004a/enable_keys
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-0020/input/input0/0dbutton
+    chown system system /sys/devices/platform/tegra12-i2c.0/i2c-3/3-0020/input/input3/0dbutton
 
 # vibrator intensity
     chown system system /sys/vibrator/pwmvalue

@@ -14,13 +14,14 @@
 # limitations under the License.
 #
 
+
 # Path
 LOCAL_PATH := device/xiaomi/mocha
 
-# This variable is set first, so it can be overridden
-# by BoardConfigVendor.mk
-
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+# Audio
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_TINYHAL_AUDIO := true
 
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
@@ -34,6 +35,11 @@ TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
 # Binder API
 TARGET_USES_64_BIT_BINDER := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/mocha/bluetooth
+
 # Board
 TARGET_BOARD_PLATFORM := tegra
 TARGET_NO_BOOTLOADER := true
@@ -44,6 +50,17 @@ TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Camera
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
+
+# Disable dex pre-opt
+WITH_DEXPREOPT := false
+
+# FM
+BOARD_HAVE_BCM_FM := true
+
 # FS
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -51,9 +68,19 @@ TARGET_EXFAT_DRIVER := sdfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
-# Init
-#TARGET_INIT_VENDOR_LIB := mocha_init
-#TARGET_RECOVERY_DEVICE_MODULES := mocha_init
+# Graphics
+USE_OPENGL_RENDERER := true
+BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
+
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
+
+# Include
+TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive
@@ -78,38 +105,6 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# PowerHAL
-TARGET_POWERHAL_VARIANT := tegra
-
-# ThermalHAL
-TARGET_THERMALHAL_VARIANT := tegra
-
-# Audio
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := true
-BOARD_USES_TINYHAL_AUDIO := true
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/mocha/bluetooth
-
-# FM
-BOARD_HAVE_BCM_FM := false
-
-# Graphics
-USE_OPENGL_RENDERER := true
-BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
-
-# workaround for devices that uses old GPU blobs
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-
-# Camera shims
-TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
-
-
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
 
@@ -120,12 +115,13 @@ RED_LED_PATH := "/sys/class/leds/red/brightness"
 GREEN_LED_PATH := "/sys/class/leds/green/brightness"
 BLUE_LED_PATH := "/sys/class/leds/blue/brightness"
 
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
 # Per-application sizes for shader cache
 MAX_EGL_CACHE_SIZE := 4194304
 MAX_EGL_CACHE_ENTRY_SIZE := 262144
+
+# PowerHAL
+TARGET_POWERHAL_VARIANT := tegra
+
 
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
@@ -134,10 +130,20 @@ BOARD_NO_SECURE_DISCARD := true
 
 # RenderScript
 OVERRIDE_RS_DRIVER := libnvRSDriver.so
+BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
+
+# SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
+                       device/xiaomi/mocha/sepolicy/lineage-common \
+                       device/xiaomi/mocha/sepolicy/mocha
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libnvomxadaptor.so|libnvomxadaptor_shim.so 
+
+# ThermalHAL
+TARGET_THERMALHAL_VARIANT := tegra
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
@@ -152,17 +158,8 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 #WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 #WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 
-# SELinux
-SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
-                       device/xiaomi/mocha/sepolicy/lineage-common \
-                       device/xiaomi/mocha/sepolicy/mocha
-
+# workaround for devices that uses old GPU blobs
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+                       
 # Zygote whitelist extra paths
 ZYGOTE_WHITELIST_PATH_EXTRA := \"/dev/nvhost-ctrl\",\"/dev/nvmap\",
-
-# Disable dex pre-opt
-WITH_DEXPREOPT := false
-
-# HIDL Manifest
-DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
