@@ -1,0 +1,14 @@
+diff --git a/services/surfaceflinger/SurfaceFlinger.cpp b/services/surfaceflinger/SurfaceFlinger.cpp
+index c2be855..b25cdd0 100644
+--- a/services/surfaceflinger/SurfaceFlinger.cpp
++++ b/services/surfaceflinger/SurfaceFlinger.cpp
+@@ -328,6 +328,9 @@ SurfaceFlinger::SurfaceFlinger() : SurfaceFlinger(SkipInitialization) {
+     property_get("debug.sf.showupdates", value, "0");
+     mDebugRegion = atoi(value);
+ 
++    property_get("debug.sf.disable_hwc", value, "0");
++    mDebugDisableHWC = atoi(value);
++
+     property_get("debug.sf.ddms", value, "0");
+     mDebugDDMS = atoi(value);
+     if (mDebugDDMS) {

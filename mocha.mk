@@ -24,9 +24,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
+    android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@4.0-impl \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -77,8 +77,8 @@ PRODUCT_COPY_FILES += \
     
 # Configstore HAL
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-impl \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.1-impl \
+    android.hardware.configstore@1.1-service
 
 # Custom tiles
 PRODUCT_PACKAGES += \
@@ -113,6 +113,7 @@ TARGET_TEGRA_VERSION := t124
 PRODUCT_PACKAGES +=\
 android.hardware.graphics.allocator@2.0-impl \
 android.hardware.graphics.allocator@2.0-service \
+android.hardware.graphics.composer@2.1-impl \
 android.hardware.graphics.mapper@2.0-impl \
 android.hardware.renderscript@1.0-impl \
  libs \
@@ -125,8 +126,8 @@ $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
 
 # Health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-service
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 
 # HIDL (needed for shield 8.0 based hidl hals)
 PRODUCT_PACKAGES += \
@@ -270,7 +271,7 @@ PRODUCT_PACKAGES += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.0-service-basic
 
 # Vibrator
 PRODUCT_PACKAGES += \

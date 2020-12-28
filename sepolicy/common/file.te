@@ -37,25 +37,25 @@ type sysfs_sata, fs_type, sysfs_type;
 type sysfs_pepper_timeout, fs_type, sysfs_type;
 
 # /sys/net/core/wmem_default
-type proc_wmem_default_writable, fs_type;
+type proc_wmem_default_writable, fs_type, proc_type;
 
 # /sys/net/core/wmem_max
-type proc_wmem_max_writable, fs_type;
+type proc_wmem_max_writable, fs_type, proc_type;
 
 # /proc/device-tree/chosen/nvidia,bluetooth-mac
-type proc_bluetooth_mac, fs_type;
+type proc_bluetooth_mac, fs_type, proc_type;
 
 # /data/nvcam
-type nv_camera_data_file, file_type, data_file_type;
+type nv_camera_data_file, file_type, data_file_type, core_data_file_type;
 
 # /data/misc/nvsipc
-type nvs_socket, file_type;
+type nvs_socket, file_type, data_file_type, core_data_file_type;
 
 # /data/core
-type coredump_data_file, file_type, data_file_type;
+type coredump_data_file, file_type, data_file_type, core_data_file_type;
 
 # /data/misc
-type phsd_data, file_type;
+type phsd_data, file_type, data_file_type, core_data_file_type;
 
 # /dev/socket/phsd
 type phsd_socket, file_type;

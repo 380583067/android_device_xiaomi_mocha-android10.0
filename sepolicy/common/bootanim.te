@@ -16,4 +16,4 @@
 allow bootanim self:process execmem;
 
 # Allow GL to access ptimer_scale_factor
-allow bootanim sysfs_gpu:file r_file_perms;
+#allow bootanim sysfs_gpu:file r_file_perms;

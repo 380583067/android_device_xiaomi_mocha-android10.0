@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/potato.mk
+    $(LOCAL_DIR)/potato_mocha.mk

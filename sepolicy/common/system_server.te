@@ -108,7 +108,7 @@ r_dir_file(system_server, sysfs_mmc_host)
 allow system_server sysfs_mmc_host:file rw_file_perms;
 
 # Allow GL to access ptimer_scale_factor
-allow system_server sysfs_gpu:file r_file_perms;
+#allow system_server sysfs_gpu:file r_file_perms;
 
 # allow system_server (for camera features) to read files/dirs in /data/camera_config/
 r_dir_file(system_server, camera_config_file)
