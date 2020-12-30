@@ -32,10 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=yes
 
-# Storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
-
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1
