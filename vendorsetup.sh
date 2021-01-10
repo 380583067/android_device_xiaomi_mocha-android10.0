@@ -1,1 +1,1 @@
-add_lunch_combo potato_mocha-userdebug
+add_lunch_combo aosp_mocha-userdebug
