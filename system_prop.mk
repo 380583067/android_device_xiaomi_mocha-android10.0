@@ -42,7 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
+  persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
   persist.service.adb.enable=1 \
