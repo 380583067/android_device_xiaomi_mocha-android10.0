@@ -19,6 +19,7 @@
 LOCAL_PATH := device/xiaomi/mocha
 
 # Audio
+USE_XML_AUDIO_POLICY_CONF := 1
 
 
 # Architecture
@@ -130,7 +131,7 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/ \
                        device/xiaomi/mocha/sepolicy/lineage-common \
                        device/xiaomi/mocha/sepolicy/mocha
 
