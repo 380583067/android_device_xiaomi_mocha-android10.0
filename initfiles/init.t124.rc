@@ -1,4 +1,3 @@
-import power.mocha.rc
 
 on boot
 # Power management settings
