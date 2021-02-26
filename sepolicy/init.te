@@ -1,4 +1,4 @@
-# Copyright (c) 2014-2016, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,22 +11,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-type pbc, domain;
-type pbc_exec, exec_type, file_type;
-
-init_daemon_domain(pbc)
-
-set_prop(pbc, system_prop)
-set_prop(pbc, pbc_prop)
-
-allow pbc sysfs_devices_system_cpu:file rw_file_perms;
-allow pbc pmqos_device:chr_file rw_file_perms;
-allow pbc sysfs_cfboost:file rw_file_perms;
-
-# i2c control
-allow pbc sysfs_nvi2c:dir r_dir_perms;
-allow pbc sysfs_nvi2c:{ file lnk_file } rw_file_perms;
-
-# Available frequencies access
-allow pbc sysfs_devfreq:file r_file_perms;
+# Shims
+allow init zygote:process noatsecure; 
