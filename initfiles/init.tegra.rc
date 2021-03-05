@@ -12,8 +12,6 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
 
 on init
-    export LD_PRELOAD "libshim_zw.so"
-
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root sdcard_r
     
