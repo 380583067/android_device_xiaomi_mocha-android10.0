@@ -1,0 +1,18 @@
+diff --git a/services/core/java/com/android/server/connectivity/Tethering.java b/services/core/java/com/android/server/connectivity/Tethering.java
+index 743292d5118..52355c52cd4 100644
+--- a/services/core/java/com/android/server/connectivity/Tethering.java
++++ b/services/core/java/com/android/server/connectivity/Tethering.java
+@@ -1060,6 +1060,13 @@ public class Tethering extends BaseNetworkObserver {
+             return;
+         }
+ 
++        // Hack for fix WIFI Tether on some devices
++        if(mTetherStates.get(chosenIface) == null) {
++            Log.e(TAG, "Adding non-existent Iface: " + chosenIface);
++            maybeTrackNewInterfaceLocked(chosenIface, interfaceType);
++        }
++        
++        
+         changeInterfaceState(chosenIface, requestedState);
+     }
+ 
