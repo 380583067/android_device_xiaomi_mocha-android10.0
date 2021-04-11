@@ -94,6 +94,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiDoze 
     
+# facelock properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.facelock.black_timeout=700 \
+    ro.facelock.det_timeout=2500 \
+    ro.facelock.rec_timeout=3500 \
+    ro.facelock.est_max_time=500
+    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs 
@@ -116,7 +123,8 @@ android.hardware.renderscript@1.0-impl \
  libs \
  libshim_zw \
  libnvomxadaptor_shim \
- libshim_atomic     
+ libshim_atomic \
+ hwcomposer.tegra
 
 #GO
 $(call inherit-product, device/xiaomi/mocha/go_mocha.mk)
