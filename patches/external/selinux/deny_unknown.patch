@@ -24,6 +24,6 @@ index 77d04e37..c26b6b6d 100644
  	return deny_unknown;
 +	*/
 + }
- }
+
  
  hidden_def(security_deny_unknown);
