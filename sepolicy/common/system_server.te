@@ -102,7 +102,7 @@ allow system_server self:capability sys_module;
 auditallow system_server self:capability sys_module;
 
 # Dont audit system_server accessing dex2oat
-dontaudit system_server dex2oat_exec:file execute;
+#dontaudit system_server dex2oat_exec:file execute;
 
 r_dir_file(system_server, sysfs_mmc_host)
 allow system_server sysfs_mmc_host:file rw_file_perms;
