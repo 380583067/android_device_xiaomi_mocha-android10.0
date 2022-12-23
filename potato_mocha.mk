@@ -2,10 +2,10 @@
 $(call inherit-product, device/xiaomi/mocha/full_mocha.mk)
 
 # Inherit some common lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
+$(call inherit-product, vendor/potato/config/common_full_tablet_wifionly.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
-PRODUCT_NAME := lineage_mocha
+PRODUCT_NAME := potato_mocha
 PRODUCT_DEVICE := mocha
 BOARD_VENDOR := Xiaomi
 

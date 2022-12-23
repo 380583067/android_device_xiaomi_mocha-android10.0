@@ -57,7 +57,7 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.tegra.so|/system/vendor/lib/libcamera_shim.so
 
 # Disable dex pre-opt
-WITH_DEXPREOPT := false
+WITH_DEXPREOPT := true
 
 # FM
 BOARD_HAVE_BCM_FM := false
