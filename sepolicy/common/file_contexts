@@ -399,3 +399,6 @@
 # Variable refresh rate sysfs
 /sys/devices/platform/host1x/tegradc.[0-1]/vrr(/.*)    u:object_r:sysfs_vrr:s0
 
+# cpu powermode rc file
+
+/power.mocha.rc		                                           u:object_r:power_rc_file:s0
