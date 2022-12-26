@@ -125,7 +125,7 @@
 /dev/block/platform/tegra-sata(.*)/by-name/RP4  	u:object_r:fscheck_block_device:s0
 # external usb
 /dev/block/platform/tegra-xhci/by-name/UDA              u:object_r:userdata_block_device:s0
-/dev/block/platform/tegra-xhci/by-name/CAC              u:object_r:cache_block_device:s0
+/dev/block/platform/tegra-xhci/by-name/CAC   		u:object_r:cache_block_device:s0
 /dev/block/platform/tegra-xhci/by-name/SOS              u:object_r:recovery_block_device:s0
 /dev/block/platform/tegra-xhci/by-name/LNX              u:object_r:boot_block_device:s0
 # cpc char device
@@ -398,4 +398,8 @@
 
 # Variable refresh rate sysfs
 /sys/devices/platform/host1x/tegradc.[0-1]/vrr(/.*)    u:object_r:sysfs_vrr:s0
+
+# cpu powermode rc file
+/power.mocha.rc		                                           u:object_r:power_rc_file:s0
+
 

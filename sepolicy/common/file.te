@@ -248,3 +248,5 @@ type dx_data_file, file_type, data_file_type;
 # /sys/module/xhci_hcd/parameters/...
 type sysfs_usb_blacklist, fs_type, sysfs_type;
 
+# /power.mocha.rc
+type power_rc_file, file_type;
