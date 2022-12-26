@@ -82,7 +82,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
 EXTENDED_FONT_FOOTPRINT := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive vmalloc=450M
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
