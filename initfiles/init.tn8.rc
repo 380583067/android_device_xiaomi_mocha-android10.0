@@ -23,9 +23,9 @@ on post-fs-data
     mkdir /data/sensors 0777 system system
 
 on init
-    # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
-    mkdir /mnt/tmp 0770 system system
-    mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
+    # Mount a tmpfs into /mnt/vendor/tmp for hosting nvram, phs shared memory
+    mkdir /mnt/vendor/tmp 0770 system system
+    mount tmpfs tmpfs /mnt/vendor/tmp mode=0775,gid=1003
 
     setprop sys.esrd.powermon_path /sys/bus/i2c/devices/1-0040/iio_device
     setprop sys.esrd.powermon_channel 0

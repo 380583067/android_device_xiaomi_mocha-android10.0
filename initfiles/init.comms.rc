@@ -21,7 +21,7 @@ on boot
 
     # bluetooth MAC address programming
     chown bluetooth bluetooth ro.bt.bdaddr_path
-    chown bluetooth bluetooth /system/etc/bluetooth
+    chown bluetooth bluetooth /vendor/etc/bluetooth
 
     # Wifi device
     setprop wifi.interface wlan0

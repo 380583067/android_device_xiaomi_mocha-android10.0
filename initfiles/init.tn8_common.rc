@@ -18,7 +18,7 @@ on early-init
     chown root system /lbh
 
     #hack to make hacked mipad GL blobs work (need /gl/libEGL_tegra.so path)
-    symlink /system/lib/egl /gl
+    symlink /system/vendor/lib/egl /gl
     chmod 0755 /gl
     chown root system /gl
 

@@ -16,7 +16,7 @@
 # Starts as user=root but drops to user=system internally
 # after necessary capabilities are established.
 #
-service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
+service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data/vendor
     class main
     group keystore
     writepid /dev/cpuset/system-background/tasks
@@ -32,5 +32,5 @@ service ss_status /vendor/bin/run_ss_status.sh
     oneshot
 
 on post-fs-data
-    mkdir /data/tlk 0700 system keystore
-    mkdir /data/ss 0700 system keystore
+    mkdir /data/vendor/tlk 0700 system keystore
+    mkdir /data/vendor/ss 0700 system keystore

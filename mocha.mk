@@ -231,24 +231,24 @@ power.tegra
    
 # Ramdisk
 PRODUCT_PACKAGES += \
-    $(TARGET_COPY_OUT_VENDOR)/etc/fstab.tn8 \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.cal.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.comms.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.icera.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.hdcp.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ray_touch.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.t124.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tegra.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tlk.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tn8.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tn8.usb.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.tn8_common.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.ussrd.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/power.tn8.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/power.mocha.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/ueventd.tn8.rc \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/ussrd.conf \
-    $(TARGET_COPY_OUT_VENDOR)/etc/init/hw/ussr_setup
+    fstab.tn8 \
+    init.cal.rc \
+    init.comms.rc \
+   init.icera.rc \
+   init.hdcp.rc \
+   init.ray_touch.rc \
+   init.t124.rc \
+   init.tegra.rc \
+   init.tlk.rc \
+   init.tn8.rc \
+   init.tn8.usb.rc \
+   init.tn8_common.rc \
+   init.ussrd.rc \
+   power.tn8.rc \
+   power.mocha.rc \
+   ueventd.tn8.rc \
+   ussrd.conf \
+   ussr_setup
 
     
 # Sensors
