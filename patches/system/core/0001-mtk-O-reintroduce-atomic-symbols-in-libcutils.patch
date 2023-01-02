@@ -11,17 +11,17 @@ Reintroduce atomic symbols in libcutils for old MTK audio hals & Mali blobs
  create mode 100644 libcutils/atomic.c
 
 diff --git a/libcutils/Android.bp b/libcutils/Android.bp
-index bcc9b1c84b8..10aed73e293 100644
+index 619bc567a..155323fde 100644
 --- a/libcutils/Android.bp
 +++ b/libcutils/Android.bp
-@@ -56,6 +56,7 @@ cc_library {
-     },
+@@ -58,6 +58,7 @@ cc_library {
+     recovery_available: true,
      host_supported: true,
      srcs: [
 +        "atomic.c",
          "config_utils.cpp",
-         "fs_config.cpp",
          "canned_fs_config.cpp",
+         "iosched_policy.cpp",
 
 diff --git a/libcutils/atomic.c b/libcutils/atomic.c
 new file mode 100644

@@ -1,30 +1,30 @@
-diff --git a/opengl/libs/EGL/eglApi.cpp b/opengl/libs/EGL/eglApi.cpp
-index 3312b031a..26385fc7c 100644
---- a/opengl/libs/EGL/eglApi.cpp
-+++ b/opengl/libs/EGL/eglApi.cpp
-@@ -15,6 +15,7 @@
-  */
+#diff --git a/opengl/libs/EGL/eglApi.cpp b/opengl/libs/EGL/eglApi.cpp
+index 29a966d34..f2e5ab379 100644
+#--- a/opengl/libs/EGL/eglApi.cpp
+#+++ b/opengl/libs/EGL/eglApi.cpp
+#@@ -15,6 +15,7 @@
+#  */
  
- #define ATRACE_TAG ATRACE_TAG_GRAPHICS
-+#define WORKAROUND_BUG_10194508
+# #define ATRACE_TAG ATRACE_TAG_GRAPHICS
+#+#define WORKAROUND_BUG_10194508
  
- #include <ctype.h>
- #include <dlfcn.h>
-@@ -722,7 +723,16 @@ EGLSurface eglCreateWindowSurface(  EGLDisplay dpy, EGLConfig config,
+# #include <EGL/egl.h>
+# #include <EGL/eglext.h>
+#@@ -110,6 +111,18 @@ EGLSurface eglCreateWindowSurface(EGLDisplay dpy, EGLConfig config, NativeWindow
  
-         EGLDisplay iDpy = dp->disp.dpy;
-         android_pixel_format format;
--        getNativePixelFormat(iDpy, cnx, config, &format);
-+   #ifdef WORKAROUND_BUG_10194508
-+        EGLint eglN = 0;
-+        if ((cnx->egl.eglGetConfigAttrib(iDpy, config, EGL_NATIVE_VISUAL_ID, &eglN)) == EGL_FALSE) {
-+            format = (android_pixel_format)0;
-+        }else{
-+            format = (android_pixel_format)eglN;
-+        }
-+    #else
-+        getNativePixelFormat(iDpy, cnx, config, &format);
-+    #endif
+#     egl_connection_t* const cnx = &gEGLImpl;
+#     return cnx->platform.eglCreateWindowSurface(dpy, config, window, attrib_list);
+#+    #ifdef WORKAROUND_BUG_10194508
+#+        EGLint eglN = 0;
+#+        if ((cnx->egl.eglGetConfigAttrib(iDpy, config, EGL_NATIVE_VISUAL_ID, &eglN)) == EGL_FALSE) {3+            format = (android_pixel_format)0;
+#+        }else{
+#+            format = (android_pixel_format)eglN;
+#+        }
+#+    #else
+#+        getNativePixelFormat(iDpy, cnx, config, &format);
+#+    #endif
+#+  
+#+    
+# }
  
-         // now select correct colorspace and dataspace based on user's attribute list
-         EGLint colorSpace = EGL_UNKNOWN;
+# EGLSurface eglCreatePlatformWindowSurface(EGLDisplay dpy, EGLConfig config, void* native_window,
