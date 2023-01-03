@@ -12,52 +12,52 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH:= $(call my-dir)
+#LOCAL_PATH:= $(call my-dir)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := audio_policy_configuration.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := audio_policy_configuration_nv.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := audio_policy_configuration.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := audio_policy_configuration_nv.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := nvaudio_conf.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := nvaudio_conf.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := nvaudio_conf.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := nvaudio_conf.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := nvaudio_fx.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := nvaudio_fx.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := nvaudio_fx.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := nvaudio_fx.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := media_codecs.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := media_codecs.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := media_codecs.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := media_codecs.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := media_codecs_performance.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := media_codecs_performance.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := media_codecs_performance.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := media_codecs_performance.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := media_profiles_V1_0.xml
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := ETC
-LOCAL_SRC_FILES     := media_profiles_V1_0.xml
-LOCAL_VENDOR_MODULE := true
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE        := media_profiles_V1_0.xml
+#LOCAL_MODULE_TAGS   := optional
+#LOCAL_MODULE_CLASS  := ETC
+#LOCAL_SRC_FILES     := media_profiles_V1_0.xml
+#LOCAL_VENDOR_MODULE := true
+#include $(BUILD_PREBUILT)
