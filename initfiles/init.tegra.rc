@@ -6,7 +6,7 @@
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
-import init.comms.rc
+import vendor/etc/init/hw/init.comms.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
@@ -38,7 +38,7 @@ on init
     start watchdogd
 
 on fs
-# mount console ramooops
+ # mount console ramooops
    mount pstore pstore /sys/fs/pstore
 
 on post-fs-data
@@ -64,7 +64,7 @@ on post-fs-data
     mkdir /data/misc/mediaserver 0770 media media
 
 # Set up HDCP
-import init.hdcp.rc
+import vendor/etc/init/hw/init.hdcp.rc
 
 on boot
 
@@ -159,7 +159,7 @@ on boot
     chown system system /sys/bus/i2c/drivers/lp5521/0-0032/run_engine
 
 # TLK storage service
-import init.tlk.rc
+import vendor/etc/init/hw/init.tlk.rc
 
 on property:ro.debuggable=1
     # EMC debug interface

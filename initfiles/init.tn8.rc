@@ -6,11 +6,11 @@
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
-import init.tegra.rc
-import init.tn8_common.rc
-import init.t124.rc
-import init.cal.rc
-import init.tn8.usb.rc
+import vendor/etc/init/hw/init.tegra.rc
+import vendor/etc/init/hw/init.tn8_common.rc
+import vendor/etc/init/hw/init.t124.rc
+import vendor/etc/init/hw/init.cal.rc
+import vendor/etc/init/hw/init.tn8.usb.rc
 
 on post-fs-data
     chmod 0644 /sys/kernel/cluster/active
@@ -48,8 +48,8 @@ on init
     chown system system /sys/bus/i2c/devices/1-0040/iio_device/running_mode
 
 on fs
-    mount_all /fstab.tn8
-    swapon_all /fstab.tn8
+    mount_all  /vendor/etc/fstab.tn8
+    swapon_all /vendor/etc/fstab.tn8
 
 
 on boot
