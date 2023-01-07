@@ -23,7 +23,6 @@ BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_TINYHAL_AUDIO := false
 TARGET_LD_SHIM_LIBS := /system/vendor/lib/hw/audio.primary.vendor.tegra.so|libmocha_audio.so
-USE_XML_AUDIO_POLICY_CONF := 1
 
 
 # Architecture
@@ -78,7 +77,7 @@ BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
 
 # Include
-#TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
