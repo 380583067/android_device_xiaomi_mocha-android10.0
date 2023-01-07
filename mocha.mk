@@ -18,6 +18,37 @@ $(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 
 # Audio
+ PRODUCT_PACKAGES += \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@4.0-impl \
+    a2dp_module_deviceports.xml \
+    a2dp_module_mixports.xml \
+    primary_module_deviceports.xml \
+    primary_module_mixports.xml \
+    r_submix_audio_policy_configuration.xml \
+    usb_module_deviceports.xml \
+    usb_module_mixports.xml \
+    ne_audio_policy_volumes.xml \
+    ne_default_volume_tables.xml \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    audio.primary.tegra \
+    libaudiohalcm \
+    libaudio-resampler \
+    libaudiospdif \
+    libstagefrighthw \
+    libtinycompress \
+    tinycap_mocha \
+    tinymix_mocha \
+    tinypcminfo_mocha \
+    tinyplay_mocha \
+    libtinyalsa_mocha \
+    libtinyalsa \
+    xaplay \
+    enctune.conf
+
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
