@@ -22,12 +22,20 @@ $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 	android.hardware.audio@4.0 \
 	android.hardware.audio@2.0-impl \
 	android.hardware.audio.effect@4.0-impl \
-	audio.primary.vendor.tegra \
-	audio.a2dp.default \
-	audio.usb.default \
-	audio.r_submix.default \
-	libhtcacoustic
-
+	 audio.primary.tegra \
+	libaudiohalcm \
+	libaudio-resampler \
+	libaudiospdif \
+	libstagefrighthw \
+        libtinycompress \
+        tinycap_mocha \
+        tinymix_mocha \
+        tinypcminfo_mocha \
+        tinyplay_mocha \
+        libtinyalsa_mocha \
+        libtinyalsa \
+        xaplay \
+       libhtcacoustic
 
 USE_XML_AUDIO_POLICY_CONF := 1
 
@@ -136,12 +144,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
     
-# keylayout
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/Vendor_0955_Product_7210.kl:system/usr/keylayout/Vendor_0955_Product_7210.kl
-# Keymaster
+# Key layouts
+PRODUCT_PACKAGES += \
+    tegra-kbc.kl \
+    Vendor_0955_Product_7210.kl
+
+
+    # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
@@ -222,6 +231,7 @@ PRODUCT_CHARACTERISTICS := tablet
 # Power
 PRODUCT_PACKAGES += \
 android.hardware.power@1.0-service.mocha \
+android.hardware.vendor.lineage.power@1.0-impl\
 power.tegra
    
 # Ramdisk
