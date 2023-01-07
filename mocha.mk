@@ -19,36 +19,30 @@ $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 
 # Audio
  PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@4.0-impl \
-    a2dp_module_deviceports.xml \
-    a2dp_module_mixports.xml \
-    primary_module_deviceports.xml \
-    primary_module_mixports.xml \
-    r_submix_audio_policy_configuration.xml \
-    usb_module_deviceports.xml \
-    usb_module_mixports.xml \
-    ne_audio_policy_volumes.xml \
-    ne_default_volume_tables.xml \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    audio.primary.tegra \
-    libaudiohalcm \
-    libaudio-resampler \
-    libaudiospdif \
-    libstagefrighthw \
-    libtinycompress \
-    tinycap_mocha \
-    tinymix_mocha \
-    tinypcminfo_mocha \
-    tinyplay_mocha \
-    libtinyalsa_mocha \
-    libtinyalsa \
-    xaplay \
-    enctune.conf
+	android.hardware.audio@4.0 \
+	android.hardware.audio@2.0-impl \
+	android.hardware.audio.effect@4.0-impl \
+	audio.primary.vendor.tegra \
+	audio.a2dp.default \
+	audio.usb.default \
+	audio.r_submix.default \
+	libhtcacoustic
 
+
+USE_XML_AUDIO_POLICY_CONF := 1
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/configs/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/configs/mixer_paths_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/configs/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
