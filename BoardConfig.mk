@@ -134,9 +134,9 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-#BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/ \
-#                       device/xiaomi/mocha/sepolicy/lineage-common \
-#                       device/xiaomi/mocha/sepolicy/mocha
+BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/ \
+                       device/xiaomi/mocha/sepolicy/lineage-common \
+                       device/xiaomi/mocha/sepolicy/mocha
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
