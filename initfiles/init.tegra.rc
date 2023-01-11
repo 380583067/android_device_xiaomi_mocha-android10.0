@@ -15,6 +15,8 @@ on init
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root sdcard_r
     
+    # Mount and bind audio_policy_configuration.xml in /vendor
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -27,10 +29,10 @@ on init
     symlink /mnt/media_rw/usbdrive /usbdrive
 
     # create directory for mounting calibration partition
-    mkdir /mnt/factory 0666 system system
+    mkdir /mnt/vendor/factory 0666 system system
 
-    mkdir /factory 0666 system system
-    mkdir /factory/wifi_config 0666 system system
+    mkdir /vendor/factory 0666 system system
+    mkdir /vendor/factory/wifi_config 0666 system system
 
     # create directory for mounting user calibration partition
     mkdir /mnt/usercalib 0771 system system
@@ -52,16 +54,16 @@ on post-fs-data
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /usercalib
 
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    mkdir /data/misc/hwc 0771 system graphics
-    mkdir /data/nvcam 0700 media camera
+    mkdir /data/vendor/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/vendor/misc/hwc 0771 system graphics
+    mkdir /data/vendor/nvcam 0700 media camera
     chown dhcp dhcp /data/misc/dhcp
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
 
     # create directory for mediaserver EGL blob cache
-    mkdir /data/misc/mediaserver 0770 media media
+    mkdir /data/vendor/misc/mediaserver 0770 media media
 
 # Set up HDCP
 import vendor/etc/init/hw/init.hdcp.rc
