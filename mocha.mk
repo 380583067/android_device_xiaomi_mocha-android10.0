@@ -14,43 +14,40 @@
 # limitations under the License.
 #
 
+LOCAL_PATH:=device/xiaomi/mocha
+
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 
 # Audio
- PRODUCT_PACKAGES += \
-	android.hardware.audio@4.0 \
-	android.hardware.audio@2.0-impl \
-	android.hardware.audio.effect@4.0-impl \
-	 audio.primary.tegra \
-	libaudiohalcm \
-	libaudio-resampler \
-	libaudiospdif \
-	libstagefrighthw \
-        libtinycompress \
-        tinycap_mocha \
-        tinymix_mocha \
-        tinypcminfo_mocha \
-        tinyplay_mocha \
-        libtinyalsa_mocha \
-        libtinyalsa \
-        xaplay \
-       libhtcacoustic
 
-USE_XML_AUDIO_POLICY_CONF := 1
+ USE_XML_AUDIO_POLICY_CONF := 1
+
+ PRODUCT_PACKAGES += \
+	android.hardware.audio@2.0\
+	android.hardware.audio@2.0-impl \
+	android.hardware.audio.effect@20-impl \
+	libmocha_audio.so\
+	audio_policy_configuration \
+        audio_effects.xml \
+        nvaudio_conf.xml \
+        primary_module_deviceports.xml \
+	primary_module_mixports.xml
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/configs/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/configs/mixer_paths_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml
+    $(LOCAL_PATH)/audio/configs/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etcaudio_effects.xml \
+    $(LOCAL_PATH)/audio/configs/nvaudio_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nvaudio_conf.xml \
+    $(LOCAL_PATH)/audio/configs/primary_module_deviceports.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_module_deviceports.xml \
+    $(LOCAL_PATH)/audio/configs/primary_module_mixports.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_module_mixports.xml
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/configs/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
