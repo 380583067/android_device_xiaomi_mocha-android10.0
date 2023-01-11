@@ -88,6 +88,11 @@ on init
     mkdir /mnt/tmp 0770 system system
     mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
 
+     # TLK SecureOS
+    setprop ro.boot.secureos tlk
+    setprop ro.hardware.gatekeeper tlk.tegra
+
+
 # Loads real wifi and bt mac from /dev/block/mmcblk0p15
 service conn_wifi /system/vendor/bin/conn_init -op
     class main
