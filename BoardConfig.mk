@@ -40,7 +40,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/mocha/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Board
 TARGET_BOARD_PLATFORM := tegra
@@ -77,7 +77,7 @@ BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
 
 # Include
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -94,7 +94,7 @@ TARGET_KERNEL_CONFIG := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_CUSTOM_BOOTIMG_MK := device/xiaomi/mocha/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640 # 640 Mb stock partition table
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1337564160 # 1.2 Gb
@@ -106,7 +106,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # LINEAGEHW
-BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -134,9 +134,9 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/ \
-                       device/xiaomi/mocha/sepolicy/lineage-common \
-                       device/xiaomi/mocha/sepolicy/mocha
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)sepolicy/ \
+                       $(LOCAL_PATH)/sepolicy/lineage-common \
+                       $(LOCAL_PATH)/mocha/sepolicy/mocha
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \

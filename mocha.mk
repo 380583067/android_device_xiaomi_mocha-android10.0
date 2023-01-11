@@ -28,11 +28,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 	android.hardware.audio@2.0-impl \
 	android.hardware.audio.effect@20-impl \
 	libmocha_audio.so\
-	audio_policy_configuration \
-        audio_effects.xml \
-        nvaudio_conf.xml \
-        primary_module_deviceports.xml \
-	primary_module_mixports.xml
+	
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
@@ -44,7 +40,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/configs/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etcaudio_effects.xml \
-    $(LOCAL_PATH)/audio/configs/nvaudio_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nvaudio_conf.xml \
+    $(LOCAL_PATH)/audio/configs/nvaudio_conf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_mocha.xml \
     $(LOCAL_PATH)/audio/configs/primary_module_deviceports.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_module_deviceports.xml \
     $(LOCAL_PATH)/audio/configs/primary_module_mixports.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_module_mixports.xml
 
@@ -191,7 +187,7 @@ PRODUCT_COPY_FILES += \
     
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    device/xiaomi/mocha/overlay
+    $(LOCAL_PATH)/overlay
         
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -277,8 +273,8 @@ PRODUCT_PACKAGES += \
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/xiaomi/mocha/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    $(LOCAL_PATH)/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
     
 # Wifi
 PRODUCT_COPY_FILES += \
