@@ -10,7 +10,6 @@ LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-## liblog
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := stdio_vsnprintf.cpp
 LOCAL_C_INCLUDES := \
@@ -20,6 +19,7 @@ LOCAL_C_INCLUDES := \
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE := libs
 LOCAL_MODULE_TAGS := optional
+LOCAL_LDFLAGS_arm += -Wl,--version-script,$(LOCAL_PATH)/stdio_vsnprintf.arm.map
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -33,7 +33,6 @@ LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE := libshim_zw
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
-
 
 ## libnvomxadaptor_shim
 
