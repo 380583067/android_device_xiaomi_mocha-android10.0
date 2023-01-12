@@ -124,7 +124,7 @@ TARGET_POWERHAL_VARIANT := tegra
 
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
+TARGET_RECOVERY_DEVICE_DIRS += 
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
 
@@ -134,9 +134,7 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)sepolicy/ \
-                       $(LOCAL_PATH)/sepolicy/lineage-common \
-                       $(LOCAL_PATH)/mocha/sepolicy/mocha
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
