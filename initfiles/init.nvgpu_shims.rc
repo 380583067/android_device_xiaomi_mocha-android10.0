@@ -13,5 +13,5 @@
 # limitations under the License.
 
 on early-init
-    export LD_PRELOAD "libshim_zw.so"
+    export LD_PRELOAD "/system/${LIB}/libshim_zw.so"
 
