@@ -37,6 +37,10 @@ on init
     # create directory for mounting user calibration partition
     mkdir /mnt/usercalib 0771 system system
 
+    #radio.noril true  
+    setprop ro.radio.noril true
+
+
 start watchdogd
 
 on fs
