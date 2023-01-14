@@ -1,0 +1,3 @@
+r_dir_file(hal_thermal_default, sysfs_thermal)
+
+allow hal_thermal_default rootfs:dir r_dir_perms;

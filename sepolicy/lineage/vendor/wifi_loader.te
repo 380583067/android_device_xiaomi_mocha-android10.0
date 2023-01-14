@@ -1,0 +1,1 @@
+allow wifi_loader sysfs_wlan_fwpath:file { getattr setattr r_file_perms };

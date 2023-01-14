@@ -1,0 +1,62 @@
+# Copyright (C) 2018 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# BCM Wi-Fi
+/sys/firmware/devicetree/base/bcmdhd_wlan/status                                 u:object_r:sysfs_brcmfmac_pcie:s0
+
+# DRM
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service\.clearkey        u:object_r:hal_drm_clearkey_exec:s0
+
+# Joycond
+/(vendor|system/vendor)/bin/joycond                                              u:object_r:joycond_exec:s0
+
+# Partitions
+/dev/block/mmcblk0boot1		u:object_r:bootloader_block_device:s0
+
+# Scripts
+/(vendor|system/vendor)/bin/bt_loader\.sh                                        u:object_r:bt_loader_exec:s0
+
+# Source built HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service-nvidia         u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health@2\.0-service\.tegra        u:object_r:hal_health_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health@2\.0-service\.tegra_nobatt u:object_r:hal_health_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.memtrack@1\.0-service-nvidia      u:object_r:hal_memtrack_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service-nvidia         u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@1\.0-service-nvidia       u:object_r:hal_thermal_default_exec:s0
+
+# Prebuilt HALs
+/(vendor|system/vendor)/lib(64)?/hw/audio\.primary\.tegra\.so                       u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/hw/sound_trigger\.primary\.tegra\.so               u:object_r:same_process_hal_file:s0
+
+# Nvgpu shim
+/(vendor|system/vendor)/lib(64)?/libgol.so		u:object_r:same_process_hal_file:s0
+
+# RTL Bluetooth/Wifi Firmware
+/vendor/firmware/rtl.*_config			u:object_r:vendor_firmware_wifi_file:s0
+/vendor/firmware/rtl.*_fw			u:object_r:vendor_firmware_wifi_file:s0
+/vendor/firmware/rtl.*_settings\.bin		u:object_r:vendor_firmware_wifi_file:s0
+
+# Sysfs paths
+/sys/bus/usb/drivers/hub/3-0:1\.0                                                   u:object_r:sysfs_usb_controller:s0
+/sys/bus/i2c/drivers/ina3221x                                                       u:object_r:sysfs_nvi2c:s0
+/sys/devices/7000c400.i2c/i2c-1/1-0040(/.*)?                                        u:object_r:sysfs_nvi2c:s0
+/sys/devices/hda_pcm_map                                                            u:object_r:sysfs_audio:s0
+/sys/firmware/devicetree/base/chosen/plugin-manager/cvm                             u:object_r:sysfs_board:s0
+/sys/firmware/devicetree/base/chosen/proc-board/id                                  u:object_r:sysfs_board:s0
+/sys/firmware/devicetree/base/chosen/proc-board/name                                u:object_r:sysfs_board:s0
+/sys/firmware/devicetree/base/chosen/proc-board/sku                                 u:object_r:sysfs_board:s0
+/sys/firmware/devicetree/base/compatible                                            u:object_r:sysfs_device_type:s0
+
+# Tegra Vendor Init
+/vendor/bin/init_tegra		u:object_r:init_tegra_exec:s0

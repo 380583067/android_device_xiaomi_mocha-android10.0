@@ -136,8 +136,11 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 
 # SELinux
 SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha
-
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
+                       $(LOCAL_PATH)/sepolicy/lineage/vendor \
+                       $(LOCAL_PATH)/sepolicy/common/private \
+                       $(LOCAL_PATH)/sepolicy/common/public \
+                       $(LOCAL_PATH)/sepolicy/common/vendor \
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libnvomxadaptor.so|libnvomxadaptor_shim.so 
