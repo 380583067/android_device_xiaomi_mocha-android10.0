@@ -21,6 +21,11 @@
 # Joycond
 /(vendor|system/vendor)/bin/joycond                                              u:object_r:joycond_exec:s0
 
+
+# Lineage Trust HAL
+/system/vendor/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
+
+
 # Partitions
 /dev/block/mmcblk0boot1		u:object_r:bootloader_block_device:s0
 
@@ -60,3 +65,4 @@
 
 # Tegra Vendor Init
 /vendor/bin/init_tegra		u:object_r:init_tegra_exec:s0
+

@@ -221,5 +221,14 @@
         <transport>hwbinder</transport>
         <fqname>@2.0::IPictureAdjustment/default</fqname>
     </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.trust</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUsbRestrict</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 
 </manifest>
