@@ -55,6 +55,15 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
+
+service mac_generator /system/vendor/bin/macaddr.sh -op
+    class main
+    user root
+    group root
+    seclabel u:r:mac_generator:s0
+    oneshot
+
+    
 service dns_masq /system/bin/dnsmasq --no-daemon --no-resolv --no-poll --dhcp-option-force=43,ANDROID_METERED --dhcp-range=192.168.42.2,192.168.42.254,1h &
     class main
     user dhcp
