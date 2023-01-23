@@ -69,14 +69,14 @@ on post-fs-data
     # create directory for mediaserver EGL blob cache
     mkdir /data/vendor/misc/mediaserver 0770 media media
 
+# backlight
+    chown system system /sys/class/backlight/lcd-backlight/brightness
+
 # Set up HDCP
 import vendor/etc/init/hw/init.hdcp.rc
 
 on boot
-
-# backlight
-    chown system system /sys/class/backlight/lcd-backlight/brightness
-    
+   
 # charger
     chown system system /sys/devices/platform/tegra12-i2c.0/i2c-1/1-006b/disabled_by_user
 
