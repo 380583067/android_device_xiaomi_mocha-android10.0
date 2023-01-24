@@ -232,7 +232,6 @@ service bugreport /system/bin/dumpstate -d -p -B -o /data/data/com.android.shell
 # unified scaling setup
 import vendor/etc/init/hw/init.ussrd.rc
 
-
 # Thie yields each tegra wdt expiration to be at 30 secs and fourth expiration for reboot at 120 secs.
 service watchdogd /system/watchdogd 10 110
     class core
