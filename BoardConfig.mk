@@ -110,6 +110,11 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
+# Malloc
+MALLOC_SVELTE := true
+
+
+
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := "/sys/class/backlight/lcd-backlight/brightness"
