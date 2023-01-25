@@ -40,6 +40,8 @@ TARGET_USES_64_BIT_BINDER := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_CUSTOM_BT_CONFIG  := $(LOCAL_PATH)/bluetooth/vnd_shieldtablet.txt
+BCM_BLUETOOTH_MANTA_BUG := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Board
@@ -112,8 +114,6 @@ BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Malloc
 MALLOC_SVELTE := true
-
-
 
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
