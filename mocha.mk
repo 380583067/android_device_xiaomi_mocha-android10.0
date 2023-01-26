@@ -293,3 +293,7 @@ PRODUCT_PACKAGES += \
     conn_init \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2018-01-05
