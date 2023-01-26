@@ -259,8 +259,8 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    thermal.tn8
+    android.hardware.thermal@1.0-service-nvidia \
+    thermalhal.tn8.xml
 
 # Trust HAL
 PRODUCT_PACKAGES += \
