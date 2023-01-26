@@ -219,6 +219,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_CHARACTERISTICS := tablet
 
+# PHS
+PRODUCT_PACKAGES += \
+    nvphsd.conf
+
 # Power
 PRODUCT_PACKAGES += \
 android.hardware.power@1.0-service.mocha \
