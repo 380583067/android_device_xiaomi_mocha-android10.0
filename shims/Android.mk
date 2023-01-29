@@ -1,7 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
-## libshim_atomic
-include $(CLEAR_VARS)
+
 
 PROTOBUF_SYMLINK := $(TARGET_OUT_VENDOR)/lib/libprotobuf-cpp-lite-3.9.1.so
 $(PROTOBUF_SYMLINK):
@@ -11,7 +10,8 @@ $(PROTOBUF_SYMLINK):
 ALL_DEFAULT_INSTALLED_MODULES += $(PROTOBUF_SYMLINK)
 
 
-
+## libshim_atomic
+include $(CLEAR_VARS)
 LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
