@@ -38,7 +38,7 @@ persist.service.debuggable=1
 
 debug.sf.disable_hwc=1
 # debug.hwui.renderer=skiavk
-ro.bt.bdaddr_path=/data/mocha_btmacaddr.txt
+ro.boot.btmacaddr=00:00:00:00:00:00
 
 # LMKD options
  ro.lmk.low=1001

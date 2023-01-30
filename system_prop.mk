@@ -7,7 +7,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # BT
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/data/mocha_btmacaddr.txt
+    ro.boot.btmacaddr=00:00:00:00:00:00
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
