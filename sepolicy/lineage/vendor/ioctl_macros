@@ -1,3 +1,0 @@
-define(`tlk_ioctls', `{
-TE_IOCTL_CMD1
-}')

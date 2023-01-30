@@ -1,7 +1,0 @@
-allow hal_cplservice_default socket_device:sock_file {create setattr unlink rw_file_perms};
-allow hal_cplservice_default nvcpl_app:binder call;
-
-set_prop(hal_cplservice_default, pbc_prop)
-set_prop(hal_cplservice_default, powerhal_prop)
-set_prop(hal_cplservice_default, power_hint_prop)
-set_prop(hal_cplservice_default, tegra_graphics_prop)

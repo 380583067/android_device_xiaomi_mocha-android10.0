@@ -1,3 +1,0 @@
-allow ueventd self:capability sys_nice;
-
-allow ueventd tmpfs:lnk_file r_file_perms;

@@ -1,3 +1,0 @@
-r_dir_file(hal_audio_default, sysfs_audio)
-r_dir_file(hal_audio_default, sysfs_hda_map)
-r_dir_file(hal_audio_default, sysfs_device_platform)

@@ -1,5 +1,0 @@
-get_prop(mediacodec, nvmedia_prop)
-
-allow mediacodec camera_device:file rw_file_perms;
-
-dontaudit mediacodec camera_device:chr_file rw_file_perms;

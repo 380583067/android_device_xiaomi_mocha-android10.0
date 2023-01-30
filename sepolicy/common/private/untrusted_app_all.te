@@ -1,2 +1,0 @@
-# Allow frameworks to find 'nvcpl' system service; enables app profiles
-allow untrusted_app_all nvcpl_service:service_manager find;

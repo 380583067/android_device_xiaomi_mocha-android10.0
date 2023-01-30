@@ -1,2 +1,0 @@
-# Allow system app to get nvcpl service
-allow system_app nvcpl_service:service_manager find;

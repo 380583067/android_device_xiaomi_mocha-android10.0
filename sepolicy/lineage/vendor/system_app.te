@@ -1,7 +1,0 @@
-allow system_app vendor_file:dir r_dir_perms;
-r_dir_file(system_app, sysfs_audio_aux)
-r_dir_file(system_app, sysfs_class_extcon)
-r_dir_file(system_app, sysfs_device_platform)
-r_dir_file(system_app, sysfs_extcon_name)
-
-allow system_app wificond:binder call;

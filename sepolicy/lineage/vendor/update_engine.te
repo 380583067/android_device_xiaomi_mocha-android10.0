@@ -1,1 +1,0 @@
-allow update_engine proc_filesystems:file r_file_perms;

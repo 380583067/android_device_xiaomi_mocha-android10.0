@@ -1,7 +1,0 @@
-set_prop(tee, vendor_tee_prop)
-
-allowxperm tee rpmb_block_device:blk_file ioctl tlk_ioctls;
-
-allow tee system_data_file:dir { getattr search };
-
-allow tee proc_version:file r_file_perms;

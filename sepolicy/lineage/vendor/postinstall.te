@@ -1,6 +1,0 @@
-get_prop(postinstall, ota_prop)
-
-allow postinstall sysfs_block:dir search;
-allow postinstall sysfs_block:lnk_file read;
-
-allowxperm postinstall bootloader_block_device:blk_file ioctl { HDIO_GETGEO BLKGETSIZE };

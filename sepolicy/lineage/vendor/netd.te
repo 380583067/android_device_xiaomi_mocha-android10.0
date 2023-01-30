@@ -1,2 +1,0 @@
-dontaudit netd system_file:dir { add_name write };
-dontaudit netd system_file:file create;

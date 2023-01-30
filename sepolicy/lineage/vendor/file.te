@@ -1,8 +1,0 @@
-type proc_kernel, proc_type, fs_type;
-type proc_legacy_va_layout, proc_type, fs_type;
-type proc_min_free_kbytes, proc_type, fs_type;
-type proc_pci_map, proc_type, fs_type;
-type sysfs_audio, fs_type, sysfs_type;
-type sysfs_board, sysfs_type, fs_type;
-type sysfs_usb_controller, fs_type, sysfs_type;
-type vendor_bt_exec, exec_type, vendor_file_type, file_type;

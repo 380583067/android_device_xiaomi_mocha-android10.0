@@ -1,8 +1,0 @@
-get_prop(nvphsd, pbc_prop)
-get_prop(nvphsd, powerhal_prop)
-get_prop(nvphsd, power_hint_prop)
-
-allow nvphsd cgroup:file r_file_perms;
-allow nvphsd proc_version:file r_file_perms;
-r_dir_file(nvphsd, sysfs_devfreq)
-r_dir_file(nvphsd, sysfs_device_platform)
