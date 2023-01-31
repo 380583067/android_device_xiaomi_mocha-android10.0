@@ -19,10 +19,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ui.hw=true \
-    debug.sf.disable_backpressure=1 \
+    debug.hwc.force_gpu=1 \
+    persist.sys.ui.hw=false \
+    debug.hwui.use_buffer_age=false \
+    debug.hwui.renderer=opengl \
     debug.sf.latch_unsignaled=1 \
-    debug.hwui.render_dirty_regions=false
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=2
 
 # Lineage genuine
 PRODUCT_PROPERTY_OVERRIDES += \
