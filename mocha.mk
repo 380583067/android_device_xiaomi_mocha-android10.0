@@ -19,8 +19,12 @@ LOCAL_PATH := device/xiaomi/mocha
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/consolemode-blobs.mk)
 
-# Audio
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
+
+# Audio
  USE_XML_AUDIO_POLICY_CONF := 1
 
  PRODUCT_PACKAGES += \
