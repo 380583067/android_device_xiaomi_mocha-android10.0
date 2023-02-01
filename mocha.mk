@@ -89,6 +89,9 @@ PRODUCT_PACKAGES += \
     ChargerTile \
     PerformanceTile
 
+# Dexpreopt
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+
 # DRM HAL
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
