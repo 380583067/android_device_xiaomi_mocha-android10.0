@@ -210,7 +210,8 @@
 (/system)?/vendor/bin/cac_log_dumper	u:object_r:cac_log_dumper_exec:s0
 # factory_tests
 (/system)?/vendor/bin/factory_tests	u:object_r:factory_tests_exec:s0
-
+# Lineage Trust HAL
+/system/vendor/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
 #############################
 # Data files
 
