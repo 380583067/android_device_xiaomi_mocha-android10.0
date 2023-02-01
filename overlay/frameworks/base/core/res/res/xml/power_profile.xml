@@ -63,10 +63,10 @@
       <value>2218500</value>
   </array>
   <!-- Power consumption when CPU is idle -->
-  <item name="cpu.idle">8.2</item>
+  <item name="cpu.suspend">8.2</item>
   <item name="cpu.awake">19.1</item>
   <!-- Power consumption at different speeds -->
-  <array name="cpu.active">
+  <array name="cpu.core_power.cluster0">
       <value>2.18</value>
       <value>6.64</value>
       <value>26.97</value>
