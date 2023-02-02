@@ -17,7 +17,7 @@
 // #define LOG_NDEBUG 0
 
 #define LOG_TAG "Camera2-Metadata"
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <utils/Errors.h>
 
 #include <camera/CameraMetadata.h>

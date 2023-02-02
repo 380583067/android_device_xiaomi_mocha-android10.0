@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/properties.h>
 #include <cutils/str_parms.h>
 

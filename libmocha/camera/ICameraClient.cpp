@@ -17,7 +17,7 @@
 
 //#define LOG_NDEBUG 0
 #define LOG_TAG "ICameraClient"
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <stdint.h>
 #include <sys/types.h>
 #include <camera/ICameraClient.h>

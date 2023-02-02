@@ -22,7 +22,7 @@
 #include <system/window.h>
 #include <system/graphics.h>
 
-#include <utils/Log.h>
+#include <log/Log.h>
 
 namespace android {
 

@@ -16,7 +16,7 @@
 */
 
 #define LOG_TAG "BpCameraService"
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <utils/Errors.h>
 #include <utils/String16.h>
 

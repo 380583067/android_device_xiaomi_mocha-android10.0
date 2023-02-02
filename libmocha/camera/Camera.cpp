@@ -17,7 +17,7 @@
 
 //#define LOG_NDEBUG 0
 #define LOG_TAG "Camera"
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <utils/threads.h>
 #include <utils/String16.h>
 #include <binder/IPCThreadState.h>

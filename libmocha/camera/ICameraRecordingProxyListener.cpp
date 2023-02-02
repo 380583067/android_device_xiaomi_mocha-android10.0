@@ -19,7 +19,7 @@
 #include <camera/ICameraRecordingProxyListener.h>
 #include <binder/IMemory.h>
 #include <binder/Parcel.h>
-#include <utils/Log.h>
+#include <log/Log.h>
 
 namespace android {
 

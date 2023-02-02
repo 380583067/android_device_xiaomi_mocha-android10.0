@@ -18,7 +18,7 @@
 
 #include <binder/Parcel.h>
 #include <utils/Errors.h>
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <utils/Mutex.h>
 #include <utils/Vector.h>
 #include <utils/SortedVector.h>
