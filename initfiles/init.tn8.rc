@@ -51,9 +51,15 @@ on fs
     mount_all  /vendor/etc/fstab.tn8
     swapon_all /vendor/etc/fstab.tn8
 
+on property:dev.bootcomplete=1
+    start vendor.init_renderer
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
+service vendor.init_renderer /vendor/bin/init.renderer.sh
+    user root
+    oneshot
 
 
 on boot

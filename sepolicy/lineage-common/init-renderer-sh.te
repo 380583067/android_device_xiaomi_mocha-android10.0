@@ -1,0 +1,14 @@
+type init-renderer-sh, domain;
+type init-renderer-sh_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(init-renderer-sh)
+
+# Shell script needs to execute /vendor/bin/sh
+allow init-renderer-sh vendor_shell_exec:file rx_file_perms;
+allow init-renderer-sh vendor_toolbox_exec:file rx_file_perms;
+allow init-renderer-sh system_file:file execute_no_trans;
+allow init-renderer-sh toolbox_exec:file { execute execute_no_trans getattr open read };
+allow init-renderer-sh servicemanager:binder call;
+allow init-renderer-sh shell_exec:file { execute execute_no_trans getattr open read };
+allow init-renderer-sh surfaceflinger:binder call;
+allow init-renderer-sh surfaceflinger_service:service_manager find;

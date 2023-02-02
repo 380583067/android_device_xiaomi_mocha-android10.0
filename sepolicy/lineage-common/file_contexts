@@ -22,3 +22,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.0-service\.mocha      u:object_r:hal_vibrator_default_exec:s0
 # Lineage Trust HAL
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
+
+# Init render script
+/(vendor|system/vendor)/bin/init\.renderer\.sh              u:object_r:init-renderer-sh_exec:s0

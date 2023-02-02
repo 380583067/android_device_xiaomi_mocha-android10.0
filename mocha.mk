@@ -260,7 +260,8 @@ PRODUCT_PACKAGES += \
     ussrd.conf \
     init.nvgpu_shims.rc \
     ussr_setup
-
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/initfiles/init.renderer.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.renderer.sh
     
 # Sensors
 PRODUCT_PACKAGES += \
