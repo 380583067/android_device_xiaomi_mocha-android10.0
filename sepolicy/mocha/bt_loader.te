@@ -1,0 +1,6 @@
+# bt_loader service
+type bt_loader, domain;
+allow bt_loader init:unix_stream_socket connectto;
+allow bt_loader kernel:system module_request;
+allow bt_loader property_socket:sock_file write;
+allow bt_loader sysfs:file { open read write };

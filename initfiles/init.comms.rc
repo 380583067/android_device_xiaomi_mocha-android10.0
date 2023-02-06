@@ -57,7 +57,7 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
     oneshot
 
 
-service bt_loader /system/vendor/bin/bt_loader -op
+service bt_loader /system/vendor/bin/bt_loader.sh -op
     class main
     user root
     group root
