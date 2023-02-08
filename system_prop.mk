@@ -11,7 +11,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # BT
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.btmacaddr=00:00:00:00:00:00
+    ro.boot.btmacaddr=0c:1d:4a:79:29:2a
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -50,7 +50,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ui.hw=false \
     debug.hwui.use_buffer_age=false \
     debug.hwui.renderer=opengl \
-    debug.sf.latch_unsignaled=1 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=2 \
     debug.sf.disable_hwc=1
 
