@@ -55,6 +55,7 @@ on boot
     chown system system /sys/kernel/tegra_cpu_emc/table_src
     write /sys/kernel/tegra_cpu_emc/table_src 1
 
+  
 on late-fs
     write /sys/block/mmcblk0/queue/iostats 0
     write /sys/block/mmcblk0/queue/nr_requests 256
@@ -70,6 +71,8 @@ on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/read_ahead_kb 128
     write /sys/block/mmcblk1/queue/read_ahead_kb 128
     write /sys/block/mmcblk1/queue/rq_affinity 0
+    
+    exec bt_loader
 
   # override cpuset cpus to 0-3, mems to 0
     write /dev/cpuset/foreground/cpus 0-3
@@ -88,6 +91,7 @@ on init
     mkdir /mnt/tmp 0770 system system
     mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
 
+
 # Loads real wifi and bt mac from /dev/block/mmcblk0p15
 service conn_wifi /system/vendor/bin/conn_init -op
     class main
@@ -96,4 +100,9 @@ service conn_wifi /system/vendor/bin/conn_init -op
     seclabel u:r:conn_wifi:s0
     oneshot
 
+service bt_loader /system/bin/bt_loader.sh -op
+    class main
+    user root
+    group root
+    oneshot
 
