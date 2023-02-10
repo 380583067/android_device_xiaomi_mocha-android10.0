@@ -43,6 +43,17 @@ LOCAL_MODULE := libshim_zw
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE           := libgol
+LOCAL_SRC_FILES_32     := intrinsics_shim.s
+LOCAL_SRC_FILES_64     := intrinsics_shim.cpp
+LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_VENDOR_MODULE    := true
+LOCAL_LDFLAGS_arm      += -Wl,--version-script,$(LOCAL_PATH)/intrinsics_shim.arm.map
+include $(BUILD_SHARED_LIBRARY)
+
+
+
 ## libnvomxadaptor_shim
 
 ##include $(CLEAR_VARS)
