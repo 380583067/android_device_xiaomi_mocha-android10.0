@@ -9,7 +9,7 @@
 import vendor/etc/init/hw/init.comms.rc
 
 on early-init
-      export LD_PRELOAD "libshim_zw.so"
+    export LD_PRELOAD "libshim_zw.so"
     mount debugfs debugfs /sys/kernel/debug mode=0755
 
 on init
