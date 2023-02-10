@@ -16,7 +16,7 @@
 # Starts as user=root but drops to user=system internally
 # after necessary capabilities are established.
 #
-service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
+service tlk_daemon /system/vendor/bin/tlk_daemon --storagedir /data
     class main
     group keystore
     writepid /dev/cpuset/system-background/tasks
