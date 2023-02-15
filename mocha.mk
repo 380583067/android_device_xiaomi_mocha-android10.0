@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
 $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-$(LOCAL_PATH)/initfiles/bt_loader.sh:system/bin/bt_loader.sh
+$(LOCAL_PATH)/initfiles/bt_loader.sh:vendor/bin/bt_loader.sh
 
 PRODUCT_PACKAGES += \
     libbt-vendor \
@@ -159,8 +159,10 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.mocha 
-    
+    android.hardware.light@2.0-service.mocha\
+    android.hardware.light@2.0-imp \
+    android.hardware.light@2.0-service
+
 # Media config
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-impl \
@@ -266,8 +268,8 @@ $(LOCAL_PATH)/initfiles/init.renderer.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.rend
     
 # Sensors
 PRODUCT_PACKAGES += \
-	android.hardware.sensors@1.0-impl \
-	android.hardware.sensors@1.0-service \
+	android.hardware.sensors@2.0-impl \
+	android.hardware.sensors@2.0-service \
 	sensors.tegra
 	
 # System properties
@@ -276,6 +278,8 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service-nvidia \
+    android.hardware.thermal@1.1-impl \
+    android.hardware.thermal@1.1-serv \
     thermalhal.tn8.xml
 
 # Trust HAL
