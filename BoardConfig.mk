@@ -61,14 +61,12 @@ TARGET_BOOTANIMATION_HALF_RES := true
 # dexpre-opt
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
+      WITH_DEXPREOPT ?= true
       WITH_DEXPREOPT_DEBUG_INFO := false
       USE_DEX2OAT_DEBUG := false
-    endif
   endif
 endif
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # FM
 BOARD_HAVE_BCM_FM := false
