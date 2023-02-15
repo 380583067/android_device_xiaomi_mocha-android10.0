@@ -13,16 +13,20 @@
 # limitations under the License.
 
 type bt_loader, domain;
-type bt_loader_exec, exec_type, file_type;
+type bt_loader_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(bt_loader)
 set_prop(bt_loader, bdaddr_path_prop)
 
-allow bt_loader shell_exec:file rx_file_perms;
-allow bt_loader toolbox_exec:file rx_file_perms;
+allow bt_loader vendor_shell_exec:file rx_file_perms;
+allow bt_loader vendor_toolbox_exec:file rx_file_perms;
 allow bt_loader system_file:file execute_no_trans;
+allow bt_loader toolbox_exec:file { execute execute_no_trans getattr open read };
+allow bt_loader servicemanager:binder call;
+allow bt_loader shell_exec:file { execute execute_no_trans getattr open read };
 allow bt_loader devpts:chr_file rw_file_perms;
 allow bt_loader proc_bluetooth_mac:file r_file_perms;
 
 # Allow bt_loader to read a custom MAC address from /mnt/factory/<bluetooth>
 r_dir_file(bt_loader, factory_file)
+

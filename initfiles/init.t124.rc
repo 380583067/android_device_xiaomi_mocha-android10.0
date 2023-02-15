@@ -72,7 +72,7 @@ on property:sys.boot_completed=1
     write /sys/block/mmcblk1/queue/read_ahead_kb 128
     write /sys/block/mmcblk1/queue/rq_affinity 0
     
-    exec bt_loader
+    
 
   # override cpuset cpus to 0-3, mems to 0
     write /dev/cpuset/foreground/cpus 0-3
@@ -87,22 +87,28 @@ on property:sys.boot_completed=1
     write /dev/cpuset/top-app/mems 0
 
 on init
+   chmod 0775 vendor/bin/bt_loader.sh
+    chown root root vendor/bin/bt_loader.sh
+    start bt_loader
+       
     # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
     mkdir /mnt/tmp 0770 system system
     mount tmpfs tmpfs /mnt/tmp mode=0775,gid=1003
 
 
-# Loads real wifi and bt mac from /dev/block/mmcblk0p15
-service conn_wifi /system/vendor/bin/conn_init -op
+# Loads real wifi and bt mac from /dev/block/mmcblk0p15service conn_wifi /system/vendor/bin/conn_init -op
+    service conn_wifi /system/vendor/bin/conn_init -op
     class main
     user root
     group root
     seclabel u:r:conn_wifi:s0
     oneshot
 
-service bt_loader /system/bin/bt_loader.sh -op
+service bt_loader /vendor/bin/bt_loader.sh 
     class main
     user root
-    group root
+    group root system
+    disabled
     oneshot
+    seclabel u:r:bt_loader:s0
 
