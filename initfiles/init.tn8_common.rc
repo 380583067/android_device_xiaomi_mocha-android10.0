@@ -68,10 +68,12 @@ on init
     setprop persist.tegra.didim.enable 0
     write /d/tegra_actmon/cpu_emc/avg_act_threshold 50000
 
-service charger /charger
-    group graphics input
-    seclabel u:r:healthd:s0
+service charger /system/bin/charger
     class charger
+    user root
+    group log root radio system graphics input
+    capabilities SYS_BOOT
+    seclabel u:r:charger:s0
 
 on charger
     setprop sys.usb.config mtp
