@@ -13,8 +13,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug mode=0755
 
 on init
-
-     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root sdcard_r
     
     # Mount and bind audio_policy_configuration.xml in /vendor
@@ -78,7 +77,7 @@ on post-fs-data
     # create directory for mediaserver EGL blob cache
     mkdir /data/vendor/mediaserver 0770 media media
 
-# backlight
+  # backlight
     chown system system /sys/class/backlight/lcd-backlight/brightness
 
 # Set up HDCP
