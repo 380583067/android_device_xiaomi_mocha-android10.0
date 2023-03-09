@@ -11,7 +11,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # BT
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.btmacaddr=0c:1d:4a:79:29:2a
+    ro.boot.btmacaddr=03:16:6c:79:29:82
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \

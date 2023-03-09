@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
 $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-$(LOCAL_PATH)/initfiles/bt_loader.sh:vendor/bin/bt_loader.sh
+$(LOCAL_PATH)/initfiles/bt_loader.sh:system/bin/bt_loader.sh
 
 PRODUCT_PACKAGES += \
     libbt-vendor \
@@ -306,10 +306,6 @@ PRODUCT_PACKAGES += \
     conn_init \
     wpa_supplicant \
     wpa_supplicant.conf
-
-# wifi and bt macs settter
-PRODUCT_PACKAGES += \
-    conn_init
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
