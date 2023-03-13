@@ -20,17 +20,16 @@ on init
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
+    #symlink /sdcard /storage/sdcard0
 
     # create directory for mounting usb drives
-    mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
-    mkdir /storage/usbdrive 0700 root root
-    symlink /mnt/media_rw/usbdrive /storage/usbdrive
-    symlink /mnt/media_rw/usbdrive /usbdrive
+    # mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
+    # mkdir /storage/usbdrive 0700 root root
+    # symlink /mnt/media_rw/usbdrive /storage/usbdrive
+    # symlink /mnt/media_rw/usbdrive /usbdrive
 
     # create directory for mounting calibration partition
     mkdir /mnt/vendor/factory 0666 system system
-
     mkdir /mnt/vendor/wifi_config 0666 system system
 
     # create directory for mounting user calibration partition
