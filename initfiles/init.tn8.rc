@@ -6,11 +6,11 @@
 #documentation without an express license agreement from NVIDIA Corporation
 #is strictly prohibited.
 
-import vendor/etc/init/hw/init.tegra.rc
-import vendor/etc/init/hw/init.tn8_common.rc
-import vendor/etc/init/hw/init.t124.rc
-import vendor/etc/init/hw/init.cal.rc
-import vendor/etc/init/hw/init.tn8.usb.rc
+import /vendor/etc/init/hw/init.tegra.rc
+import /vendor/etc/init/hw/init.tn8_common.rc
+import /vendor/etc/init/hw/init.t124.rc
+import /vendor/etc/init/hw/init.cal.rc
+import /vendor/etc/init/hw/init.tn8.usb.rc
 
 on post-fs-data
     chmod 0644 /sys/kernel/cluster/active
