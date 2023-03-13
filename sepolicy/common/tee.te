@@ -12,11 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-allow tee tee_data_file:dir create_dir_perms;
-allow tee shell_exec:file rx_file_perms;
-allow tee toolbox_exec:file rx_file_perms;
-allow tee tee_exec:file execute_no_trans;
-allow tee self:capability { setuid setgid sys_rawio };
-allow tee block_device:dir search;
-allow tee rpmb_block_device:blk_file rw_file_perms;
-allow tee cpc_device:chr_file rw_file_perms;
+set_prop(tee, vendor_tee_prop)
+
+allowxperm tee rpmb_block_device:blk_file ioctl tlk_ioctls;
+
+allow tee system_data_file:dir { getattr search };
+
+allow tee proc_version:file r_file_perms;

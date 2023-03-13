@@ -47,7 +47,7 @@
 /dev/gpu_freq_max			u:object_r:pmqos_device:s0
 /dev/gpu_freq_min			u:object_r:pmqos_device:s0
 # TLK device
-/dev/tlk_device				u:object_r:tee_device:s0
+#/dev/tlk_device				u:object_r:tee_device:s0
 # modem devices
 /dev/ttyACM.*				u:object_r:radio_device:s0
 # Tegra System Profiler
@@ -144,7 +144,7 @@
 # System files
 
 # TEE
-(/system)?/vendor/bin/tlk_daemon	u:object_r:tee_exec:s0
+#(/system)?/vendor/bin/tlk_daemon	u:object_r:tee_exec:s0
 (/system)?/vendor/bin/eks2_client	u:object_r:tee_exec:s0
 (/system)?/vendor/bin/ss_status		u:object_r:tee_exec:s0
 (/system)?/vendor/bin/run_ss_status.sh	u:object_r:tee_exec:s0
@@ -220,9 +220,9 @@
 # camera config folder
 /data/camera_config(/.*)?		u:object_r:camera_config_file:s0
 # tlk data folder
-/data/tlk(/.*)?				u:object_r:tee_data_file:s0
+#/data/tlk(/.*)?				u:object_r:tee_data_file:s0
 # tlk ss data folder
-/data/ss(/.*)?				u:object_r:tee_data_file:s0
+#/data/ss(/.*)?				u:object_r:tee_data_file:s0
 # user calibration
 /data/touchscreen(/.*)?			u:object_r:user_calib_file:s0
 # stats data share folder

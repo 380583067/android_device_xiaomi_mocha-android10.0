@@ -1,10 +1,10 @@
-#Copyright (c) 2013-2016 NVIDIA Corporation.  All Rights Reserved.
+# Copyright (c) 2013-2019 NVIDIA Corporation.  All Rights Reserved.
 #
-#NVIDIA Corporation and its licensors retain all intellectual property and
-#proprietary rights in and to this software and related documentation.  Any
-#use, reproduction, disclosure or distribution of this software and related
-#documentation without an express license agreement from NVIDIA Corporation
-#is strictly prohibited.
+# NVIDIA Corporation and its licensors retain all intellectual property and
+# proprietary rights in and to this software and related documentation.  Any
+# use, reproduction, disclosure or distribution of this software and related
+# documentation without an express license agreement from NVIDIA Corporation
+# is strictly prohibited.
 
 #
 # TLK secure storage
@@ -18,23 +18,47 @@
 #
 service tlk_daemon /vendor/bin/tlk_daemon --storagedir /data
     class main
-    user system
     group keystore
-    writepid /dev/cpuset/system-background/tasks
+    disabled
+
+service storageproxyd /vendor/bin/storageproxyd -d /dev/trusty-ipc-dev0 -p /data/vendor/ss -r /dev/block/mmcblk0rpmb
+    class core
+    group keystore
+    disabled
+
+service storageproxyd_hv /vendor/bin/storageproxyd -d /dev/trusty-ipc-dev0 -p /data/vendor/ss -r /dev/block/vblkdev1
+    class core
+    group keystore
+    disabled
 
 #
 # ss_status
 #
 # One shot command that queries status of secure storage.
 #
-service ss_status /vendor/bin/run_ss_status.sh 
+
+service ss_status /vendor/bin/run_ss_status.sh /data/ss/slog
     class main
     user system
     group keystore
     oneshot
-    
+    disabled
 
+
+# Post treble, all vendor data should reside in /data/vendor
 on post-fs-data
-    mkdir /data/tlk 0700 system keystore
-    mkdir /data/ss 0700 system keystore
+    mkdir /data/vendor/ss 0700 system keystore
+    mkdir /data/vendor/tlk 0700 system keystore
+
+# Post treble, all vendor data should reside in /data/vendor
+on property:ro.boot.secureos=tlk
+    start tlk_daemon
+    start ss_status
+
+on property:ro.boot.secureos=trusty
+    start storageproxyd
+
+on property:ro.boot.secureos=trusty_hv
+    start storageproxyd_hv
+
 
