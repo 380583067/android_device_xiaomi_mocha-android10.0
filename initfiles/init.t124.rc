@@ -88,7 +88,7 @@ on property:sys.boot_completed=1
 
 on init
     chmod 0775 /vendor/bin/bt_loader.sh
-    chown root root /vendor/bin/bt_loader.sh
+    chown root system /vendor/bin/bt_loader.sh
     start bt_loader
        
     # Mount a tmpfs into /mnt/tmp for hosting nvram, phs shared memory
@@ -107,7 +107,7 @@ on init
 service bt_loader /vendor/bin/bt_loader.sh 
     class main
     user root
-    group root system
+    group system
     disabled
     oneshot
     seclabel u:r:bt_loader:s0
