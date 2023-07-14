@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
 	android.hardware.audio@2.0\
 	android.hardware.audio@2.0-impl \
 	android.hardware.audio.effect@20-impl \
-	libmocha_audio.so\
+	libmocha_audio.so
 	
 
 PRODUCT_COPY_FILES += \
@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
 # Camera
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/camera/nvcamera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/nvcamera.conf \
-    $(LOCAL_PATH)/camera/model_frontal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/model_frontal.xml
+#    $(LOCAL_PATH)/camera/model_frontal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/model_frontal.xml
 
 #PRODUCT_PACKAGES += \
 #    android.hardware.camera.provider@2.4-impl \
@@ -72,6 +72,9 @@ PRODUCT_PACKAGES += \
 #    libmocha_omx \
 #    libpowerservice_client \
 #    libmocha_libc 
+# Camera
+PRODUCT_PACKAGES += \
+    libshim_camera
 
 # Comm Permissions
 PRODUCT_COPY_FILES += \
@@ -108,7 +111,7 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.broadcastradio@1.0-impl
     
 # Graphics
 PRODUCT_AAPT_CONFIG += xlarge large
@@ -124,7 +127,6 @@ android.hardware.graphics.mapper@2.0-impl \
 android.hardware.renderscript@1.0-impl \
  libs \
  libshim_zw \
- libnvomxadaptor_shim \
  libshim_atomic     
 
 #GO
@@ -159,7 +161,7 @@ PRODUCT_PACKAGES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.mocha\
+    android.hardware.light@2.0-service.mocha
     
 # Media config
 PRODUCT_PACKAGES += \
