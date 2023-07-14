@@ -96,6 +96,10 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Vendor Init
+TARGET_INIT_VENDOR_LIB      := libinit_mocha
+TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/libmocha/init_mocha.cpp
+
 # Kernel
 BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive vmalloc=400M
 BOARD_KERNEL_BASE := 0x10000000
@@ -157,7 +161,8 @@ BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
                       
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/libnvomxadaptor.so|libnvomxadaptor_shim.so 
+    /system/vendor/lib/hw/hwcomposer.tegra.so|/system/vendor/lib/libshim_camera.so \
+    /system/vendor/lib/libnvgr.so|libshim_atomic.so
 
 # ThermalHAL
 TARGET_THERMALHAL_VARIANT := tegra
