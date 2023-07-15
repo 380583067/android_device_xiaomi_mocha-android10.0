@@ -47,8 +47,3 @@ void vendor_load_properties()
     android::init::property_set("dalvik.vm.heapminfree", heapminfree);
     android::init::property_set("dalvik.vm.heapmaxfree", "8m");
 }
-
-void vendor_load_properties()
-{
-
-}
