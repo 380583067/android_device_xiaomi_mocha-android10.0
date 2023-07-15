@@ -145,8 +145,8 @@ PRODUCT_PACKAGES += \
      android.hidl.manager@1.0-java
 
 # HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
     
 # Key layouts
 PRODUCT_PACKAGES += \
