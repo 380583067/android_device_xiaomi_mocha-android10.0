@@ -35,3 +35,8 @@ void get_dalvik_heap_props()
         heapminfree = "2m";
     }
 }
+
+void vendor_load_properties()
+{
+
+}
