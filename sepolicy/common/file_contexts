@@ -182,16 +182,16 @@
 # frostaudiortp
 /system/bin/frostaudiortp		u:object_r:frostaudiortp_exec:s0
 # pbc
-(/system)?/vendor/bin/pbc		u:object_r:pbc_exec:s0
-(/system)?/vendor/bin/pbc2		u:object_r:pbc_exec:s0
+#(/system)?/vendor/bin/pbc		u:object_r:pbc_exec:s0
+#(/system)?/vendor/bin/pbc2		u:object_r:pbc_exec:s0
 # cvc
-(/system)?/vendor/bin/cvc		u:object_r:cvc_exec:s0
+#(/system)?/vendor/bin/cvc		u:object_r:cvc_exec:s0
 # cyupdate.sh
-(/system)?/vendor/bin/cyupdate.sh	u:object_r:cyupdate_exec:s0
+#(/system)?/vendor/bin/cyupdate.sh	u:object_r:cyupdate_exec:s0
 # cyload
-(/system)?/vendor/bin/cyload		u:object_r:cyupdate_exec:s0
+#(/system)?/vendor/bin/cyload		u:object_r:cyupdate_exec:s0
 # upnpfused
-(/system)?/vendor/bin/upnpfuse		u:object_r:upnpfused_exec:s0
+#(/system)?/vendor/bin/upnpfuse		u:object_r:upnpfused_exec:s0
 # qvs shell script
 /system/xbin/qvs_post_boot.sh		u:object_r:qvs_exec:s0
 #setup_fs
@@ -203,15 +203,15 @@
 # IKEv2 daemon
 /system/bin/charon			u:object_r:charon_exec:s0
 # Blake video files
-(/system)?/vendor/oem/media(/.*)?	u:object_r:oem_media_file:s0
+#(/system)?/vendor/oem/media(/.*)?	u:object_r:oem_media_file:s0
 # camera config
 /system/bin/config_cameras.sh		u:object_r:config_cameras_exec:s0
 # service to dump logs
-(/system)?/vendor/bin/cac_log_dumper	u:object_r:cac_log_dumper_exec:s0
+#(/system)?/vendor/bin/cac_log_dumper	u:object_r:cac_log_dumper_exec:s0
 # factory_tests
-(/system)?/vendor/bin/factory_tests	u:object_r:factory_tests_exec:s0
+#(/system)?/vendor/bin/factory_tests	u:object_r:factory_tests_exec:s0
 # Lineage Trust HAL
-/system/vendor/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
+#/system/vendor/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
 #############################
 # Data files
 
