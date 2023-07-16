@@ -26,7 +26,7 @@
 #/(vendor|system/vendor)/bin/bt_loader\.sh                                        u:object_r:bt_loader_exec:s0
 
 # Init render script
-/(vendor|system/vendor)/bin/init\.renderer\.sh              u:object_r:init-renderer-sh_exec:s0
+#/(vendor|system/vendor)/bin/init\.renderer\.sh              u:object_r:init-renderer-sh_exec:s0
 
 #BT script
 /(vendor|system/vendor)/bin/bt_loader\.sh               u:object_r:bt_loader_exec:s0
