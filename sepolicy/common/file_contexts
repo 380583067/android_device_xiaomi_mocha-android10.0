@@ -157,8 +157,8 @@
 # ethernet
 /system/bin/rebindEthernet.sh		u:object_r:rebindEthernet_exec:s0
 # gps
-/system/bin/gps_select.sh		u:object_r:gpsd_exec:s0
-/system/bin/glgps_nvidiaTegra2android	u:object_r:gpsd_exec:s0
+#/system/bin/gps_select.sh		u:object_r:gpsd_exec:s0
+#/system/bin/glgps_nvidiaTegra2android	u:object_r:gpsd_exec:s0
 # set_hwui_params.sh
 /system/bin/set_hwui_params.sh		u:object_r:set_hwui_exec:s0
 # adbenable.sh
