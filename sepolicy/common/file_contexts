@@ -164,18 +164,18 @@
 # adbenable.sh
 /system/bin/adbenable.sh		u:object_r:adb_enable_exec:s0
 # diag
-(/system)?/vendor/bin/stress_test.sh	u:object_r:diag_exec:s0
-(/system)?/vendor/bin/diag_perm.sh	u:object_r:diag_exec:s0
+#(/system)?/vendor/bin/stress_test.sh	u:object_r:diag_exec:s0
+#(/system)?/vendor/bin/diag_perm.sh	u:object_r:diag_exec:s0
 # gpload
-(/system)?/vendor/bin/gpload		u:object_r:gpload_exec:s0
+#(/system)?/vendor/bin/gpload		u:object_r:gpload_exec:s0
 # hubcore
-(/system)?/vendor/bin/hubcore		u:object_r:hubcore_exec:s0
+#(/system)?/vendor/bin/hubcore		u:object_r:hubcore_exec:s0
 # ctload
-(/system)?/vendor/bin/ctload		u:object_r:ctload_exec:s0
+#(/system)?/vendor/bin/ctload		u:object_r:ctload_exec:s0
 # update_js_touch_fw
 /system/bin/update_js_touch_fw.sh	u:object_r:update_js_touch_fw_exec:s0
 # phs
-(/system)?/vendor/bin/ussrd		u:object_r:ussrd_exec:s0
+#(/system)?/vendor/bin/ussrd		u:object_r:ussrd_exec:s0
 /system/bin/ussr_setup.sh		u:object_r:ussr_setup_exec:s0
 # dual wifi
 /system/bin/wpa_supplicant_2		u:object_r:hal_wifi_supplicant_default_exec:s0
