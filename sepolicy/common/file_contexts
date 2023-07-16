@@ -54,7 +54,7 @@
 /dev/quadd				u:object_r:quadd_device:s0
 /dev/quadd_auth				u:object_r:quadd_auth_device:s0
 # Hidraw
-/dev/hidraw[0-9]			u:object_r:hidraw_device:s0
+#/dev/hidraw[0-9]			u:object_r:hidraw_device:s0
 # Tsec
 /dev/nvhost-tsec			u:object_r:tsec_device:s0
 /dev/nvhost-tsecb			u:object_r:tsec_device:s0
@@ -216,7 +216,7 @@
 # Data files
 
 # camera data folder
-/data/nvcam(/.*)?			u:object_r:nv_camera_data_file:s0
+#/data/nvcam(/.*)?			u:object_r:nv_camera_data_file:s0
 # camera config folder
 /data/camera_config(/.*)?		u:object_r:camera_config_file:s0
 # tlk data folder
@@ -255,11 +255,11 @@
 # hubcore
 /data/misc/smartthings(/.*)?		u:object_r:hubcore_data_file:s0
 # cac_log_dumper data file
-/cache/logs(/.*)?			u:object_r:cache_log_dumper_file:s0
+#/cache/logs(/.*)?			u:object_r:cache_log_dumper_file:s0
 # Frost's log files
 /data/misc/frostlog(/.*)? 		u:object_r:frostlog_file:s0
 # Coredump
-/data/core(/.*)?			u:object_r:coredump_data_file:s0
+#/data/core(/.*)?			u:object_r:coredump_data_file:s0
 
 #############################
 # sysfs files
@@ -390,9 +390,9 @@
 
 #############################
 # SurfaceFlinger to PHS pagefiles
-/mnt/tmp/fc[0-9]			u:object_r:surfaceflinger_fc:s0
+#/mnt/tmp/fc[0-9]			u:object_r:surfaceflinger_fc:s0
 # user calibration
-/usercalib(/.*)?			u:object_r:user_calib_file:s0
+#/usercalib(/.*)?			u:object_r:user_calib_file:s0
 
 # wifi config
 /factory/wifi_config(/.*)?		u:object_r:rpx_file:s0
