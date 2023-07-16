@@ -157,11 +157,12 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
                        $(LOCAL_PATH)/sepolicy/lineage-common \
-                       $(LOCAL_PATH)/sepolicy/common \
+                       $(LOCAL_PATH)/sepolicy/common
                       
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/hw/hwcomposer.tegra.so|/system/vendor/lib/libshim_camera.so \
+    /system/vendor/lib/mediadrm/libwvdrmengine.so|/system/vendor/lib/libprotobuf_shim.so \
     /system/vendor/lib/libnvgr.so|libshim_atomic.so
 
 # ThermalHAL
