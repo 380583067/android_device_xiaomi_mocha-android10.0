@@ -1,0 +1,29 @@
+package vendor.nvidia.hardware.shieldtech.rpx@1.0;
+
+interface IRpxBinder {
+    writeFile(
+        string filename,
+        string content
+    ) generates (
+        bool status
+    );
+
+    writeBinary(
+        string filename,
+        vec<uint8_t> content
+    ) generates (
+        bool status
+    );
+
+    deleteFile(
+        string filename
+    ) generates (
+        bool status
+    );
+
+    readFile(
+        string filename
+    ) generates (
+        string content
+    );
+};

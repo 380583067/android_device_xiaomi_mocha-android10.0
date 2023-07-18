@@ -1,0 +1,61 @@
+package vendor.nvidia.hardware.shieldtech.inputflinger@1.0;
+
+import IInputHookCallback;
+
+interface IInputHook {
+    init(
+        IInputHookCallback inputHookCallback
+    ) generates (
+        bool result
+    );
+
+    // Filters
+    filterNewDevice(
+            int32_t fd,
+            int32_t id,
+            string path,
+            InputIdentifier identifier
+        ) generates (
+            bool result,
+            string identiferName
+        );
+
+    filterCloseDevice(
+            int32_t id
+        );
+
+    filterEvent(
+            HidlInputEvent iev,
+            int32_t deviceId
+        ) generates (
+            Response response,
+            int32_t replacementDeviceId,
+            HidlInputEvent replacementEvent
+        );
+
+    // Notifiers
+    notifyKeyState(
+            int32_t deviceId,
+            int32_t keyCode,
+            bool handled
+        ) generates (
+            bool result
+        );
+
+    notifyMotionState(
+            int32_t deviceId,
+            AnalogCoords pc,
+            bool handled
+        ) generates (
+            bool result
+        );
+
+    // Device Registration
+    registerDevices(
+        );
+
+    treatMouseAsTouch(
+        ) generates (
+            bool result
+        );
+};

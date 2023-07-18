@@ -1,0 +1,74 @@
+package vendor.nvidia.hardware.nvwifi@1.0;
+
+import INvSupplicantCallback;
+
+interface INvSupplicant {
+    getAppProperty(
+            string key
+        ) generates (
+            NvSupplicantStatus status,
+            string value
+        );
+
+    getFreqCapability(
+        ) generates (
+            NvSupplicantStatus status,
+            string freqcap
+        );
+            
+
+    getMacAddress(
+        ) generates (
+            NvSupplicantStatus status,
+            uint8_t[6] address
+        );
+
+    getMaxLinkSpeed(
+        ) generates (
+            NvSupplicantStatus status,
+            string linkspeed
+        );
+
+    listP2pNetworks(
+        ) generates (
+            NvSupplicantStatus status,
+            string networks
+        );
+
+    p2pGroupRemove(
+            string group
+        ) generates (
+            NvSupplicantStatus status
+        );
+
+    registerCallback(
+            INvSupplicantCallback cback
+        ) generates (
+            NvSupplicantStatus status
+        );
+
+    setAppProperty(
+            string key,
+            string value
+        ) generates (
+            NvSupplicantStatus status
+        );
+
+    setCountryCodeNV(
+            uint8_t[2] ccode
+        ) generates (
+            NvSupplicantStatus status
+        );
+
+    status(
+            bool var1
+        ) generates (
+            NvSupplicantStatus status,
+            string var2
+        );
+
+    updateChannelList(
+        ) generates (
+            NvSupplicantStatus status
+        );
+};

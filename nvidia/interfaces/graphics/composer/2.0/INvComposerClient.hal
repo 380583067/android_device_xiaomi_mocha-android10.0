@@ -1,0 +1,39 @@
+package vendor.nvidia.hardware.graphics.composer@2.0;
+
+import INvComposerCallback;
+
+import android.hardware.graphics.composer@2.2::IComposerClient;
+
+import android.hardware.graphics.composer@2.1::Config;
+import android.hardware.graphics.composer@2.1::Display;
+import android.hardware.graphics.composer@2.1::Error;
+
+interface INvComposerClient extends android.hardware.graphics.composer@2.2::IComposerClient {
+    /** Proper values for this are unknown. */
+    enum Attribute : int32_t {
+        INVALID = 0,
+    };
+
+    getDisplayAttributeExt(
+            @2.1::Display display,
+            @2.1::Config config,
+            Attribute attribute
+        ) generates (
+            @2.1::Error error,
+            int32_t value
+        );
+
+    registerExtCallback(
+            INvComposerCallback callback
+        );
+
+    executeNvCommands(
+            uint32_t inLength,
+            vec<handle> inHandles
+        ) generates (
+            Error error,
+            bool outQueueChanged,
+            uint32_t outLength,
+            vec<handle> outHandles
+        );
+};

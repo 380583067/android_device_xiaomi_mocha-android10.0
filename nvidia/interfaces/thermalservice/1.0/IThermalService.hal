@@ -1,0 +1,14 @@
+package vendor.nvidia.hardware.thermalservice@1.0;
+
+import IThermalServiceCallback;
+
+interface IThermalService {
+    setNotify(
+            IThermalServiceCallback callback
+        );
+
+    triggerEvent(
+            string packageName,
+            string event
+        );
+};

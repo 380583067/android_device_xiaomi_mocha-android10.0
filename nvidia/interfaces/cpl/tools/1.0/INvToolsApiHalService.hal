@@ -1,0 +1,22 @@
+package vendor.nvidia.hardware.cpl.tools@1.0;
+
+interface INvToolsApiHalService {
+    getTableSize(
+        ) generates (
+            int32_t size
+        );
+
+    setSysProperty(
+            string prop,
+            string value
+        ) generates (
+            int32_t status
+        );
+
+    setProperty(
+            string prop,
+            string value
+        ) generates (
+            int32_t status
+        );
+};

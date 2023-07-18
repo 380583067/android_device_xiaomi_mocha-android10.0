@@ -1,0 +1,10 @@
+package vendor.nvidia.hardware.factoryservice@1.0;
+
+enum FctServiceStatus : int32_t {
+    ERROR_FUNCTION_NOT_IMPLEMENTED = -256,
+    ERROR_INVALID_KEY = -16,
+    ERROR_FAIL_OPEN_FILE = -1,
+    NO_ERROR = 0,
+    ERROR_REACH_EOF = 0,
+    ERROR_INVALID_SEEK_DIR = 1,
+};

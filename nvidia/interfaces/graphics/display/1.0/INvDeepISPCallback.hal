@@ -1,0 +1,9 @@
+package vendor.nvidia.hardware.graphics.display@1.0;
+
+interface INvDeepISPCallback {
+    oneway onUpdate(
+            DeepISPFilter filter,
+            DeepISPFallbackReason reason,
+            bool split
+        );
+};

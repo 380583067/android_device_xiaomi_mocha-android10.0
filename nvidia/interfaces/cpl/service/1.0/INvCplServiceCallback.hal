@@ -1,0 +1,56 @@
+package vendor.nvidia.hardware.cpl.service@1.0;
+
+interface INvCplServiceCallback {
+    getAppProfileSettingString(
+            string pkgName,
+            int32_t settingId
+        ) generates (
+            string profile
+        );
+
+    getAppProfileSettingInt(
+            string pkgName,
+            int32_t settingId
+        ) generates (
+            int32_t profile
+        );
+
+    getAppProfileSettingBoolean(
+            string pkgName,
+            int32_t settingId
+        ) generates (
+            int32_t profile
+        );
+
+    getNvSaverAppInfo(
+            int32_t list
+        ) generates (
+            vec<CplHalNvSaverAppInfo> appList
+        );
+
+    getActiveProfileType(
+            string packageName
+        ) generates (
+            int32_t profileType
+        );
+
+    getProfileTypes(
+            string packageName
+        ) generates (
+            vec<int32_t> profileTypes
+        );
+
+    getAppProfiles(
+            vec<string> packageNames
+        ) generates (
+            vec<CplHalNvAppProfile> profiles
+        );
+
+    oneway handleIntent(
+            CplHalIntent intent
+        );
+
+    oneway powerHint(
+            string packageName
+        );
+};

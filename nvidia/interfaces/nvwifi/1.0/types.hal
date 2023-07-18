@@ -1,0 +1,19 @@
+package vendor.nvidia.hardware.nvwifi@1.0;
+
+enum NvSupplicantStatusCode : int32_t {
+   SUCCESS = 0,
+   FAILURE_UNKNOWN = 1,
+   FAILURE_ARGS_INVALID = 2,
+   FAILURE_IFACE_INVALID = 3,
+   FAILURE_IFACE_UNKNOWN = 4,
+   FAILURE_IFACE_EXISTS = 5,
+   FAILURE_IFACE_DISABLED = 6,
+   FAILURE_IFACE_NOT_DISCONNECTED = 7,
+   FAILURE_NETWORK_INVALID = 8,
+   FAILURE_NETWORK_UNKNOWN = 9,
+};
+
+struct NvSupplicantStatus {
+    int32_t code;
+    string debugMessage;
+};
