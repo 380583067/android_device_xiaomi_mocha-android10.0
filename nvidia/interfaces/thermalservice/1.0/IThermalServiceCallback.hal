@@ -1,7 +1,0 @@
-package vendor.nvidia.hardware.thermalservice@1.0;
-
-interface IThermalServiceCallback {
-    onAppClose(
-            string packageName
-        );
-};
