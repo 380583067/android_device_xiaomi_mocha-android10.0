@@ -67,7 +67,7 @@ endif
 WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # FM
-BOARD_HAVE_BCM_FM := true
+BOARD_HAVE_BCM_FM := false
 
 # FS
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -121,9 +121,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Malloc
 MALLOC_SVELTE := true
 
@@ -142,7 +139,7 @@ MAX_EGL_CACHE_ENTRY_SIZE := 262144
 TARGET_POWERHAL_VARIANT := tegra
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
+TARGET_RECOVERY_DEVICE_DIRS += 
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
 
@@ -154,12 +151,13 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a15
 SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy/mocha \
                        $(LOCAL_PATH)/sepolicy/lineage-common \
-                       $(LOCAL_PATH)/sepolicy/common
+                       $(LOCAL_PATH)/sepolicy/common \
                       
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/hw/hwcomposer.tegra.so|/system/vendor/lib/libshim_camera.so \
     /system/vendor/lib/libnvgr.so|libshim_atomic.so
+
 
 # ThermalHAL
 TARGET_THERMALHAL_VARIANT := tegra
@@ -177,7 +175,6 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 #WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
 #WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
-
 # workaround for devices that uses old GPU blobs
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
                        

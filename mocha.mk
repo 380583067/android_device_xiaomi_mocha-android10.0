@@ -57,12 +57,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service
 
-# FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    brcm-uim-sysfs \
-    libfmjni
-
 # Camera
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/camera/nvcamera.conf:$(TARGET_COPY_OUT_VENDOR)/etc/nvcamera.conf \
@@ -98,8 +92,7 @@ PRODUCT_PACKAGES += \
     PerformanceTile
 
 # Dexpreopt
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # DRM HAL
 PRODUCT_PACKAGES += \
@@ -116,14 +109,13 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    android.hardware.broadcastradio@1.0-impl
+    android.hardware.broadcastradio@1.0-impl \
     
 # Graphics
 PRODUCT_AAPT_CONFIG += xlarge large
 TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 TARGET_TEGRA_VERSION := t124
-
 PRODUCT_PACKAGES +=\
 android.hardware.graphics.allocator@2.0-impl \
 android.hardware.graphics.allocator@2.0-service \
@@ -159,6 +151,7 @@ PRODUCT_PACKAGES += \
     tegra-kbc.kl \
     Vendor_0955_Product_7210.kl
 
+
     # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
@@ -172,7 +165,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-impl \
     android.hardware.media.omx@1.0-service
-
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
@@ -235,6 +227,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml
 
+
 PRODUCT_CHARACTERISTICS := tablet
 
 # PHS
@@ -268,7 +261,6 @@ PRODUCT_PACKAGES += \
     ussrd.conf \
     init.nvgpu_shims.rc \
     ussr_setup
-
 PRODUCT_COPY_FILES += \
 $(LOCAL_PATH)/initfiles/init.renderer.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.renderer.sh
     
@@ -283,11 +275,6 @@ sensors.tegra
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service-nvidia \
     thermalhal.tn8.xml
-
-# TimeKeep
-PRODUCT_PACKAGES += \
-    timekeep \
-    TimeKeep
 
 # Trust HAL
 PRODUCT_PACKAGES += \
@@ -307,12 +294,12 @@ PRODUCT_COPY_FILES += \
     
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/dhcpcd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dhcpcd/dhcpcd.conf
+    $(LOCAL_PATH)/wifi/dhcpcd.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dhcpcd/dhcpcd.conf \
    
+# Wifi
 # All Shield devices xurrently use broadcom wifi / bluetooth modules
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4354/device-bcm.mk)
-
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     hostapd \
