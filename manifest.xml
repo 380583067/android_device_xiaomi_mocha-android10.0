@@ -165,6 +165,15 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport arch="32">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISensors</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.usb</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -209,7 +218,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-        <hal format="hidl">
+    <hal format="hidl">
         <name>vendor.lineage.trust</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -218,6 +227,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-
 </manifest>
-
