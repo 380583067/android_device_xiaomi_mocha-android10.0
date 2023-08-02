@@ -1,0 +1,55 @@
+package vendor.nvidia.hardware.shieldtech.input@1.0;
+
+interface IInputDetails {
+    getInputDetails(
+        int32_t inputId
+    ) generates (
+        InputDetails details
+    );
+
+    getUsbInputDetails(
+        int32_t busNum,
+        int32_t devNum
+    ) generates (
+        InputDetails details
+    );
+
+    oneway setVirtualMouse(
+        bool enable, bool touchMouse
+    );
+
+    oneway addDevice(
+        int32_t inputId
+    );
+
+    oneway removeDevice(
+        int32_t inputId
+    );
+
+    oneway extendDeferment(
+        int32_t inputId,
+        int32_t delayInMs
+    );
+
+    oneway setDeferment(
+        int32_t inputId,
+        int32_t delayInMs
+    );
+
+    oneway abortDeferment(
+        int32_t inputId
+    );
+
+    oneway discardDeferment(
+        int32_t inputId
+    );
+
+    getLastInputDeviceId(
+    ) generates (
+        int32_t inputId
+    );
+
+    oneway injectEvents(
+		vec<InjectEvent> events
+    );
+};

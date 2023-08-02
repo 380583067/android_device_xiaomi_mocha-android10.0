@@ -1,0 +1,181 @@
+package vendor.nvidia.hardware.graphics.display@1.0;
+
+import INvDeepISPCallback;
+
+interface INvDisplay {
+    modeGetList(
+            int32_t display
+        ) generates (
+            vec<HwcSvcDisplayMode> modes
+        );
+
+    getMode(
+            int32_t display,
+            int32_t modeType
+        ) generates (
+            HwcSvcDisplayMode mode
+        );
+
+    modeSet(
+            int32_t display,
+            HwcSvcDisplayMode request
+        );
+
+    modeSetIndex(
+            int32_t display,
+            int32_t index
+        );
+
+    modeDefaultSetIndex(
+            int32_t display,
+            int32_t index
+        );
+
+    modeDefaultCommit(
+            int32_t display
+        );
+
+    modeDefaultRollback(
+            int32_t display
+        );
+
+    modeDefaultStore(
+            int32_t display
+        );
+
+    modeDefaultGet(
+            int32_t display
+        ) generates (
+            int32_t mode
+        );
+
+    modeDefaultDelete(
+            int32_t display
+        );
+
+    modeDefaultDeleteAll(
+            int32_t display
+        );
+
+    modeUpdate(
+            int32_t display
+        );
+
+    modeMatchToContent(
+            int32_t display
+        );
+
+    layerDepthPolicy(
+            int32_t display
+        );
+
+    hdcpGetVersion(
+            int32_t display
+        ) generates (
+            int32_t version
+        );
+
+    edidGetInfo(
+            int32_t display
+        ) generates (
+            HwcSvcEdidInfo info
+        );
+
+    edidGetRaw(
+            int32_t i
+        ) generates (
+            vec<int8_t> edid
+        );
+
+    getUnderscan(
+            int32_t display
+        ) generates (
+            float underscan
+        );
+
+    setUnderscan(
+            int32_t display,
+            float underscan
+        );
+
+    getScanlineFence(
+            int32_t display,
+            HwcSvcSLFenceInfo info
+        ) generates (
+            int32_t ret
+        );
+
+    removeScanlineInterrupt(
+            int32_t display,
+            int32_t id
+        );
+
+    enableCrc(
+            int32_t display,
+            HwcSvcCrc crc
+        ) generates (
+            HwcSvcCrc ret
+        );
+
+    readCrc(
+            int32_t display,
+            HwcSvcCrc crc
+        ) generates (
+            HwcSvcCrc ret
+        );
+
+    getCrcFlipId(
+            int32_t display
+        ) generates (
+            HwcSvcCrc id
+        );
+
+    displayGetType(
+            int32_t display
+        ) generates (
+            HwcSvcDisplayType type
+        );
+
+    displayAddWindow(
+            int32_t display
+        );
+
+    enableGsync(
+            int32_t display,
+            bool enable
+        );
+
+    getHwcProperty(
+            HwcSvcProperty name
+        ) generates (
+            string value
+        );
+
+    setHwcProperty(
+            HwcSvcProperty name,
+            string value
+        );
+
+    vprSetFloor(
+            int32_t size
+        );
+
+    notifyDeepIspInputEvent(
+            int32_t event,
+            float val
+        );
+
+    getDeepISPState(
+        ) generates (
+            DeepISPFilter filter,
+            DeepISPFallbackReason reason,
+            bool split
+        );
+
+    registerDeepISPCallback(
+            INvDeepISPCallback callback
+        );
+
+    unregisterDeepISPCallback(
+        );
+};

@@ -1,0 +1,7 @@
+package vendor.nvidia.hardware.convertibleport@1.0;
+
+enum ConvPortModeStatus : int32_t {
+    NO_ERROR = 0,
+    INVALID_ARGUMENT = 1,
+    ERROR = 2,
+};

@@ -1,0 +1,10 @@
+package vendor.nvidia.hardware.graphics.composer@2.0;
+
+import android.hardware.graphics.composer@2.1::IComposerCallback;
+import android.hardware.graphics.composer@2.1::Display;
+
+interface INvComposerCallback extends @2.1::IComposerCallback {
+    oneway onResync(
+            @2.1::Display display
+        );
+};

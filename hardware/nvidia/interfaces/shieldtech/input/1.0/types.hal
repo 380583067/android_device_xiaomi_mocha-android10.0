@@ -1,0 +1,37 @@
+package vendor.nvidia.hardware.shieldtech.input@1.0;
+
+enum DeviceType : int32_t {
+    UNKNOWN = 0,
+    BLAKE = 1,
+    JARVIS = 2,
+    THUNDERSTRIKE = 3,
+    PEPPER = 4,
+    FRIDAY = 5,
+};
+
+enum ConnectionType : int32_t {
+    UNKNOWN = 0,
+    WIRED = 1,
+    WIRELESS = 2,
+};
+
+struct InputDetails {
+    DeviceType deviceType;
+    uint32_t event_id;
+    uint32_t hidraw_id;
+    uint32_t input_id;
+    uint32_t busNum;
+    uint32_t devNum;
+    ConnectionType connectionType;
+    string touchpadModePath;
+    string playbackDevice;
+    string captureDevice;
+    string macAddress;
+};
+
+struct InjectEvent {
+	uint32_t inputId;
+	uint16_t type;
+	uint16_t code;
+	int32_t value;
+};

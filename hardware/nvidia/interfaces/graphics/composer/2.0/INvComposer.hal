@@ -1,0 +1,9 @@
+package vendor.nvidia.hardware.graphics.composer@2.0;
+
+import android.hardware.graphics.composer@2.2::IComposer;
+
+interface INvComposer extends android.hardware.graphics.composer@2.2::IComposer {
+
+    /* createClient from @2.0::INvComposer must return an instance of @2.0::INvComposerClient */
+
+};

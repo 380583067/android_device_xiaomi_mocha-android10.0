@@ -1,0 +1,42 @@
+package vendor.nvidia.hardware.factoryservice@1.0;
+
+interface IFactoryService {
+    readBlob(
+            string key
+        ) generates (
+            vec<uint8_t> content
+        );
+
+    readFactoryProperty(
+            string key
+        ) generates (
+            string content
+        );
+
+    readString(
+            string key
+        ) generates (
+            string content
+        );
+
+    writeBlob(
+            string key,
+            vec<uint8_t> content
+        ) generates (
+            int16_t status
+        );
+
+    writeFactoryProperty(
+            string key,
+            string content
+        ) generates (
+            int16_t status
+        );
+
+    writeString(
+            string key,
+            string content
+        ) generates (
+            int16_t status
+        );
+};

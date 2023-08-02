@@ -1,0 +1,14 @@
+package vendor.nvidia.hardware.convertibleport@1.0;
+
+interface IConvertiblePort {
+    readConvPortMode(
+        ) generates (
+            string mode
+        );
+
+    writeConvPortMode(
+            string mode
+        ) generates (
+            ConvPortModeStatus status
+        );
+};

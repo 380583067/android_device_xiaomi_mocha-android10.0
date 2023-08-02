@@ -1,0 +1,47 @@
+package vendor.nvidia.hardware.shieldtech.inputflinger@2.0;
+
+enum Response : int32_t {
+    EVENT_DEFAULT = 0,
+    EVENT_PROCESS = 1,
+    EVENT_SKIP = 2,
+    EVENT_ADD = 3,
+};
+
+struct TimeVal {
+    int64_t tv_sec;
+    int64_t tv_usec;
+};
+
+struct HidlInputEvent {
+    TimeVal time;
+    uint16_t type;
+    uint16_t code;
+    int32_t value;
+};
+
+struct InputIdentifier {
+    int32_t vendor;
+    int32_t product;
+    string name;
+    string uniqueId;
+};
+
+struct AnalogCoords {
+    float lsX;
+    float lsY;
+    float rsX;
+    float rsY;
+    float dpadX;
+    float dpadY;
+};
+
+struct NewDevice {
+    int32_t id;
+    handle fd;
+    string path;
+    InputIdentifier identifier;
+    int32_t classMap;
+    uint8_t[0x40] keyBitmask;   // (0x1ff + 1) / 2
+    uint8_t[0x02] absBitmask;   // (0x00f + 1) / 2
+    uint8_t[0x02] relBitmask;   // (0x00f + 1) / 2
+};

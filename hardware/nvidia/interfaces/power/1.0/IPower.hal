@@ -1,0 +1,10 @@
+package vendor.nvidia.hardware.power@1.0;
+
+import android.hardware.power@1.0::IPower;
+
+interface IPower extends android.hardware.power@1.0::IPower {
+    powerHintExt(
+            ExtPowerHint hint,
+            vec<int32_t> data
+        );
+};

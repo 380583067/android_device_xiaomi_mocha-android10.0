@@ -1,0 +1,141 @@
+package vendor.nvidia.hardware.graphics.display@1.0;
+
+enum ConstS32 : int32_t {
+    NV_SVC_EDID_MANUF_ID_SIZE = 4,
+    NV_SVC_EDID_MAX_SIZE = 1024,
+    NV_SVC_EDID_MON_NAME_SIZE = 16,
+    NV_SVC_MAX_DISPLAYS = 4,
+};
+
+struct HwcSvcCrcFlipId {
+    int32_t session_id;
+    vec<uint64_t> dpy_ids;
+};
+
+enum HwcSvcCrcType : int32_t {
+    HWC_SVC_CRCTYPE_COMP = 0,
+    HWC_SVC_CRCTYPE_RG = 1,
+    HWC_SVC_CRCTYPE_RG_REGIONAL = 2,
+    HWC_SVC_CRCTYPE_OR = 3,
+};
+
+struct HwcSvcCrc {
+    int32_t crc_value;
+    float region_left;
+    float region_top;
+    float region_right;
+    float region_bottom;
+    int8_t enable;
+    int8_t wait;
+    int32_t crc_type;
+    int8_t use_region;
+    int8_t use_flip_id;
+    HwcSvcCrcFlipId flip_id;
+};
+
+enum HwcSvcDisplay : int32_t {
+    HWC_SVC_DISPLAY_NONE = -1,
+    HWC_SVC_DISPLAY_PANEL = 0,
+    HWC_SVC_DISPLAY_HDMI = 1,
+    HWC_SVC_DISPLAY_HDMI2 = 2,
+    HWC_SVC_DISPLAY_PRIMARY = 3,
+    HWC_SVC_DISPLAY_EXTERNAL = 4,
+    HWC_SVC_DISPLAY_EXTERNAL2 = 5,
+};
+
+enum HwcSvcDisplayModeColorimetry : int32_t {
+    HWC_SVC_DISP_COLORIMETRY_REC709 = 0,
+    HWC_SVC_DISP_COLORIMETRY_REC2020 = 1,
+};
+
+enum HwcSvcDisplayModePixEnc : int32_t {
+    HWC_SVC_DISP_PIXENC_RGB = 0,
+    HWC_SVC_DISP_PIXENC_YUV444 = 1,
+    HWC_SVC_DISP_PIXENC_YUV422 = 2,
+    HWC_SVC_DISP_PIXENC_YUV420 = 3,
+};
+
+struct HwcSvcDisplayMode {
+    int32_t index;
+    int32_t xres;
+    int32_t yres;
+    float refresh;
+    int32_t stereo;
+    int32_t pixenc;
+    int32_t colorimetry;
+    int32_t bpc;
+    int32_t flags;
+};
+
+enum HwcSvcDisplayType : int32_t {
+    HWC_SVC_DISPLAY_TYPE_UNKNOWN = 0,
+    HWC_SVC_DISPLAY_TYPE_DSI = 1,
+    HWC_SVC_DISPLAY_TYPE_LVDS = 2,
+    HWC_SVC_DISPLAY_TYPE_EDP = 3,
+    HWC_SVC_DISPLAY_TYPE_VGA = 4,
+    HWC_SVC_DISPLAY_TYPE_HDMI = 5,
+    HWC_SVC_DISPLAY_TYPE_DVI = 6,
+    HWC_SVC_DISPLAY_TYPE_DP = 7,
+    HWC_SVC_DISPLAY_TYPE_HDSI = 8,
+};
+
+struct HwcSvcEdidInfo {
+    string monitor_name;
+    string manufacturer_id;
+    int16_t product_code;
+};
+
+enum HwcSvcModeFlags : int32_t {
+    HWC_SVC_MODE_FLAG_VRR = 1,
+    HWC_SVC_MODE_FLAG_HDR10 = 2,
+};
+
+enum HwcSvcModeType : int32_t {
+    HWC_SVC_MODE_TYPE_CURRENT = 0,
+    HWC_SVC_MODE_TYPE_MAX = 1,
+    HWC_SVC_MODE_TYPE_MAX_50HZ = 2,
+    HWC_SVC_MODE_TYPE_MAX_60HZ = 3,
+    HWC_SVC_MODE_TYPE_MAX_23_976HZ = 4,
+    HWC_SVC_MODE_TYPE_MAX_59_94HZ = 5,
+    HWC_SVC_MODE_TYPE_MAX_1080P_60HZ = 6,
+    HWC_SVC_MODE_TYPE_MAX_1080P_60HZ_RGB = 7,
+    HWC_SVC_MODE_TYPE_SAFE = 8,
+};
+
+enum HwcSvcProperty : int32_t {
+    PERSIST_VENDOR_SYS_SF_VRR = 0,
+    PERSIST_VENDOR_TEGRA_HDMI_RESOLUTION = 1,
+    PERSIST_VENDOR_TEGRA_HDMI_RANGE = 2,
+    PERSIST_VENDOR_TEGRA_HDMI_COLORIMETRY = 3,
+    PERSIST_VENDOR_TEGRA_HDMI_ALL_MODES = 4,
+    PERSIST_VENDOR_TEGRA_HDMI_UNDERSCAN = 5,
+    VENDOR_SF_VRR_ACTIVE = 6,
+    VENDOR_SF_VRR_SUPPORTED = 7,
+};
+
+struct HwcSvcSLFenceInfo {
+    int32_t id;
+    int32_t frame;
+    int32_t line;
+    int32_t fenceFd;
+};
+
+enum DeepISPFallbackReason : int32_t {
+    NONE = 0,
+    UNSUPPORTED_COLORSPACE = 1,
+    UNSUPPORTED_FRAMERATE = 2,
+    UNSUPPORTED_RESOLUTION = 3,
+    INTERLACED_SOURCE = 4,
+    NOT_REQUIRED = 5,
+    NOT_SUPPORTED = 6,
+    GFN = 7,
+    BLACKLISTED_LAYER = 8,
+    BLACKLISTED_KEYEVENT = 9,
+    UNKNOWN_ERROR = 10,
+};
+
+enum DeepISPFilter : int32_t {
+    DEFAULT = 0,
+    LANCZOS = 1,
+    DEEPISP = 2,
+};

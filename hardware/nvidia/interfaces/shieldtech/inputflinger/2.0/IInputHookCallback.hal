@@ -1,0 +1,15 @@
+package vendor.nvidia.hardware.shieldtech.inputflinger@2.0;
+
+interface IInputHookCallback {
+    oneway registerDevice(
+            NewDevice device
+        );
+
+    oneway addDevice(
+            int32_t id
+        );
+
+    oneway removeDevice(
+            int32_t id
+        );
+};

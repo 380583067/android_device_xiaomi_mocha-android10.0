@@ -1,0 +1,54 @@
+package vendor.nvidia.hardware.cpl.service@1.0;
+
+struct StringMapBool {
+  string key;
+  bool value;
+};
+
+struct StringMapDouble {
+  string key;
+  double value;
+};
+
+struct StringMapInt {
+  string key;
+  int32_t value;
+};
+
+struct StringMapString {
+  string key;
+  string value;
+};
+
+struct IntMapString {
+  int32_t key;
+  string value;
+};
+
+struct CplHalIntent {
+  string action;
+  vec<StringMapString> stringExtra;
+  vec<StringMapInt> intExtra;
+  vec<StringMapBool> boolExtra;
+  vec<StringMapDouble> doubleExtra;
+};
+
+struct CplHalNvAppProfile {
+  int32_t typeId;
+  string pkgName;
+  string pkgVersion;
+  vec<IntMapString> settings;
+};
+
+struct CplHalNvSaverAppInfo {
+  string appLabel;
+  int32_t appActivity;
+  float powerSaver;
+  int32_t uid;
+  int32_t appList;
+  int32_t wakeupTimes;
+  int32_t wowWakeupTimes;
+  string pkgName;
+  int64_t wakeupStatsTime;
+  int64_t totalWakeupStatsTime;
+};

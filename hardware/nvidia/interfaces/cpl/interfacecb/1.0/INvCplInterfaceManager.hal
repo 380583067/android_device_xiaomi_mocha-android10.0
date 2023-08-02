@@ -1,0 +1,14 @@
+package vendor.nvidia.hardware.cpl.interfacecb@1.0;
+
+import vendor.nvidia.hardware.cpl.service@1.0::INvCplServiceCallback;
+import vendor.nvidia.hardware.cpl.tools@1.0::INvToolsApiCallback;
+
+interface INvCplInterfaceManager {
+    oneway setNvCplInterfaceCb(
+            INvCplServiceCallback cplServiceCb
+        );
+
+    oneway setToolsApiCommonCb(
+            INvToolsApiCallback toolsApiCb
+        );
+};
