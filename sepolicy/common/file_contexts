@@ -49,7 +49,7 @@
 # TLK device
 #/dev/tlk_device				u:object_r:tee_device:s0
 # modem devices
-#/dev/ttyACM.*				u:object_r:radio_device:s0
+/dev/ttyACM.*				u:object_r:radio_device:s0
 # Tegra System Profiler
 #/dev/quadd				u:object_r:quadd_device:s0
 #/dev/quadd_auth				u:object_r:quadd_auth_device:s0
@@ -59,30 +59,30 @@
 #/dev/nvhost-tsec			u:object_r:tsec_device:s0
 #/dev/nvhost-tsecb			u:object_r:tsec_device:s0
 # Nvdec
-#/dev/nvhost-nvdec			u:object_r:video_device:s0
+/dev/nvhost-nvdec			u:object_r:video_device:s0
 # Nvjpg
-#/dev/nvhost-nvjpg			u:object_r:gpu_device:s0
+/dev/nvhost-nvjpg			u:object_r:gpu_device:s0
 # Nvdec control node
-#/dev/nvhost-ctrl-nvdec			u:object_r:tee_device:s0
+/dev/nvhost-ctrl-nvdec			u:object_r:tee_device:s0
 # Blake OTA path
 #/dev/ozwpan				u:object_r:ozmo_device:s0
 # phs
 #/dev/socket/phsd			u:object_r:phsd_socket:s0
 # dual wifi
-#/dev/socket/wpa_xlan[0-9]		u:object_r:wpa_socket:s0
+/dev/socket/wpa_xlan[0-9]		u:object_r:wpa_socket:s0
 # /dev/tegra_dc devices
 #/dev/tegra_dc_.*			u:object_r:tegradc_device:s0
 # rpmb block device
 #/dev/block/platform/sdhci-tegra\.3/mmcblk0rpmb		u:object_r:rpmb_block_device:s0
 # setup_fs emmc
-#/dev/block/platform/sdhci-tegra(.*)/by-name/UDA		u:object_r:userdata_block_device:s0
-#/dev/block/platform/sdhci-tegra(.*)/by-name/CAC		u:object_r:cache_block_device:s0
+/dev/block/platform/sdhci-tegra(.*)/by-name/UDA		u:object_r:userdata_block_device:s0
+/dev/block/platform/sdhci-tegra(.*)/by-name/CAC		u:object_r:cache_block_device:s0
 #/dev/block/platform/sdhci-tegra(.*)/by-name/UCB		u:object_r:usercalib_block_device:s0
 #/dev/block/platform/sdhci-tegra(.*)/by-name/FCT		u:object_r:factorycalib_block_device:s0
 #/dev/block/platform/sdhci-tegra(.*)/by-name/RP3		u:object_r:rpx_block_device:s0
-#/dev/block/platform/sdhci-tegra(.*)/by-name/LNX		u:object_r:boot_block_device:s0
-#/dev/block/platform/sdhci-tegra(.*)/by-name/SOS		u:object_r:recovery_block_device:s0
-#/dev/block/platform/sdhci-tegra(.*)/by-name/MDA		u:object_r:metadata_block_device:s0
+/dev/block/platform/sdhci-tegra(.*)/by-name/LNX		u:object_r:boot_block_device:s0
+/dev/block/platform/sdhci-tegra(.*)/by-name/SOS		u:object_r:recovery_block_device:s0
+/dev/block/platform/sdhci-tegra(.*)/by-name/MDA		u:object_r:metadata_block_device:s0
 # AB system partition
 /dev/block/platform/sdhci-tegra(.*)/by-name/LNX-A		u:object_r:boot_block_device:s0
 /dev/block/platform/sdhci-tegra(.*)/by-name/LNX-B		u:object_r:boot_block_device:s0
@@ -136,7 +136,7 @@
 # touch
 #/dev/touch				u:object_r:touch_device:s0
 # zram
-#/dev/block/zram0			u:object_r:swap_block_device:s0
+/dev/block/zram0			u:object_r:swap_block_device:s0
 # /dev/cy8c-led-boot devices
 #/dev/cy8c-led-boot			u:object_r:cy8c_device:s0
 
@@ -145,9 +145,9 @@
 
 # TEE
 #(/system)?/vendor/bin/tlk_daemon	u:object_r:tee_exec:s0
-#(/system)?/vendor/bin/eks2_client	u:object_r:tee_exec:s0
-#(/system)?/vendor/bin/ss_status		u:object_r:tee_exec:s0
-#(/system)?/vendor/bin/run_ss_status.sh	u:object_r:tee_exec:s0
+(/system)?/vendor/bin/eks2_client	u:object_r:tee_exec:s0
+(/system)?/vendor/bin/ss_status		u:object_r:tee_exec:s0
+(/system)?/vendor/bin/run_ss_status.sh	u:object_r:tee_exec:s0
 # wifi
 #/system/bin/wifi_loader.sh		u:object_r:wifi_loader_exec:s0
 # wpalog
@@ -159,6 +159,7 @@
 # gps
 #/system/bin/gps_select.sh		u:object_r:gpsd_exec:s0
 #/system/bin/glgps_nvidiaTegra2android	u:object_r:gpsd_exec:s0
+
 # set_hwui_params.sh
 #/system/bin/set_hwui_params.sh		u:object_r:set_hwui_exec:s0
 # adbenable.sh
@@ -178,7 +179,7 @@
 #(/system)?/vendor/bin/ussrd		u:object_r:ussrd_exec:s0
 #/system/bin/ussr_setup.sh		u:object_r:ussr_setup_exec:s0
 # dual wifi
-#/system/bin/wpa_supplicant_2		u:object_r:hal_wifi_supplicant_default_exec:s0
+/system/bin/wpa_supplicant_2		u:object_r:hal_wifi_supplicant_default_exec:s0
 # frostaudiortp
 #/system/bin/frostaudiortp		u:object_r:frostaudiortp_exec:s0
 # pbc
@@ -236,12 +237,12 @@
 # phs data
 #/data/misc/phs(/.*)?			u:object_r:phsd_data:s0
 # dual wifi
-#/data/misc/wifi[0-9]			u:object_r:wifi_data_file:s0
-#/data/misc/wifi[0-9]/sockets		u:object_r:wpa_socket:s0
+/data/misc/wifi[0-9]			u:object_r:wifi_data_file:s0
+/data/misc/wifi[0-9]/sockets		u:object_r:wpa_socket:s0
 # cvc data folder
 #/data/misc/cvc(/.*)?			u:object_r:cvc_data_file:s0
 # mediaserver EGL blob cache
-#/data/misc/mediaserver(/.*)?		u:object_r:media_data_file:s0
+/data/misc/mediaserver(/.*)?		u:object_r:media_data_file:s0
 #GPS
 #/data/system/gps(/.*)?			u:object_r:gps_data_file:s0
 # NVSensor socket file
@@ -281,8 +282,8 @@
 #/sys/devices/platform/tegra-sata.*/ata1/host0/target.*/0.*/power/autosuspend_delay_ms	u:object_r:sysfs_sata:s0
 #/sys/devices/platform/tegra-sata.*/ata1/host0/target.*/0.*/power/control		u:object_r:sysfs_sata:s0
 # PMQoS files for NvCplSvc
-#/sys/devices/virtual/thermal(/.*)		u:object_r:sysfs_thermal:s0
-#/sys/class/thermal(/.*)?				u:object_r:sysfs_thermal:s0
+/sys/devices/virtual/thermal(/.*)		u:object_r:sysfs_thermal:s0
+/sys/class/thermal(/.*)?				u:object_r:sysfs_thermal:s0
 #/sys/devices/platform/host1x/tegradc.[0-1]/smartdimmer(/.*)	u:object_r:sysfs_smartdimmer:s0
 #/sys/devices/platform/host1x/tegradc\.[0-1]/cmu_enable		u:object_r:sysfs_cmu:s0
 #/sys/devices/platform/host1x/tegradc.0/graphics/fb0/modes			u:object_r:sysfs_graphics:s0
@@ -324,9 +325,9 @@
 # wifi sysfs
 #/sys/module/bcmdhd/parameters/firmware_path	u:object_r:sysfs_wifi:s0
 # Bluetooth rfkill interface for Platform data driver
-#/sys/devices/platform/bluedroid_pm(.*)/rfkill/rfkill0/state	u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/bluedroid_pm(.*)/rfkill/rfkill0/state	u:object_r:sysfs_bluetooth_writable:s0
 # Bluetooth rfkill interface for DT enabled driver
-#/sys/devices/platform/bluedroid_pm/rfkill/rfkill0/state		u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/bluedroid_pm/rfkill/rfkill0/state		u:object_r:sysfs_bluetooth_writable:s0
 # Tegra i2c devices sysfs
 #/sys/devices/platform/tegra.*i2c\.[0-9]+(/.*)?	u:object_r:sysfs_nvi2c:s0
 #/sys/devices/platform/[0-9a-f]+\.i2c(/.*)?	u:object_r:sysfs_nvi2c:s0
