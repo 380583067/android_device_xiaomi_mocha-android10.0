@@ -1,3 +1,0 @@
-allow servicemanager init-renderer-sh:dir r_dir_perms;
-allow servicemanager init-renderer-sh:file r_file_perms;
-allow servicemanager init-renderer-sh:process getattr;
