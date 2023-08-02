@@ -67,7 +67,7 @@ endif
 WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # FM
-BOARD_HAVE_BCM_FM := true
+BOARD_HAVE_BCM_FM := false
 
 # FS
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -76,9 +76,15 @@ TARGET_EXFAT_DRIVER := sdfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
+# Display
+#TARGET_SCREEN_DENSITY := 480
+
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
+
+# Health _ Android-9.0
+#DEVICE_FRAMEWORK_MANIFEST_FILE := system/libhidl/vintfdata/manifest_healthd_exclude.xml
 
 # Gralloc
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
@@ -120,9 +126,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # LINEAGEHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
 
 # Malloc
 MALLOC_SVELTE := true
@@ -173,10 +176,11 @@ BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
-#WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
-#WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
-WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
+WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0"
+WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
+#WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # workaround for devices that uses old GPU blobs
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
