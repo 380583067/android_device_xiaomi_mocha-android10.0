@@ -1,0 +1,2 @@
+# For ro.bt.bdaddr_path
+type bdaddr_path_prop, property_type;
