@@ -1,0 +1,2 @@
+# SELinux
+allow dataservice_app { netd_service dnsresolver_service }:service_manager find;

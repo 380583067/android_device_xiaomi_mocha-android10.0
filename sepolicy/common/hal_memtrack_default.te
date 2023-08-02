@@ -1,0 +1,2 @@
+# allow memtrack HAL to access nvmap stats
+allow hal_memtrack_default debugfs_nvmap:file  r_file_perms;
